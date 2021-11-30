@@ -1,4 +1,4 @@
-FROM germanedge-docker.artifactory.new-solutions.com/edge-one/ge-ubuntu-generic:0.21.1
+FROM germanedge-docker.artifactory.new-solutions.com/edge-one/ge-ubuntu-generic:0.22.0
 
 ARG zookeper_version=3.7.0
 
