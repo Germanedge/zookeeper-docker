@@ -2,6 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: zookeeper
+  labels:
+    app: zookeeper
+    serviceType: core
+    zookeeper: 'true'
+    kafka: 'true'
 spec:
   selector:
     matchLabels:
@@ -12,6 +17,9 @@ spec:
     metadata:
       labels:
         app: zookeeper
+        serviceType: core
+        zookeeper: 'true'
+        kafka: 'true'
     spec:
       securityContext:
         fsGroup: 1000
@@ -45,7 +53,7 @@ spec:
         - containerPort: 2181
           name: port1
           protocol: UDP
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:3.89.0
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:3.90.0
         resources:
           limits:
             memory: "512M"
