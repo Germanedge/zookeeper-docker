@@ -29,7 +29,7 @@ if [ $current_uid != 1000 ] || [ $current_gid != 1000 ]; then
   chown -R 1000:1000 $ZK_HOME/conf
   echo "[Edge.One][*** MIGRATION END ***] Change ownership of zookeeper config files finished."
 else
-  echo "[Edge.One][INFO] Zookeeper data files are owned by $current_uid:$current_gid."
+  echo "[Edge.One][INFO] Zookeeper config files are owned by $current_uid:$current_gid."
 fi
 
 /opt/zookeeper/bin/zkServer.sh start-foreground
