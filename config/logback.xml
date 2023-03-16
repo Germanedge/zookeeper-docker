@@ -47,7 +47,7 @@
 <appender name="FILE" class="ch.qos.logback.core.FileAppender">
     <file>/app/logs/zk-app.log</file>
     <encoder>
-        <pattern>{ "@timestamp":"%date", "level":"%level", "thread":"[%thread]", "logger":"%logger{10}", "file":"[%file:%line]", "message":"%msg%n" }</pattern>
+        <pattern>{ "@timestamp":"%date", "level":"%level", "thread":"[%thread]", "logger":"%logger{10}", "file":"[%file:%line]", "message":"%msg" }</pattern>
     </encoder>
     <append>true</append>
 </appender>
