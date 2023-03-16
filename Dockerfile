@@ -40,11 +40,10 @@ COPY --chown=edgeone:root prometheus_zk.yml /opt/prometheus/
 
 ENV SERVER_JVMFLAGS='-javaagent:/opt/prometheus/jmx-exporter.jar=7071:/opt/prometheus/prometheus_zk.yml'
 
+RUN chown -R edgeone:edgeone /opt/zookeeper
 
 WORKDIR /opt/zookeeper
 VOLUME ["/opt/zookeeper/conf", "/opt/zookeeper/data"]
-
-RUN chown -R edgeone:edgeone /opt/zookeeper
 
 USER 1000
 
