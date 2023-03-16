@@ -16,6 +16,10 @@ RUN apt-get update \
   && apt-get install -y openjdk-17-jre-headless supervisor \
   && apt-get clean
 
+#set permission for java certificates
+RUN chown edgeone:edgeone /etc/default/cacerts
+RUN chown edgeone:edgeone /etc/ssl/certs/java/cacerts
+
 #Download Zookeeper
 RUN curl https://downloads.apache.org/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/apache-zookeeper-${ZOOKEEPER_VERSION}-bin.tar.gz -o /tmp/zookeeper.tar.gz \
   && tar -xzf /tmp/zookeeper.tar.gz -C /opt \
