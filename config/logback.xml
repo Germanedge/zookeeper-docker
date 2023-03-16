@@ -23,13 +23,13 @@
   <!-- Uncomment this if you would like to expose Logback JMX beans -->
   <!--jmxConfigurator /-->
 
-  <property name="zookeeper.console.threshold" value="INFO" />
+  <!-- <property name="zookeeper.console.threshold" value="INFO" />
 
   <property name="zookeeper.log.dir" value="." />
   <property name="zookeeper.log.file" value="/app/logs/zookeeper.log" />
   <property name="zookeeper.log.threshold" value="INFO" />
   <property name="zookeeper.log.maxfilesize" value="256MB" />
-  <property name="zookeeper.log.maxbackupindex" value="20" />
+  <property name="zookeeper.log.maxbackupindex" value="20" /> -->
 
   <!--
     console
@@ -46,6 +46,18 @@
 
 <appender name="FILE" class="ch.qos.logback.core.FileAppender">
     <file>/app/logs/zk-app.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>/app/logs/zk-app.log.%d{yyyy-MM-dd}.%i</fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy
+          class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+          <!-- or whenever the file size reaches 50MB -->
+        <maxFileSize>1MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+      <!-- keep 30 days' worth of history -->
+      <maxHistory>30</maxHistory>
+      <totalSizeCap>30MB</totalSizeCap>
+    </rollingPolicy>
     <encoder>
         <pattern>{ "@timestamp":"%date", "level":"%level", "thread":"[%thread]", "logger":"%logger{10}", "file":"[%file:%line]", "message":"%msg" }</pattern>
     </encoder>
