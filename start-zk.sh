@@ -14,9 +14,20 @@ current_uid=$(stat -c "%u" ${ZK_HOME}"/data")
 current_gid=$(stat -c "%g" ${ZK_HOME}"/data")
 
 if [ $current_uid != 1000 ] || [ $current_gid != 1000 ]; then
-  echo "[Edge.One][*** MIGRATION START ***] Change ownership of zookeeper data files. This can take several minutes."
+  echo "[Edge.One][*** MIGRATION START ***] Change ownership of zookeeper data files. This may take several minutes."
   chown -R 1000:1000 $ZK_HOME/data
-  echo "[Edge.One][*** MIGRATION END ***] Change ownership of zookeeper files finished. Zookeeper will now start."
+  echo "[Edge.One][*** MIGRATION END ***] Change ownership of zookeeper files finished."
+else
+  echo "[Edge.One][INFO] Zookeeper data files are owned by $current_uid:$current_gid."
+fi
+
+current_uid=$(stat -c "%u" ${ZK_HOME}"/conf")
+current_gid=$(stat -c "%g" ${ZK_HOME}"/conf")
+
+if [ $current_uid != 1000 ] || [ $current_gid != 1000 ]; then
+  echo "[Edge.One][*** MIGRATION START ***] Change ownership of zookeeper config files. This may take several minutes."
+  chown -R 1000:1000 $ZK_HOME/conf
+  echo "[Edge.One][*** MIGRATION END ***] Change ownership of zookeeper config files finished."
 else
   echo "[Edge.One][INFO] Zookeeper data files are owned by $current_uid:$current_gid."
 fi
