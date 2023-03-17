@@ -48,7 +48,7 @@
     <file>/app/logs/zk-app.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- daily rollover -->
-      <fileNamePattern>/app/logs/zk-app.log.%d{yyyy-MM-dd}.%i</fileNamePattern>
+      <fileNamePattern>/app/logs/zk-app.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
       <timeBasedFileNamingAndTriggeringPolicy
           class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
           <!-- or whenever the file size reaches 50MB -->
