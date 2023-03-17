@@ -23,13 +23,13 @@
   <!-- Uncomment this if you would like to expose Logback JMX beans -->
   <!--jmxConfigurator /-->
 
-  <!-- <property name="zookeeper.console.threshold" value="INFO" />
+  <property name="zookeeper.console.threshold" value="INFO" />
 
-  <property name="zookeeper.log.dir" value="." />
-  <property name="zookeeper.log.file" value="/app/logs/zookeeper.log" />
+  <property name="zookeeper.log.dir" value="/app/logs" />
+  <property name="zookeeper.log.file" value="/app/logs/zk-app.log" />
   <property name="zookeeper.log.threshold" value="INFO" />
-  <property name="zookeeper.log.maxfilesize" value="256MB" />
-  <property name="zookeeper.log.maxbackupindex" value="20" /> -->
+  <property name="zookeeper.log.maxfilesize" value="1MB" />
+  <property name="zookeeper.log.maxbackupindex" value="20" />
 
   <!--
     console
