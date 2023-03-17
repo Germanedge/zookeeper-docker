@@ -7,6 +7,7 @@ sed -i -r 's|(zookeeper.log.maxfilesize=.*)|zookeeper.log.maxfilesize=16MB|g' $Z
 sed -i -r 's|#metricsProvider|metricsProvider|g'  $ZK_HOME/conf/zoo.cfg
 
 export ZOO_LOG4J_PROP="INFO,CONSOLE,ROLLINGFILE"
+export ZOO_LOG_DIR="/app/logs"
 
 
 /opt/zookeeper/bin/zkServer.sh start-foreground

@@ -54,6 +54,7 @@ USER 1000
 
 COPY --chown=edgeone:root startup.sh /app/startup.sh
 COPY --chown=edgeone:root service.json /app/service.json
+COPY --chown=edgeone:root config/logback.xml /opt/zookeeper/conf/logback.xml
 
 RUN chmod +x /app/startup.sh
 
