@@ -9,6 +9,8 @@ ENV CONSUL_TAGS='"web","application","prometheus"'
 ENV CONSUL_META_SCRAPE_PATH="\/metrics"
 ENV CONSUL_META_SCRAPE_PORT="7071"
 ENV FILEBEAT_ARGS='--E filebeat.inputs.2.paths=["/opt/zookeeper/logs/*.log"]'
+ENV JAVA_VERSION=17
+ENV JMX_EXPORTER_VERSION=0.18.0
 
 USER root
 
@@ -29,12 +31,12 @@ RUN curl https://downloads.apache.org/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/a
 #Configure
 RUN mv /opt/zookeeper/conf/zoo_sample.cfg /opt/zookeeper/conf/zoo.cfg
 
-ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
+ENV JAVA_HOME /usr/lib/jvm/java-${JAVA_VERSION}-openjdk-amd64
 ENV ZK_HOME /opt/zookeeper
 RUN sed  -i "s|/tmp/zookeeper|$ZK_HOME/data|g" $ZK_HOME/conf/zoo.cfg; mkdir $ZK_HOME/data
 
 RUN mkdir -p /opt/prometheus/ \
-  && curl https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.18.0/jmx_prometheus_javaagent-0.18.0.jar -o /opt/prometheus/jmx-exporter.jar
+  && curl https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/${JMX_EXPORTER_VERSION}/jmx_prometheus_javaagent-${JMX_EXPORTER_VERSION}.jar -o /opt/prometheus/jmx-exporter.jar
 
 COPY --chown=edgeone:root prometheus_zk.yml /opt/prometheus/
 
