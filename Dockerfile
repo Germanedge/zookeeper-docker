@@ -40,14 +40,17 @@ COPY --chown=edgeone:root prometheus_zk.yml /opt/prometheus/
 
 ENV SERVER_JVMFLAGS='-javaagent:/opt/prometheus/jmx-exporter.jar=7071:/opt/prometheus/prometheus_zk.yml'
 
+# Set default ownership to 1000:1000
 RUN chown -R edgeone:edgeone /opt/zookeeper
 
 WORKDIR /opt/zookeeper
+
 VOLUME ["/opt/zookeeper/conf", "/opt/zookeeper/data"]
 
 USER 1000
 
 COPY --chown=edgeone:root startup.sh /app/startup.sh
 COPY --chown=edgeone:root service.json /app/service.json
+COPY --chown=edgeone:root config/logback.xml /opt/zookeeper/conf/logback.xml
 
 RUN chmod +x /app/startup.sh
