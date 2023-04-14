@@ -5,8 +5,12 @@ metadata:
   labels:
     app: zookeeper
     serviceType: core
-    zookeeper: 'true'
     kafka: 'true'
+    foss: 'true'
+    event-bus: 'true'
+    message-bus: 'true'
+    java: 'true'
+    orchestration: 'true'
 spec:
   selector:
     matchLabels:
@@ -18,8 +22,12 @@ spec:
       labels:
         app: zookeeper
         serviceType: core
-        zookeeper: 'true'
         kafka: 'true'
+        foss: 'true'
+        event-bus: 'true'
+        message-bus: 'true'
+        java: 'true'
+        orchestration: 'true'
     spec:
       securityContext:
         fsGroup: 1000
@@ -53,7 +61,7 @@ spec:
         - containerPort: 2181
           name: port1
           protocol: UDP
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.4.0
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.5.0
         resources:
           limits:
             memory: "512M"
