@@ -2,11 +2,16 @@
   "name": "zookeeper",
   "jsonversion": "3",
   "servicetype": "core",
+  "ge_domain": "platform",  
   "description": "zookeeper",
   "homepage": "https://github.com/germanedge/zookeeper-docker",
   "keywords": [
-    "zookeeper",
-    "kafka"
+    "kafka",
+    "foss",
+    "event-bus",
+    "message-bus",
+    "java",
+    "orchestration"
   ],
   "author": "Christoph Heuwieser <Christoph.Heuwieser@crossvault.de>",
   "contributors": [
