@@ -2,7 +2,7 @@
   "name": "zookeeper",
   "jsonversion": "3",
   "servicetype": "core",
-  "ge_domain": "platform",  
+  "ge_domain": "platform",
   "description": "zookeeper",
   "homepage": "https://github.com/germanedge/zookeeper-docker",
   "keywords": [
@@ -23,7 +23,7 @@
   },
   "entrypoint": "entrypoint.sh",
   "dockerfile": "Dockerfile",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "profiles": {
     "production": {
       "configuration": {
