@@ -5,6 +5,7 @@
 variables:
   - group: Github-credentials
   - group: artifactory-docker
+  - group: jira-e1platform
   - name: imageName
     value: "zookeeper"
 
