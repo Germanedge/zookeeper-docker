@@ -5,6 +5,7 @@ metadata:
   labels:
     app: zookeeper
     serviceType: core
+    ge_domain: platform
     kafka: 'true'
     foss: 'true'
     event-bus: 'true'
@@ -22,6 +23,7 @@ spec:
       labels:
         app: zookeeper
         serviceType: core
+        ge_domain: platform
         kafka: 'true'
         foss: 'true'
         event-bus: 'true'
@@ -57,14 +59,13 @@ spec:
         ports:
         - containerPort: 2181
           name: port0
-          protocol: TCP
-        - containerPort: 2181
-          name: port1
-          protocol: UDP
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.8.0
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.9.0
         resources:
           limits:
             memory: "512M"
+            ephemeral-storage: "1200M"
+          requests:
+            ephemeral-storage: "1000M"
         volumeMounts:
         - mountPath: /opt/zookeeper/data
           name: edgeone-zookeeper-pv
