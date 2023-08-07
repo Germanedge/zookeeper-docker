@@ -59,7 +59,7 @@ spec:
         ports:
         - containerPort: 2181
           name: port0
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.9.0
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.10.0
         resources:
           limits:
             memory: "512M"
