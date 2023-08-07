@@ -1,0 +1,37 @@
+[
+    {
+        "service": "zookeeper",
+        "version": "4.10.0",
+        "iso_timestamp": "2023-08-07T08:51:00Z",
+        "commits": [
+            {
+                "sha": "bfd66b43aa32a5f94fec672fb9cf4074fec9ebff",
+                "iso_timestamp": "2023-08-07T08:50:18Z",
+                "summary": "Merge pull request #60 from Germanedge/update-zookeeper-to-3.8.2",
+                "jira_refs": []
+            },
+            {
+                "sha": "2dc4ade7f0d19e53b4fe72a2a8cd18d14717dd09",
+                "iso_timestamp": "2023-08-07T08:45:57Z",
+                "summary": "Update Dockerfile",
+                "jira_refs": []
+            },
+            {
+                "sha": "e7ab14ae20d7059481c4c7775604174c94154b48",
+                "iso_timestamp": "2023-07-14T12:38:43Z",
+                "summary": "[skip ci][+semver: skip] GE4-7023: Rollout changelog-collector (#59)",
+                "jira_refs": [
+                    "GE4-7023"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-7023",
+                "title": "Rollout change log data service to GE builds",
+                "description": "<p>Based on approach at <a href=\"https://jira.germanedge.com/browse/GE4-6821\" title=\"Implement for change log data service (based on prototype)\" class=\"issue-link\" data-issue-key=\"GE4-6821\"><del>GE4-6821</del></a> the feature must be rollout to all relevant GE services (all platform services currently under development/maintenance)</p>\n\n<p>On GE service level:</p>\n<ul>\n\t<li>integrate Jira credentials to the azure pipelines in specific repos</li>\n\t<li>PRs mostly created at <a href=\"https://jira.germanedge.com/browse/GE4-6821\" title=\"Implement for change log data service (based on prototype)\" class=\"issue-link\" data-issue-key=\"GE4-6821\"><del>GE4-6821</del></a> and needs to approved</li>\n</ul>\n\n\n<p>On azure-docker-build-template</p>\n<ul>\n\t<li>integrate latest version of ge-build-agent including the changelog functionality</li>\n\t<li>review the step template for changelog functionality</li>\n</ul>\n\n\n<p>On ge-build-agent</p>\n<ul>\n\t<li>release new version with changelog functionality</li>\n</ul>\n",
+                "comments": []
+            }
+        ]
+    }
+]
