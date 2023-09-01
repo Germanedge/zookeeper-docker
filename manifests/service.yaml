@@ -7,7 +7,7 @@ spec:
     app: zookeeper
   type: ClusterIP
   ports:
-  - name: port0
-    port: 2181
+  - port: 2181
     targetPort: 2181
+    name: port-0
 ---

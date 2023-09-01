@@ -31,19 +31,19 @@ spec:
         java: 'true'
         orchestration: 'true'
     spec:
+      imagePullSecrets:
+      - name: artifactory
+      nodeSelector:
+        kubernetes.io/os: linux
       securityContext:
         fsGroup: 1000
       volumes:
       - name: edgeone-zookeeper-pv
         persistentVolumeClaim:
           claimName: edgeone-zookeeper-pv-claim
-      imagePullSecrets:
-      - name: artifactory
-      nodeSelector:
-        kubernetes.io/os: linux
       containers:
-      - imagePullPolicy: Always
-        name: zookeeper
+      - name: zookeeper
+        imagePullPolicy: Always
         env:
         - name: EXT_CA_CERT
           valueFrom:
@@ -58,8 +58,8 @@ spec:
         command: []
         ports:
         - containerPort: 2181
-          name: port0
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.10.0
+          name: port-0
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.11.0
         resources:
           limits:
             memory: "512M"
