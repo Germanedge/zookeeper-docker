@@ -1,6 +1,37 @@
 [
     {
         "service": "zookeeper",
+        "version": "4.11.0",
+        "iso_timestamp": "2023-09-01T09:42:00Z",
+        "commits": [
+            {
+                "sha": "a502b95b1dc6fc789a35f4479a7c2f3d7b481fc1",
+                "iso_timestamp": "2023-09-01T09:40:55Z",
+                "summary": "Merge pull request #62 from Germanedge/feature/7619-update-dockerfile",
+                "jira_refs": [
+                    "GE4-7619"
+                ]
+            },
+            {
+                "sha": "5523a889b82d14588971c28daa9097cb3cdd915d",
+                "iso_timestamp": "2023-08-25T08:39:52Z",
+                "summary": "GE4-7619: add envs for consul metadata",
+                "jira_refs": [
+                    "GE4-7619"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-7619",
+                "title": "Update all 3rd party images to use new generic image and setup correct env",
+                "description": "<p>Please iterate through all 3rd party images from GE:</p>\n<ul>\n\t<li>use new ge-ubuntu-generic image</li>\n\t<li>setup new required envs</li>\n</ul>\n",
+                "comments": []
+            }
+        ]
+    },
+    {
+        "service": "zookeeper",
         "version": "4.10.0",
         "iso_timestamp": "2023-08-07T08:51:00Z",
         "commits": [
