@@ -1,6 +1,26 @@
 [
     {
         "service": "zookeeper",
+        "version": "4.14.0",
+        "iso_timestamp": "2024-02-21T07:12:00Z",
+        "commits": [
+            {
+                "sha": "1ab20a79b87be62e2a8e5d18545481d57012f918",
+                "iso_timestamp": "2024-02-21T07:11:32Z",
+                "summary": "Merge pull request #68 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-3.0.0",
+                "jira_refs": []
+            },
+            {
+                "sha": "ace6b91ffa17cfbe32a094d0730deeaa287a21e3",
+                "iso_timestamp": "2024-02-21T01:24:38Z",
+                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.29.0 to 3.0.0",
+                "jira_refs": []
+            }
+        ],
+        "jira_issues": []
+    },
+    {
+        "service": "zookeeper",
         "version": "4.13.0",
         "iso_timestamp": "2024-02-01T14:05:00Z",
         "commits": [
