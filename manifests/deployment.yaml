@@ -59,7 +59,7 @@ spec:
         ports:
         - containerPort: 2181
           name: port-0
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.14.0
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.15.0
         resources:
           limits:
             memory: "512M"
@@ -70,4 +70,24 @@ spec:
         - mountPath: /opt/zookeeper/data
           name: edgeone-zookeeper-pv
           subPath: optzookeeperdata
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /metrics
+            port: 7071
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /metrics
+            port: 7071
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
 ---
