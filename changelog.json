@@ -1,6 +1,39 @@
 [
     {
         "service": "zookeeper",
+        "version": "4.15.0",
+        "iso_timestamp": "2025-02-20T11:53:00Z",
+        "commits": [
+            {
+                "sha": "578314766b174cf602ede66e2e3556a66c65aa84",
+                "iso_timestamp": "2025-02-20T11:52:24Z",
+                "summary": "Merge pull request #71 from Germanedge/feature/GE4-19130",
+                "jira_refs": [
+                    "GE4-19130"
+                ]
+            },
+            {
+                "sha": "6fbaf940131c0be0573e2e42c528d825191134ca",
+                "iso_timestamp": "2025-02-18T15:51:24Z",
+                "summary": "GE4-19130 Add definition of k8s probes",
+                "jira_refs": [
+                    "GE4-19130"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-19130",
+                "title": "zookeeper",
+                "description": "<h2><a name=\"UserStory\"></a>User Story</h2>\n<ul>\n\t<li>WHO wants WHAT implemented WHY? / WER m\u00f6chte WAS WARUM umgesetzt haben?</li>\n</ul>\n\n\n<h2><a name=\"AcceptanceCriteria\"></a>Acceptance Criteria</h2>\n<ul>\n\t<li>WHEN is the implementation successful? / WANN ist die Umsetzung erfolgreich?</li>\n</ul>\n\n\n<h2><a name=\"Remarks\"></a>Remarks</h2>\n<ul>\n\t<li>Documentation / Dokumentation</li>\n\t<li>Background Knowledge / Hintergrundwissen</li>\n</ul>\n",
+                "comments": [
+                    "<p>Hi , this \"Open\" issue has a U4 Project associated, which got closed in the Unit 4 ERP tool. Please reassign the issue to another project value.  </p>"
+                ]
+            }
+        ]
+    },
+    {
+        "service": "zookeeper",
         "version": "4.14.0",
         "iso_timestamp": "2024-02-21T07:12:00Z",
         "commits": [
