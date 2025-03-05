@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: zookeeper
+  namespace: edgeone
   labels:
     app: zookeeper
     serviceType: core
@@ -12,12 +13,11 @@ metadata:
     message-bus: 'true'
     java: 'true'
     orchestration: 'true'
+    ge_base_image: ge-ubuntu-generic
 spec:
   selector:
     matchLabels:
       app: zookeeper
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
@@ -30,64 +30,78 @@ spec:
         message-bus: 'true'
         java: 'true'
         orchestration: 'true'
+        ge_base_image: ge-ubuntu-generic
     spec:
-      imagePullSecrets:
-      - name: artifactory
-      nodeSelector:
-        kubernetes.io/os: linux
-      securityContext:
-        fsGroup: 1000
-      volumes:
-      - name: edgeone-zookeeper-pv
-        persistentVolumeClaim:
-          claimName: edgeone-zookeeper-pv-claim
       containers:
       - name: zookeeper
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.16.0
         imagePullPolicy: Always
+        command: []
+        ports:
+        - containerPort: 2181
+          name: port-0
         env:
         - name: EXT_CA_CERT
           valueFrom:
             secretKeyRef:
-              name: external-ca-cert-secret
               key: ext_ca_cert
+              name: external-ca-cert-secret
               optional: true
         - name: K8S_NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        command: []
-        ports:
-        - containerPort: 2181
-          name: port-0
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.15.0
+        volumeMounts:
+        - name: edgeone-zookeeper-pv
+          mountPath: /opt/zookeeper/data
+          subPath: optzookeeperdata
         resources:
           limits:
             memory: "512M"
             ephemeral-storage: "1200M"
           requests:
             ephemeral-storage: "1000M"
-        volumeMounts:
-        - mountPath: /opt/zookeeper/data
-          name: edgeone-zookeeper-pv
-          subPath: optzookeeperdata
         livenessProbe:
-          failureThreshold: 3
           httpGet:
-            path: /metrics
             port: 7071
+            path: /metrics
             scheme: HTTP
           initialDelaySeconds: 30
           periodSeconds: 10
-          successThreshold: 1
           timeoutSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
         readinessProbe:
-          failureThreshold: 3
           httpGet:
-            path: /metrics
             port: 7071
+            path: /metrics
             scheme: HTTP
           initialDelaySeconds: 30
           periodSeconds: 10
-          successThreshold: 1
           timeoutSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
+        startupProbe:
+          httpGet:
+            port: 7071
+            path: /metrics
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
+      initContainers: []
+      imagePullSecrets:
+      - name: artifactory
+      volumes:
+      - name: edgeone-zookeeper-pv
+        persistentVolumeClaim:
+          claimName: edgeone-zookeeper-pv-claim
+      nodeSelector:
+        kubernetes.io/os: linux
+      securityContext:
+        fsGroup: 1000
+  strategy:
+    type: Recreate
 ---

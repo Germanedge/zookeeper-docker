@@ -1,6 +1,57 @@
 [
     {
         "service": "zookeeper",
+        "version": "4.16.0",
+        "iso_timestamp": "2025-03-05T10:33:00Z",
+        "commits": [
+            {
+                "sha": "0af0e930b9484ed002fb7000258e20521bb4a632",
+                "iso_timestamp": "2025-03-05T10:24:27Z",
+                "summary": "Merge pull request #72 from Germanedge/GE4-21454-rollout-v2-pipeline",
+                "jira_refs": [
+                    "GE4-21454"
+                ]
+            },
+            {
+                "sha": "15cfd9c13951c98f88ad6f649421fb18fcc8f79e",
+                "iso_timestamp": "2025-03-04T10:59:38Z",
+                "summary": "Update zookeeper version to 3.8.4"
+            },
+            {
+                "sha": "260ea6dc0ae8d5924d873e0f06575714acc6d84d",
+                "iso_timestamp": "2025-03-04T10:58:46Z",
+                "summary": "Merge branch 'dependabot/docker/edge-one/ge-ubuntu-generic-3.2.0' into GE4-21454-rollout-v2-pipeline",
+                "jira_refs": [
+                    "GE4-21454"
+                ]
+            },
+            {
+                "sha": "5c96465718d7597a2191628703cf394fec17bf10",
+                "iso_timestamp": "2025-03-04T09:20:39Z",
+                "summary": "GE4-21454: Update azure-pipelines-deploy.yml",
+                "jira_refs": [
+                    "GE4-21454"
+                ]
+            },
+            {
+                "sha": "7c9a4f64eb34ec37e5d34370f32f142e1adca81d",
+                "iso_timestamp": "2025-03-04T09:16:06Z",
+                "summary": "GE4-21454: Update azure-pipelines.yml",
+                "jira_refs": [
+                    "GE4-21454"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-21454",
+                "title": "Rollout v2 templates to zookeeper-docker",
+                "description": "<p>Initial rollout for v2 templates</p>"
+            }
+        ]
+    },
+    {
+        "service": "zookeeper",
         "version": "4.15.0",
         "iso_timestamp": "2025-02-20T11:53:00Z",
         "commits": [

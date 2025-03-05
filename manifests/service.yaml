@@ -2,12 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: zookeeper
+  namespace: edgeone
 spec:
   selector:
     app: zookeeper
   type: ClusterIP
   ports:
   - port: 2181
-    targetPort: 2181
+    protocol: TCP
     name: port-0
 ---
