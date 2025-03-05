@@ -1,4 +1,8 @@
-name: "zookeeper_deploy_$(Date:yyyyMMdd)$(Rev:.r)"
+variables:
+- name: imageName
+  value: zookeeper
+
+name: '$(imageName) deploy to e1-dev (eks-1) $(Date:yyyyMMdd)$(Rev:.r)'
 
 trigger: none
 pr: none
@@ -10,7 +14,7 @@ resources:
       name: Germanedge/azure-pipelines-templates
       endpoint: Germanedge
   pipelines:
-    - pipeline: zookeeper
+    - pipeline: build-pipeline
       source: edgeone/build/Germanedge.zookeeper
       trigger:
         branches:
@@ -22,5 +26,9 @@ resources:
 extends:
   template: kubernetes-deployment-template.yaml@templates
   parameters:
+    # activates new template
+    templateVersion: 2
     environment: edgeone-kubernetes.default
     namespace: e1-dev
+    projectKey: Germanedge
+    cluster: eks-1
