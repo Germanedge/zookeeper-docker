@@ -1,0 +1,31 @@
+variables:
+- name: imageName
+  value: zookeeper
+
+name: '$(imageName) deploy to e1-dev (ec1-edge-one-dev) $(Date:yyyyMMdd)$(Rev:.r)'
+
+trigger: none
+pr: none
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: Germanedge/azure-pipelines-templates
+      endpoint: Germanedge
+  pipelines:
+    - pipeline: buildpipeline
+      source: edgeone/build/Germanedge.zookeeper
+      trigger:
+        branches:
+          include:
+            - develop
+        stages:
+          - Publish
+
+extends:
+  template: deploy/service/azure-pipelines-template-k8s.yaml@templates
+  parameters:
+    projectKey: Germanedge
+    namespace: e1-dev
+    environment: ec1-edge-one-dev.default
