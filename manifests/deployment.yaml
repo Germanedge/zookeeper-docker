@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: zookeeper
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.16.0
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.17.0
         imagePullPolicy: Always
         command: []
         ports:
@@ -102,6 +102,7 @@ spec:
         kubernetes.io/os: linux
       securityContext:
         fsGroup: 1000
+  replicas: 1
   strategy:
     type: Recreate
 ---
