@@ -26,6 +26,8 @@ resources:
 extends:
   template: deploy/service/azure-pipelines-template-k8s.yaml@templates
   parameters:
+    templateVersion: 2
     projectKey: Germanedge
+    cluster: ec1-edge-one-dev
     namespace: e1-dev
     environment: ec1-edge-one-dev.default
