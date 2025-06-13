@@ -1,6 +1,24 @@
 [
   {
     "service": "zookeeper",
+    "version": "4.19.0",
+    "iso_timestamp": "2025-06-13T09:18:00Z",
+    "commits": [
+      {
+        "sha": "512c66a41d9383c49110e72ba4708528b712853b",
+        "iso_timestamp": "2025-06-13T09:11:47Z",
+        "summary": "Merge pull request #81 from Germanedge/fix-deploy-pipeline"
+      },
+      {
+        "sha": "8ad160299bf49dc340a1aa737aa048927ed851a7",
+        "iso_timestamp": "2025-06-13T08:46:40Z",
+        "summary": "Update azure-pipelines-deploy-ec1-e1-dev.yaml"
+      }
+    ],
+    "jira_issues": []
+  },
+  {
+    "service": "zookeeper",
     "version": "4.18.0",
     "iso_timestamp": "2025-06-13T08:39:00Z",
     "commits": [
