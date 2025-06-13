@@ -23,7 +23,7 @@
   },
   "entrypoint": "entrypoint.sh",
   "dockerfile": "Dockerfile",
-  "version": "4.17.0",
+  "version": "4.18.0",
   "profiles": {
     "production": {
       "configuration": {
@@ -172,7 +172,7 @@
   "base_images": [
     {
       "name": "germanedge-docker.artifactory.new-solutions.com/edge-one/ge-ubuntu-generic",
-      "version": "3.7.0"
+      "version": "3.16.0"
     }
   ]
 }

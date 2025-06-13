@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: zookeeper
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.17.0
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.18.0
         imagePullPolicy: Always
         command: []
         ports:
@@ -91,6 +91,10 @@ spec:
           timeoutSeconds: 5
           failureThreshold: 3
           successThreshold: 1
+        securityContext:
+          runAsNonRoot: true
+          readOnlyRootFilesystem: false
+          allowPrivilegeEscalation: true
       initContainers: []
       imagePullSecrets:
       - name: artifactory
@@ -101,6 +105,7 @@ spec:
       nodeSelector:
         kubernetes.io/os: linux
       securityContext:
+        runAsUser: 1000
         fsGroup: 1000
   replicas: 1
   strategy:

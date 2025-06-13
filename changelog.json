@@ -1,602 +1,250 @@
 [
-    {
-        "service": "zookeeper",
-        "version": "4.17.0",
-        "iso_timestamp": "2021-06-30T08:54:13Z",
-        "commits": [
-            {
-                "sha": "d10516e62771b1d47861513cdc9519acb987da8e",
-                "iso_timestamp": "2020-11-23T13:28:34Z",
-                "summary": "Fix resources block"
-            },
-            {
-                "sha": "09488b7859bc21762e02ce2e47f718e1b82ddbcb",
-                "iso_timestamp": "2020-10-20T12:08:47Z",
-                "summary": "CI: Increase service.json version to 3.52.0 [+semver: skip]"
-            },
-            {
-                "sha": "9a95f51de16c8ce038778fe8730a3be1c75ebb7e",
-                "iso_timestamp": "2020-10-20T12:07:05Z",
-                "summary": "Merge pull request #8 from Germanedge/semver"
-            },
-            {
-                "sha": "085944e2af66e768f9769ee3f692fc4e7b6a3b01",
-                "iso_timestamp": "2020-10-20T11:41:34Z",
-                "summary": "semver"
-            },
-            {
-                "sha": "92c1e07acb2b19a78cf7587c44912a3a33f1fe2c",
-                "iso_timestamp": "2020-08-20T13:40:23Z",
-                "summary": "Update service.json"
-            },
-            {
-                "sha": "f2417969fab61546dece6c8ee52b8ae39cb18e62",
-                "iso_timestamp": "2020-08-20T12:28:55Z",
-                "summary": "Update service.json"
-            },
-            {
-                "sha": "443cc065b92f05536977ca00ddb81ab7fedc8c2a",
-                "iso_timestamp": "2020-08-20T12:25:02Z",
-                "summary": "Update service.json"
-            },
-            {
-                "sha": "d167543161b4877cb07a63f8c0f59a3517519ac1",
-                "iso_timestamp": "2020-08-17T10:14:39Z",
-                "summary": "bugfix port format updated "
-            },
-            {
-                "sha": "0ac70ff8790c3ca4c7e7689b3fcb9dedbad0ce60",
-                "iso_timestamp": "2020-08-17T09:59:46Z",
-                "summary": "bugfix: limit sepcification"
-            },
-            {
-                "sha": "ce10f6d1b56b8b1da89f2fa273dddd3c2c76a933",
-                "iso_timestamp": "2020-08-13T12:35:17Z",
-                "summary": "Update service.json"
-            },
-            {
-                "sha": "0a1a6c9fa141e4be2f3645060ac7c4ef0b6a481a",
-                "iso_timestamp": "2020-08-04T14:12:58Z",
-                "summary": "Update service.json"
-            },
-            {
-                "sha": "fba851f874ed60887345c06d216483a21ea8f9ad",
-                "iso_timestamp": "2020-08-04T11:36:30Z",
-                "summary": "Update service.json"
-            },
-            {
-                "sha": "9e3cdc31541d852fdb2e5edbc401a8f64e4f5c9f",
-                "iso_timestamp": "2020-06-30T09:43:11Z",
-                "summary": "Create service.json"
-            },
-            {
-                "sha": "6d77afc0835d0e324dad66fb98c4d5859653102d",
-                "iso_timestamp": "2020-05-20T11:24:56Z",
-                "summary": "R3"
-            },
-            {
-                "sha": "7414e24cc3c6e1a7f98690027772459d85721994",
-                "iso_timestamp": "2020-05-20T11:24:48Z",
-                "summary": "push release R3"
-            },
-            {
-                "sha": "bde2363ec015738391dfcc441b2b94a1462409aa",
-                "iso_timestamp": "2020-05-20T11:24:48Z",
-                "summary": "R3"
-            },
-            {
-                "sha": "f87387e7785a46322c45b90faaedae8e5bfa5628",
-                "iso_timestamp": "2020-05-20T10:57:45Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "4fe8530f5a25f07ac68bf1df090eba2e127a1472",
-                "iso_timestamp": "2020-05-20T10:43:26Z",
-                "summary": "Update azure-pipelines.yml"
-            },
-            {
-                "sha": "0c6f1ea8a816da1778c6418da94ffe54649ce0f5",
-                "iso_timestamp": "2020-05-20T10:16:40Z",
-                "summary": "Update README.md"
-            },
-            {
-                "sha": "da8443f0e483c0d0faca1327c9c01df05722bd35",
-                "iso_timestamp": "2020-05-20T10:16:06Z",
-                "summary": "Update azure-pipelines.yml"
-            },
-            {
-                "sha": "ee10bec30db06c8433c183411ae2bffa171dfd3a",
-                "iso_timestamp": "2020-03-18T10:56:56Z",
-                "summary": "Merge pull request #7 from Germanedge/develop"
-            },
-            {
-                "sha": "f195be1ad11c6254f0aa7bd8ccf92f069195f368",
-                "iso_timestamp": "2020-03-03T10:04:01Z",
-                "summary": "apache changed download url"
-            },
-            {
-                "sha": "d5ff29158651eaf10c2603e249bf588a5c6a20b5",
-                "iso_timestamp": "2020-03-03T09:50:45Z",
-                "summary": "Update azure-pipelines.yml for Azure Pipelines"
-            },
-            {
-                "sha": "d7311e4289ddb7782a8f957f2404109947bbac5f",
-                "iso_timestamp": "2020-03-03T09:50:21Z",
-                "summary": "Update azure-pipelines.yml for Azure Pipelines"
-            },
-            {
-                "sha": "13886dfe9e889d0bf0b6bce9820024c2703f47c5",
-                "iso_timestamp": "2020-03-03T09:39:31Z",
-                "summary": "consul 1.7.1"
-            },
-            {
-                "sha": "825f0aa8300c6c3214ed6488a81803062b87897b",
-                "iso_timestamp": "2020-01-30T14:52:26Z",
-                "summary": "Merge pull request #6 from Germanedge/develop"
-            },
-            {
-                "sha": "7b1dd2e82e4c8947654ff9069e8e6d5f5971b3a4",
-                "iso_timestamp": "2020-01-10T13:21:34Z",
-                "summary": "Update consul-zk.json"
-            },
-            {
-                "sha": "7cfd578830ef793cec8e9a7ace4399200383173d",
-                "iso_timestamp": "2020-01-10T13:01:48Z",
-                "summary": "changed join to -retry-join"
-            },
-            {
-                "sha": "634e5503a4be98695494657300b06fbb51ea390f",
-                "iso_timestamp": "2020-01-03T19:26:25Z",
-                "summary": "Update filebeat.yml"
-            },
-            {
-                "sha": "d3484dc930769be6794b4f583300ffb4790d90cf",
-                "iso_timestamp": "2020-01-03T19:19:54Z",
-                "summary": "Update start-zk.sh"
-            },
-            {
-                "sha": "beab2a939df89d4903364d642d371c61abfa55c6",
-                "iso_timestamp": "2020-01-03T19:05:31Z",
-                "summary": "Merge pull request #5 from Germanedge/addconsul"
-            },
-            {
-                "sha": "01e008cd0e49494e640a784376b54cf76b1d1127",
-                "iso_timestamp": "2020-01-03T19:05:06Z",
-                "summary": "Update start-zk.sh"
-            },
-            {
-                "sha": "938ece9f5653c34044e89477d8a0514ef5e5bf18",
-                "iso_timestamp": "2020-01-03T19:03:03Z",
-                "summary": "Merge pull request #4 from Germanedge/addconsul"
-            },
-            {
-                "sha": "47b729d9889012efeb7a35545cade83e872bac83",
-                "iso_timestamp": "2020-01-03T19:02:40Z",
-                "summary": "Update start-zk.sh"
-            },
-            {
-                "sha": "9d7fd7334fea248b3e06e72c70141305c03c3b76",
-                "iso_timestamp": "2020-01-03T18:39:27Z",
-                "summary": "Merge pull request #3 from Germanedge/addconsul"
-            },
-            {
-                "sha": "df41cf2843c107659f5168c3af87127a7d35e610",
-                "iso_timestamp": "2020-01-03T18:39:00Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "ae4be1a2d021f521dfdf270eca583d1a99f4cb4f",
-                "iso_timestamp": "2020-01-03T18:38:25Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "78ecb6570d7594c791a66522bbafb22d5a3b6023",
-                "iso_timestamp": "2020-01-03T18:34:54Z",
-                "summary": "Update prometheus_zk.yml"
-            },
-            {
-                "sha": "a138a1da7f2f1173325ba57785d635a25354685e",
-                "iso_timestamp": "2020-01-03T18:30:45Z",
-                "summary": "Merge pull request #2 from Germanedge/addconsul"
-            },
-            {
-                "sha": "9c197accdbeadb9c151658daff30c4a23e652cb1",
-                "iso_timestamp": "2020-01-03T18:30:14Z",
-                "summary": "Create prometheus_zk.yml"
-            },
-            {
-                "sha": "16301614b0a0e122e45b6154bd6ff4cc93c0ffbf",
-                "iso_timestamp": "2020-01-03T18:29:12Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "57f7bd3a94334c99bf3f9a9621da2adb5d4bd2ae",
-                "iso_timestamp": "2020-01-03T18:28:47Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "42d71566779f907c05328cbae203b3f8d342e1d1",
-                "iso_timestamp": "2020-01-03T18:25:45Z",
-                "summary": "Create filebeat.yml"
-            },
-            {
-                "sha": "01cf3bfdc71892771b48292b39bafb0af4d2102f",
-                "iso_timestamp": "2020-01-03T18:23:22Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "404bd59610b5de21fb4866371e26549c82d6cc57",
-                "iso_timestamp": "2020-01-03T18:22:52Z",
-                "summary": "Create consul-zk.json"
-            },
-            {
-                "sha": "acddf87dcd73e5379d329b041dadc8b65dbb17a9",
-                "iso_timestamp": "2020-01-03T18:20:38Z",
-                "summary": "added filebeat and consul"
-            },
-            {
-                "sha": "0e2a0bb9dab3cc0259a67185ab3c7bbe690cf374",
-                "iso_timestamp": "2020-01-03T18:19:11Z",
-                "summary": "added consul and filebeat"
-            },
-            {
-                "sha": "be96deb1ff2af3a8095a7af8a3a39e7c462d6431",
-                "iso_timestamp": "2019-12-06T12:42:46Z",
-                "summary": "Merge pull request #1 from Germanedge/develop"
-            },
-            {
-                "sha": "8d06ec440308c2e6946320068ab3edb659637c8c",
-                "iso_timestamp": "2019-12-06T12:42:09Z",
-                "summary": "Update azure-pipelines.yml"
-            },
-            {
-                "sha": "a58fb0381ba3bcf668d8eb755a3c09c52c11829d",
-                "iso_timestamp": "2019-12-06T12:39:44Z",
-                "summary": "Update azure-pipelines.yml"
-            },
-            {
-                "sha": "e32b346d4888848b63f454bc2c822e39cf97fd9d",
-                "iso_timestamp": "2019-12-06T11:18:26Z",
-                "summary": "Update azure-pipelines.yml for Azure Pipelines"
-            },
-            {
-                "sha": "718bb32261eee3688b4dff91dbd937b1a62fb307",
-                "iso_timestamp": "2019-09-19T13:52:50Z",
-                "summary": "normalized base image"
-            },
-            {
-                "sha": "35c2331a8840ea58de342634f0018266092cc1e3",
-                "iso_timestamp": "2019-09-19T13:04:54Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "63bb45248ff2f5ebe004ec8921106f110afad113",
-                "iso_timestamp": "2019-09-19T12:49:14Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "42cc6abcafd6e445bb92178f2863c4b6d59525ef",
-                "iso_timestamp": "2019-09-19T12:36:54Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "ca4cfa5879c560857c9b830ff6251abff3ca7c91",
-                "iso_timestamp": "2019-09-19T12:34:10Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "beb985a70e240c14c8dbb3b5888481630962d5b0",
-                "iso_timestamp": "2019-09-19T12:24:26Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "f8f7f3fcd81a3b797cd3655a6b007a718d29c291",
-                "iso_timestamp": "2019-09-19T12:23:43Z",
-                "summary": "Update start-zk.sh"
-            },
-            {
-                "sha": "65d9e94bdee6f6aa593af55be7594a91387920ef",
-                "iso_timestamp": "2019-09-19T12:18:14Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "2ac0fe325f6a9383986357e30b9a5d4ff4d1fadb",
-                "iso_timestamp": "2019-09-19T12:16:36Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "6092965da2b727db002caf3786e46a06ddb835ed",
-                "iso_timestamp": "2019-09-19T12:13:19Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "30853778b63f1e8f99b595505ad7e92abaa2f473",
-                "iso_timestamp": "2019-09-19T12:12:13Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "4cb185321aefa283e7b0e17177d726a95c8ebe2b",
-                "iso_timestamp": "2019-09-19T12:10:43Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "49d1275a7e716b61776b33da6cb3ea5388057c9f",
-                "iso_timestamp": "2019-09-19T12:05:18Z",
-                "summary": "Create azure-pipelines.yml"
-            },
-            {
-                "sha": "97957bdeaffe18e876604bc69565e5a9e26d09a5",
-                "iso_timestamp": "2019-01-19T17:54:01Z",
-                "summary": "Merge pull request #15 from ffosilva/wurstmeister-master"
-            },
-            {
-                "sha": "7cda54f9febcb36b2bd6698b77315c6a56d3638d",
-                "iso_timestamp": "2018-09-10T16:33:53Z",
-                "summary": "Update to the latest stable version of Zookeeper"
-            },
-            {
-                "sha": "4672b15965c888b0edc2fd0489c899f503486faa",
-                "iso_timestamp": "2016-11-26T13:23:57Z",
-                "summary": "Merge pull request #6 from Fokko/update-zookeeper"
-            },
-            {
-                "sha": "fb05c33f3505712a45294c47c8028020d940c047",
-                "iso_timestamp": "2016-11-22T08:38:49Z",
-                "summary": "Updated to the latest stable version of Zookeeper"
-            },
-            {
-                "sha": "eb4e003fe2555d1b78f7fd4ad35fdb089038650a",
-                "iso_timestamp": "2016-01-21T07:50:31Z",
-                "summary": "fixed zookeeper version"
-            },
-            {
-                "sha": "2a0b9707015a831aa6db94e691122d44f650a63e",
-                "iso_timestamp": "2016-01-21T07:42:56Z",
-                "summary": "Merge pull request #1 from movermeyer/master"
-            },
-            {
-                "sha": "bfcb53f0a3ffdd2f39269794899674192a28d87d",
-                "iso_timestamp": "2016-01-05T18:26:32Z",
-                "summary": "Pulled out the version into a variable. Verify the zookeeper download before using it."
-            },
-            {
-                "sha": "76f33bed6facf07ddaab4ad86357ee2f85b44213",
-                "iso_timestamp": "2014-10-12T19:43:36Z",
-                "summary": "Update Dockerfile"
-            },
-            {
-                "sha": "e396634d8e902bd88e15b7845feeff64cb87766c",
-                "iso_timestamp": "2014-10-12T18:47:02Z",
-                "summary": "Initial commit"
-            },
-            {
-                "sha": "a9cc9af6cfcc61540d8648e052d97d1e9adc4056",
-                "iso_timestamp": "2014-10-12T18:04:28Z",
-                "summary": "Initial commit"
-            }
-        ],
-        "jira_issues": []
-    },
-    {
-        "service": "zookeeper",
-        "version": "4.16.0",
-        "iso_timestamp": "2025-03-05T10:33:00Z",
-        "commits": [
-            {
-                "sha": "0af0e930b9484ed002fb7000258e20521bb4a632",
-                "iso_timestamp": "2025-03-05T10:24:27Z",
-                "summary": "Merge pull request #72 from Germanedge/GE4-21454-rollout-v2-pipeline",
-                "jira_refs": [
-                    "GE4-21454"
-                ]
-            },
-            {
-                "sha": "15cfd9c13951c98f88ad6f649421fb18fcc8f79e",
-                "iso_timestamp": "2025-03-04T10:59:38Z",
-                "summary": "Update zookeeper version to 3.8.4"
-            },
-            {
-                "sha": "260ea6dc0ae8d5924d873e0f06575714acc6d84d",
-                "iso_timestamp": "2025-03-04T10:58:46Z",
-                "summary": "Merge branch 'dependabot/docker/edge-one/ge-ubuntu-generic-3.2.0' into GE4-21454-rollout-v2-pipeline",
-                "jira_refs": [
-                    "GE4-21454"
-                ]
-            },
-            {
-                "sha": "5c96465718d7597a2191628703cf394fec17bf10",
-                "iso_timestamp": "2025-03-04T09:20:39Z",
-                "summary": "GE4-21454: Update azure-pipelines-deploy.yml",
-                "jira_refs": [
-                    "GE4-21454"
-                ]
-            },
-            {
-                "sha": "7c9a4f64eb34ec37e5d34370f32f142e1adca81d",
-                "iso_timestamp": "2025-03-04T09:16:06Z",
-                "summary": "GE4-21454: Update azure-pipelines.yml",
-                "jira_refs": [
-                    "GE4-21454"
-                ]
-            }
-        ],
-        "jira_issues": [
-            {
-                "key": "GE4-21454",
-                "title": "Rollout v2 templates to zookeeper-docker",
-                "description": "<p>Initial rollout for v2 templates</p>"
-            }
+  {
+    "service": "zookeeper",
+    "version": "4.18.0",
+    "iso_timestamp": "2025-06-13T08:39:00Z",
+    "commits": [
+      {
+        "sha": "825235476547ad75eb1ecbeb1d08157dd10cf7d7",
+        "iso_timestamp": "2025-06-13T08:35:39Z",
+        "summary": "Merge pull request #80 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-3.16.0"
+      },
+      {
+        "sha": "277de615433acda813d4a10403c2ef978012a92c",
+        "iso_timestamp": "2025-06-06T01:27:23Z",
+        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 3.7.0 to 3.16.0"
+      },
+      {
+        "sha": "e63c7dc26e1ba82854564cdb8ab7432e3eece5d4",
+        "iso_timestamp": "2025-03-17T14:15:16Z",
+        "summary": "Merge pull request #75 from Germanedge/GE4-21816/remove-deploy-pipeline-to-legacy-cluster",
+        "jira_refs": [
+          "GE4-21816"
         ]
-    },
-    {
-        "service": "zookeeper",
-        "version": "4.15.0",
-        "iso_timestamp": "2025-02-20T11:53:00Z",
-        "commits": [
-            {
-                "sha": "578314766b174cf602ede66e2e3556a66c65aa84",
-                "iso_timestamp": "2025-02-20T11:52:24Z",
-                "summary": "Merge pull request #71 from Germanedge/feature/GE4-19130",
-                "jira_refs": [
-                    "GE4-19130"
-                ]
-            },
-            {
-                "sha": "6fbaf940131c0be0573e2e42c528d825191134ca",
-                "iso_timestamp": "2025-02-18T15:51:24Z",
-                "summary": "GE4-19130 Add definition of k8s probes",
-                "jira_refs": [
-                    "GE4-19130"
-                ]
-            }
-        ],
-        "jira_issues": [
-            {
-                "key": "GE4-19130",
-                "title": "zookeeper",
-                "description": "<h2><a name=\"UserStory\"></a>User Story</h2>\n<ul>\n\t<li>WHO wants WHAT implemented WHY? / WER m\u00f6chte WAS WARUM umgesetzt haben?</li>\n</ul>\n\n\n<h2><a name=\"AcceptanceCriteria\"></a>Acceptance Criteria</h2>\n<ul>\n\t<li>WHEN is the implementation successful? / WANN ist die Umsetzung erfolgreich?</li>\n</ul>\n\n\n<h2><a name=\"Remarks\"></a>Remarks</h2>\n<ul>\n\t<li>Documentation / Dokumentation</li>\n\t<li>Background Knowledge / Hintergrundwissen</li>\n</ul>\n",
-                "comments": [
-                    "<p>Hi , this \"Open\" issue has a U4 Project associated, which got closed in the Unit 4 ERP tool. Please reassign the issue to another project value.  </p>"
-                ]
-            }
+      },
+      {
+        "sha": "2486283691805667a3cd5eaa275a553cea50420a",
+        "iso_timestamp": "2025-03-13T22:18:13Z",
+        "summary": "[+semver: skip][skip ci] Remove deploy pipeline to legacy cluster"
+      }
+    ],
+    "jira_issues": [
+      {
+        "key": "GE4-21816",
+        "title": "Create additional deploy pipeline to new cluster for all relevant e1-dev services",
+        "description": "<p>For all services being part of stack-definition branch develop a new deploy pipeline should be created:</p>\n<ul>\n\t<li>template: \u00a0deploy/service/azure-pipelines-template-k8s.yaml</li>\n\t<li>env:</li>\n</ul>\n"
+      }
+    ]
+  },
+  {
+    "service": "zookeeper",
+    "version": "4.17.0",
+    "iso_timestamp": "2025-03-12T14:50:45Z",
+    "commits": [
+      {
+        "sha": "13a2bcbd5ab44ba4122a984e951cae6eb035a4cb",
+        "iso_timestamp": "2025-03-12T14:31:20Z",
+        "summary": "Merge pull request #74 from Germanedge/feature/GE4-18585",
+        "jira_refs": [
+          "GE4-18585"
         ]
-    },
-    {
-        "service": "zookeeper",
-        "version": "4.14.0",
-        "iso_timestamp": "2024-02-21T07:12:00Z",
-        "commits": [
-            {
-                "sha": "1ab20a79b87be62e2a8e5d18545481d57012f918",
-                "iso_timestamp": "2024-02-21T07:11:32Z",
-                "summary": "Merge pull request #68 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-3.0.0",
-                "jira_refs": []
-            },
-            {
-                "sha": "ace6b91ffa17cfbe32a094d0730deeaa287a21e3",
-                "iso_timestamp": "2024-02-21T01:24:38Z",
-                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.29.0 to 3.0.0",
-                "jira_refs": []
-            }
-        ],
-        "jira_issues": []
-    },
-    {
-        "service": "zookeeper",
-        "version": "4.13.0",
-        "iso_timestamp": "2024-02-01T14:05:00Z",
-        "commits": [
-            {
-                "sha": "87be4907be72f4f29aac64029f0ec8439b7f9bb8",
-                "iso_timestamp": "2024-02-01T14:03:52Z",
-                "summary": "Merge pull request #67 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-2.29.0",
-                "jira_refs": []
-            },
-            {
-                "sha": "bf141d7d2ff8fad1239aea0000d10b092256fbb8",
-                "iso_timestamp": "2024-02-01T10:36:00Z",
-                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.26.0 to 2.29.0",
-                "jira_refs": []
-            }
-        ],
-        "jira_issues": []
-    },
-    {
-        "service": "zookeeper",
-        "version": "4.12.0",
-        "iso_timestamp": "2024-02-01T10:26:00Z",
-        "commits": [
-            {
-                "sha": "82f8d33caab4e6349c33fd89e410dc0293658b61",
-                "iso_timestamp": "2024-02-01T10:22:38Z",
-                "summary": "Merge pull request #66 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-2.26.0",
-                "jira_refs": []
-            },
-            {
-                "sha": "1e0d8e31c1ec8452465e1db868c861930d334cc7",
-                "iso_timestamp": "2023-10-27T07:08:50Z",
-                "summary": "Update readme with relevant links",
-                "jira_refs": []
-            },
-            {
-                "sha": "9a492c0c00a123fe8b75f678a41ddbf1532691f0",
-                "iso_timestamp": "2023-10-27T07:06:09Z",
-                "summary": "Update zookeeper from 3.8.2 to 3.8.3",
-                "jira_refs": []
-            },
-            {
-                "sha": "73a1722e1040e4eda5d0774490e112311c4fca75",
-                "iso_timestamp": "2023-10-13T01:22:26Z",
-                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.23.0 to 2.26.0",
-                "jira_refs": []
-            }
-        ],
-        "jira_issues": []
-    },
-    {
-        "service": "zookeeper",
-        "version": "4.11.0",
-        "iso_timestamp": "2023-09-01T09:42:00Z",
-        "commits": [
-            {
-                "sha": "a502b95b1dc6fc789a35f4479a7c2f3d7b481fc1",
-                "iso_timestamp": "2023-09-01T09:40:55Z",
-                "summary": "Merge pull request #62 from Germanedge/feature/7619-update-dockerfile",
-                "jira_refs": [
-                    "GE4-7619"
-                ]
-            },
-            {
-                "sha": "5523a889b82d14588971c28daa9097cb3cdd915d",
-                "iso_timestamp": "2023-08-25T08:39:52Z",
-                "summary": "GE4-7619: add envs for consul metadata",
-                "jira_refs": [
-                    "GE4-7619"
-                ]
-            }
-        ],
-        "jira_issues": [
-            {
-                "key": "GE4-7619",
-                "title": "Update all 3rd party images to use new generic image and setup correct env",
-                "description": "<p>Please iterate through all 3rd party images from GE:</p>\n<ul>\n\t<li>use new ge-ubuntu-generic image</li>\n\t<li>setup new required envs</li>\n</ul>\n",
-                "comments": []
-            }
+      },
+      {
+        "sha": "b0a987df7fbc5d2b950bbea60c9e2065fa41e893",
+        "iso_timestamp": "2025-03-11T15:32:12Z",
+        "summary": "GE4-18585 Add deploy template to new k8s dev cluster",
+        "jira_refs": [
+          "GE4-18585"
         ]
-    },
-    {
-        "service": "zookeeper",
-        "version": "4.10.0",
-        "iso_timestamp": "2023-08-07T08:51:00Z",
-        "commits": [
-            {
-                "sha": "bfd66b43aa32a5f94fec672fb9cf4074fec9ebff",
-                "iso_timestamp": "2023-08-07T08:50:18Z",
-                "summary": "Merge pull request #60 from Germanedge/update-zookeeper-to-3.8.2",
-                "jira_refs": []
-            },
-            {
-                "sha": "2dc4ade7f0d19e53b4fe72a2a8cd18d14717dd09",
-                "iso_timestamp": "2023-08-07T08:45:57Z",
-                "summary": "Update Dockerfile",
-                "jira_refs": []
-            },
-            {
-                "sha": "e7ab14ae20d7059481c4c7775604174c94154b48",
-                "iso_timestamp": "2023-07-14T12:38:43Z",
-                "summary": "[skip ci][+semver: skip] GE4-7023: Rollout changelog-collector (#59)",
-                "jira_refs": [
-                    "GE4-7023"
-                ]
-            }
-        ],
-        "jira_issues": [
-            {
-                "key": "GE4-7023",
-                "title": "Rollout change log data service to GE builds",
-                "description": "<p>Based on approach at <a href=\"https://jira.germanedge.com/browse/GE4-6821\" title=\"Implement for change log data service (based on prototype)\" class=\"issue-link\" data-issue-key=\"GE4-6821\"><del>GE4-6821</del></a> the feature must be rollout to all relevant GE services (all platform services currently under development/maintenance)</p>\n\n<p>On GE service level:</p>\n<ul>\n\t<li>integrate Jira credentials to the azure pipelines in specific repos</li>\n\t<li>PRs mostly created at <a href=\"https://jira.germanedge.com/browse/GE4-6821\" title=\"Implement for change log data service (based on prototype)\" class=\"issue-link\" data-issue-key=\"GE4-6821\"><del>GE4-6821</del></a> and needs to approved</li>\n</ul>\n\n\n<p>On azure-docker-build-template</p>\n<ul>\n\t<li>integrate latest version of ge-build-agent including the changelog functionality</li>\n\t<li>review the step template for changelog functionality</li>\n</ul>\n\n\n<p>On ge-build-agent</p>\n<ul>\n\t<li>release new version with changelog functionality</li>\n</ul>\n",
-                "comments": []
-            }
+      }
+    ],
+    "jira_issues": [
+      {
+        "key": "GE4-18585",
+        "title": "[Platform] e1-dev",
+        "comments": [
+          "<p>Hi , this \"Open\" issue has a U4 Project associated, which got closed in the Unit 4 ERP tool. Please reassign the issue to another project value.  </p>",
+          "<p>1. <b>Onboard DevOps Sapient Engineers \u00a0to the new cluster</b><br/>\n<b>-&gt; Provide Guides in terms of usage of kubectl an awscli</b>\u00a0<br/>\n<b>-&gt; add team members in EntraID Group: AWS Team Product\u00a0 DevOps Dev \u00a0(This needs to be requested)</b></p>\n\n<p>2. <b>Use Velero to migrate the namespace according to the provided guide \u00a0( Team effort/Pair programming with Cloud Team )</b><br/>\n<b><a href=\"https://confluence.germanedge.com/display/Platform/How+to+migrate+Edge.One+Stack+into+new+EKS+Cluster\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">https://confluence.germanedge.com/display/Platform/How+to+migrate+Edge.One+Stack+into+new+EKS+Cluster</a></b></p>\n\n<p>3. <b>Migrate all related pipelines to the Dev EKS cluster for both namespaces</b></p>",
+          "<p>TODO:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>nginx build failing</li>\n\t<li>ag-keycloak pipeline to be done</li>\n\t<li>zookeper pipeline to be done</li>\n\t<li>5 PRs needs to be merged by code owners</li>\n\t<li>deploy pipelines to be created in azure devops</li>\n</ul>\n"
         ]
-    }
+      }
+    ]
+  },
+  {
+    "service": "zookeeper",
+    "version": "4.16.0",
+    "iso_timestamp": "2025-03-05T10:33:00Z",
+    "commits": [
+      {
+        "sha": "0af0e930b9484ed002fb7000258e20521bb4a632",
+        "iso_timestamp": "2025-03-05T10:24:27Z",
+        "summary": "Merge pull request #72 from Germanedge/GE4-21454-rollout-v2-pipeline",
+        "jira_refs": [
+          "GE4-21454"
+        ]
+      },
+      {
+        "sha": "15cfd9c13951c98f88ad6f649421fb18fcc8f79e",
+        "iso_timestamp": "2025-03-04T10:59:38Z",
+        "summary": "Update zookeeper version to 3.8.4"
+      },
+      {
+        "sha": "260ea6dc0ae8d5924d873e0f06575714acc6d84d",
+        "iso_timestamp": "2025-03-04T10:58:46Z",
+        "summary": "Merge branch 'dependabot/docker/edge-one/ge-ubuntu-generic-3.2.0' into GE4-21454-rollout-v2-pipeline",
+        "jira_refs": [
+          "GE4-21454"
+        ]
+      },
+      {
+        "sha": "5c96465718d7597a2191628703cf394fec17bf10",
+        "iso_timestamp": "2025-03-04T09:20:39Z",
+        "summary": "GE4-21454: Update azure-pipelines-deploy.yml",
+        "jira_refs": [
+          "GE4-21454"
+        ]
+      },
+      {
+        "sha": "7c9a4f64eb34ec37e5d34370f32f142e1adca81d",
+        "iso_timestamp": "2025-03-04T09:16:06Z",
+        "summary": "GE4-21454: Update azure-pipelines.yml",
+        "jira_refs": [
+          "GE4-21454"
+        ]
+      }
+    ],
+    "jira_issues": [
+      {
+        "key": "GE4-21454",
+        "title": "Rollout v2 templates to zookeeper-docker",
+        "description": "<p>Initial rollout for v2 templates</p>"
+      }
+    ]
+  },
+  {
+    "service": "zookeeper",
+    "version": "4.14.0",
+    "iso_timestamp": "2024-02-21T07:12:00Z",
+    "commits": [
+      {
+        "sha": "1ab20a79b87be62e2a8e5d18545481d57012f918",
+        "iso_timestamp": "2024-02-21T07:11:32Z",
+        "summary": "Merge pull request #68 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-3.0.0"
+      },
+      {
+        "sha": "ace6b91ffa17cfbe32a094d0730deeaa287a21e3",
+        "iso_timestamp": "2024-02-21T01:24:38Z",
+        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.29.0 to 3.0.0"
+      }
+    ],
+    "jira_issues": []
+  },
+  {
+    "service": "zookeeper",
+    "version": "4.13.0",
+    "iso_timestamp": "2024-02-01T14:05:00Z",
+    "commits": [
+      {
+        "sha": "87be4907be72f4f29aac64029f0ec8439b7f9bb8",
+        "iso_timestamp": "2024-02-01T14:03:52Z",
+        "summary": "Merge pull request #67 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-2.29.0"
+      },
+      {
+        "sha": "bf141d7d2ff8fad1239aea0000d10b092256fbb8",
+        "iso_timestamp": "2024-02-01T10:36:00Z",
+        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.26.0 to 2.29.0"
+      }
+    ],
+    "jira_issues": []
+  },
+  {
+    "service": "zookeeper",
+    "version": "4.12.0",
+    "iso_timestamp": "2024-02-01T10:26:00Z",
+    "commits": [
+      {
+        "sha": "82f8d33caab4e6349c33fd89e410dc0293658b61",
+        "iso_timestamp": "2024-02-01T10:22:38Z",
+        "summary": "Merge pull request #66 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-2.26.0"
+      },
+      {
+        "sha": "1e0d8e31c1ec8452465e1db868c861930d334cc7",
+        "iso_timestamp": "2023-10-27T07:08:50Z",
+        "summary": "Update readme with relevant links"
+      },
+      {
+        "sha": "9a492c0c00a123fe8b75f678a41ddbf1532691f0",
+        "iso_timestamp": "2023-10-27T07:06:09Z",
+        "summary": "Update zookeeper from 3.8.2 to 3.8.3"
+      },
+      {
+        "sha": "73a1722e1040e4eda5d0774490e112311c4fca75",
+        "iso_timestamp": "2023-10-13T01:22:26Z",
+        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.23.0 to 2.26.0"
+      }
+    ],
+    "jira_issues": []
+  },
+  {
+    "service": "zookeeper",
+    "version": "4.11.0",
+    "iso_timestamp": "2023-09-01T09:42:00Z",
+    "commits": [
+      {
+        "sha": "a502b95b1dc6fc789a35f4479a7c2f3d7b481fc1",
+        "iso_timestamp": "2023-09-01T09:40:55Z",
+        "summary": "Merge pull request #62 from Germanedge/feature/7619-update-dockerfile",
+        "jira_refs": [
+          "GE4-7619"
+        ]
+      },
+      {
+        "sha": "5523a889b82d14588971c28daa9097cb3cdd915d",
+        "iso_timestamp": "2023-08-25T08:39:52Z",
+        "summary": "GE4-7619: add envs for consul metadata",
+        "jira_refs": [
+          "GE4-7619"
+        ]
+      }
+    ],
+    "jira_issues": [
+      {
+        "key": "GE4-7619",
+        "title": "Update all 3rd party images to use new generic image and setup correct env",
+        "description": "<p>Please iterate through all 3rd party images from GE:</p>\n<ul>\n\t<li>use new ge-ubuntu-generic image</li>\n\t<li>setup new required envs</li>\n</ul>\n"
+      }
+    ]
+  },
+  {
+    "service": "zookeeper",
+    "version": "4.10.0",
+    "iso_timestamp": "2023-08-07T08:51:00Z",
+    "commits": [
+      {
+        "sha": "bfd66b43aa32a5f94fec672fb9cf4074fec9ebff",
+        "iso_timestamp": "2023-08-07T08:50:18Z",
+        "summary": "Merge pull request #60 from Germanedge/update-zookeeper-to-3.8.2"
+      },
+      {
+        "sha": "2dc4ade7f0d19e53b4fe72a2a8cd18d14717dd09",
+        "iso_timestamp": "2023-08-07T08:45:57Z",
+        "summary": "Update Dockerfile"
+      },
+      {
+        "sha": "e7ab14ae20d7059481c4c7775604174c94154b48",
+        "iso_timestamp": "2023-07-14T12:38:43Z",
+        "summary": "[skip ci][+semver: skip] GE4-7023: Rollout changelog-collector (#59)",
+        "jira_refs": [
+          "GE4-7023"
+        ]
+      }
+    ],
+    "jira_issues": [
+      {
+        "key": "GE4-7023",
+        "title": "Rollout change log data service to GE builds",
+        "description": "<p>Based on approach at <a href=\"https://jira.germanedge.com/browse/GE4-6821\" title=\"Implement for change log data service (based on prototype)\" class=\"issue-link\" data-issue-key=\"GE4-6821\"><del>GE4-6821</del></a> the feature must be rollout to all relevant GE services (all platform services currently under development/maintenance)</p>\n\n<p>On GE service level:</p>\n<ul>\n\t<li>integrate Jira credentials to the azure pipelines in specific repos</li>\n\t<li>PRs mostly created at <a href=\"https://jira.germanedge.com/browse/GE4-6821\" title=\"Implement for change log data service (based on prototype)\" class=\"issue-link\" data-issue-key=\"GE4-6821\"><del>GE4-6821</del></a> and needs to approved</li>\n</ul>\n\n\n<p>On azure-docker-build-template</p>\n<ul>\n\t<li>integrate latest version of ge-build-agent including the changelog functionality</li>\n\t<li>review the step template for changelog functionality</li>\n</ul>\n\n\n<p>On ge-build-agent</p>\n<ul>\n\t<li>release new version with changelog functionality</li>\n</ul>\n"
+      }
+    ]
+  }
 ]
