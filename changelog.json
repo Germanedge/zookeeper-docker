@@ -1,6 +1,27 @@
 [
   {
     "service": "zookeeper",
+    "version": "4.21.0",
+    "iso_timestamp": "2025-08-29T12:43:00Z",
+    "commits": [
+      {
+        "sha": "ebef907ce2742eefc2c4bcdc69ec5dd34e10a446",
+        "iso_timestamp": "2025-08-29T12:40:40Z",
+        "summary": "GE4-24046: Improve probe configurations for faster health checks (#91)",
+        "jira_refs": [
+          "GE4-24046"
+        ]
+      }
+    ],
+    "jira_issues": [
+      {
+        "key": "GE4-24046",
+        "title": "zookeeper improve probes"
+      }
+    ]
+  },
+  {
+    "service": "zookeeper",
     "version": "4.20.0",
     "iso_timestamp": "2025-06-17T22:15:00Z",
     "commits": [
