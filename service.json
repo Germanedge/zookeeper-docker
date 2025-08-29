@@ -85,10 +85,8 @@
               "port": 7071,
               "scheme": "HTTP"
             },
-            "initialDelaySeconds": 30,
             "periodSeconds": 10,
             "timeoutSeconds": 5,
-            "successThreshold": 1,
             "failureThreshold": 3
           },
           "readinessProbe": {
@@ -97,11 +95,9 @@
               "port": 7071,
               "scheme": "HTTP"
             },
-            "initialDelaySeconds": 30,
-            "periodSeconds": 10,
-            "timeoutSeconds": 5,
-            "successThreshold": 1,
-            "failureThreshold": 3
+            "periodSeconds": 5,
+            "timeoutSeconds": 3,
+            "failureThreshold": 6
           },
           "startupProbe": {
             "httpGet": {
@@ -109,11 +105,9 @@
               "port": 7071,
               "scheme": "HTTP"
             },
-            "initialDelaySeconds": 30,
-            "periodSeconds": 10,
-            "timeoutSeconds": 5,
-            "successThreshold": 1,
-            "failureThreshold": 3
+            "periodSeconds": 5,
+            "timeoutSeconds": 3,
+            "failureThreshold": 36
           }
         }
       },
