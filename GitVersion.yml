@@ -8,6 +8,10 @@ branches:
     is-mainline: true
     regex: ^dev(elop)?(ment)?$
     tag: ""
+  hotfix:
+    is-mainline: true
+    regex: ^hotfix(es)?[/-]
+    tag: ''
 ignore:
   sha: []
 merge-message-formats: {} 
