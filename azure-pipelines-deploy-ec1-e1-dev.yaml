@@ -24,7 +24,7 @@ resources:
           - Publish
 
 extends:
-  template: deploy/service/azure-pipelines-template-k8s.yaml@templates
+  template: kubernetes-deployment-template.yaml@templates
   parameters:
     templateVersion: 2
     projectKey: Germanedge
