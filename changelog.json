@@ -1,6 +1,50 @@
 [
   {
     "service": "zookeeper",
+    "version": "4.22.0",
+    "iso_timestamp": "2025-09-08T18:32:00Z",
+    "commits": [
+      {
+        "sha": "36a285412f3016db48d015f7fbdb3aa0f05e992b",
+        "iso_timestamp": "2025-09-08T18:29:00Z",
+        "summary": "Merge pull request #93 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-4.6.0"
+      },
+      {
+        "sha": "9d55449171d470863ab5c326d28df65b5f95ab6f",
+        "iso_timestamp": "2025-09-08T18:08:42Z",
+        "summary": "Fix deployment template for Kubernetes"
+      },
+      {
+        "sha": "253556b2fbf1f798017cddb372c68d293027ee76",
+        "iso_timestamp": "2025-09-08T07:39:16Z",
+        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 3.18.0 to 4.6.0"
+      }
+    ],
+    "jira_issues": []
+  },
+  {
+    "service": "zookeeper",
+    "version": "4.21.0",
+    "iso_timestamp": "2025-08-29T12:43:00Z",
+    "commits": [
+      {
+        "sha": "ebef907ce2742eefc2c4bcdc69ec5dd34e10a446",
+        "iso_timestamp": "2025-08-29T12:40:40Z",
+        "summary": "GE4-24046: Improve probe configurations for faster health checks (#91)",
+        "jira_refs": [
+          "GE4-24046"
+        ]
+      }
+    ],
+    "jira_issues": [
+      {
+        "key": "GE4-24046",
+        "title": "zookeeper improve probes"
+      }
+    ]
+  },
+  {
+    "service": "zookeeper",
     "version": "4.20.0",
     "iso_timestamp": "2025-06-17T22:15:00Z",
     "commits": [
