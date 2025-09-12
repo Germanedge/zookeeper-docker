@@ -11,4 +11,3 @@ spec:
   - port: 2181
     protocol: TCP
     name: port-0
----

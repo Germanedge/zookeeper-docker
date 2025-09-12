@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: zookeeper
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.22.0
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.23.0
         imagePullPolicy: Always
         command: []
         ports:
@@ -106,4 +106,3 @@ spec:
   replicas: 1
   strategy:
     type: Recreate
----
