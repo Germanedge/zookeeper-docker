@@ -6,8 +6,8 @@ metadata:
 spec:
   selector:
     app: zookeeper
-  type: ClusterIP
   ports:
-  - port: 2181
+  - name: port-0
     protocol: TCP
-    name: port-0
+    port: 2181
+  type: ClusterIP

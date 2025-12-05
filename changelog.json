@@ -1,6 +1,28 @@
 [
   {
     "service": "zookeeper",
+    "version": "4.24.0",
+    "iso_timestamp": "2025-12-05T15:27:00Z",
+    "commits": [
+      {
+        "sha": "d26015cd93c2674e05f007797fe9792097c0dc89",
+        "iso_timestamp": "2025-12-05T15:21:54Z",
+        "summary": "GE4-25502: Vector logging compatibility (#104)",
+        "jira_refs": [
+          "GE4-25502"
+        ]
+      }
+    ],
+    "jira_issues": [
+      {
+        "key": "GE4-25502",
+        "title": "Build and deploy generic-based apps with Vector logging",
+        "description": "<p>The goal of this ticket is to track deployments of apps based on generic image with Vector enabled. In order for the deployment to be considered done, in the scope of this ticket, the app should:</p>\n<ul>\n\t<li>be based on the base image with Vector agent included</li>\n\t<li>be configured to log into a known-in-Vector (file) location</li>\n\t<li>be configured to produce logs in a format understandable and parsable by Vector transforms</li>\n</ul>\n\n\n<p>and the deployment should:</p>\n<ul>\n\t<li>have Vector agent enabled <span class=\"error\">&#91;define DISABLE_FILEBEAT env variable defined as true and DISABLE_VECTOR as false&#93;</span></li>\n</ul>\n\n\n<p>\u00a0</p>\n\n<p>Please refer to the \"Sub-Tasks\" section for a list of relevant apps and overall progress indication.</p>\n\n<p>Some apps will need to be redeployed due to \"minimal config\" rework, so there might be cases where an old, seemingly duplicate, ticket existed such as <a href=\"https://jira.germanedge.com/browse/GE4-24967\" title=\"Build and deploy Keycloak with Vector logging\" class=\"issue-link\" data-issue-key=\"GE4-24967\"><del>GE4-24967</del></a>.\u00a0</p>"
+      }
+    ]
+  },
+  {
+    "service": "zookeeper",
     "version": "4.23.0",
     "iso_timestamp": "2025-09-12T08:07:00Z",
     "commits": [

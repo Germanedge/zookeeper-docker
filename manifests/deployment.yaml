@@ -34,13 +34,12 @@ spec:
     spec:
       containers:
       - name: zookeeper
-        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.23.0
-        imagePullPolicy: Always
+        image: germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.24.0
         command: []
         ports:
-        - containerPort: 2181
-          name: port-0
+        - name: port-0
           protocol: TCP
+          containerPort: 2181
         env:
         - name: EXT_CA_CERT
           valueFrom:
@@ -53,16 +52,16 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
               apiVersion: v1
-        volumeMounts:
-        - name: edgeone-zookeeper-pv
-          mountPath: /opt/zookeeper/data
-          subPath: optzookeeperdata
         resources:
           limits:
             memory: "512M"
             ephemeral-storage: "1200M"
           requests:
             ephemeral-storage: "1000M"
+        volumeMounts:
+        - mountPath: /opt/zookeeper/data
+          name: edgeone-zookeeper-pv
+          subPath: optzookeeperdata
         livenessProbe:
           httpGet:
             port: 7071
@@ -87,22 +86,23 @@ spec:
           periodSeconds: 5
           timeoutSeconds: 3
           failureThreshold: 36
+        imagePullPolicy: Always
         securityContext:
           runAsNonRoot: true
           readOnlyRootFilesystem: false
           allowPrivilegeEscalation: true
       initContainers: []
+      nodeSelector:
+        kubernetes.io/os: linux
+      securityContext:
+        runAsUser: 1000
+        fsGroup: 1000
       imagePullSecrets:
       - name: artifactory
       volumes:
       - name: edgeone-zookeeper-pv
         persistentVolumeClaim:
           claimName: edgeone-zookeeper-pv-claim
-      nodeSelector:
-        kubernetes.io/os: linux
-      securityContext:
-        runAsUser: 1000
-        fsGroup: 1000
   replicas: 1
   strategy:
     type: Recreate
