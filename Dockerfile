@@ -1,6 +1,6 @@
-FROM germanedge-docker.artifactory.new-solutions.com/edge-one/ge-ubuntu-generic:4.7.0
+FROM germanedge-docker.artifactory.new-solutions.com/edge-one/ge-ubuntu-generic:4.12.2
 
-ARG zookeper_version=3.8.4
+ARG zookeper_version=3.8.5
 
 ENV ZOOKEEPER_VERSION=$zookeper_version
 ENV PORT=2181
@@ -33,8 +33,8 @@ RUN curl https://downloads.apache.org/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/a
 #Configure
 RUN mv /opt/zookeeper/conf/zoo_sample.cfg /opt/zookeeper/conf/zoo.cfg
 
-ENV JAVA_HOME /usr/lib/jvm/java-${JAVA_VERSION}-openjdk-amd64
-ENV ZK_HOME /opt/zookeeper
+ENV JAVA_HOME=/usr/lib/jvm/java-${JAVA_VERSION}-openjdk-amd64
+ENV ZK_HOME=/opt/zookeeper
 RUN sed  -i "s|/tmp/zookeeper|$ZK_HOME/data|g" $ZK_HOME/conf/zoo.cfg; mkdir $ZK_HOME/data
 
 RUN mkdir -p /opt/prometheus/ \
