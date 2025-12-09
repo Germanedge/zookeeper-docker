@@ -59,7 +59,7 @@
       <totalSizeCap>30MB</totalSizeCap>
     </rollingPolicy>
     <encoder>
-        <pattern>{ "@timestamp":"%d{yyyy-MM-dd'T'HH:mm:ss.SSS}","level":"%level", "thread":"[%thread]", "logger":"%logger{10}", "file":"[%file:%line]", "message":"%msg" }%n</pattern>
+        <pattern>{"@timestamp": "%d{yyyy-MM-dd'T'HH:mm:ss.SSS}", "level": "%level", "thread": "[%thread]", "logger": "%logger{10}", "file": "[%file:%line]", "message": "%msg"}%n</pattern>
     </encoder>
     <append>true</append>
 </appender>
