@@ -37,7 +37,7 @@
   -->
   <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n</pattern>
+      <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n</pattern>
     </encoder>
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
       <level>${zookeeper.console.threshold}</level>
@@ -59,14 +59,13 @@
       <totalSizeCap>30MB</totalSizeCap>
     </rollingPolicy>
     <encoder>
-        <pattern>{ "@timestamp":"%date", "level":"%level", "thread":"[%thread]", "logger":"%logger{10}", "file":"[%file:%line]", "message":"%msg" }%n</pattern>
+        <pattern>{"@timestamp": "%d{yyyy-MM-dd'T'HH:mm:ss.SSS}", "level": "%level", "thread": "[%thread]", "logger": "%logger{10}", "file": "[%file:%line]", "message": "%msg"}%n</pattern>
     </encoder>
     <append>true</append>
 </appender>
 <logger name="org.apache.zookeeper" level="INFO" additivity="false">
     <appender-ref ref="FILE" />
 </logger>
-
 
   <!--
     Add ROLLINGFILE to root logger to get log file output
