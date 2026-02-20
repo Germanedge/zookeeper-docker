@@ -1,6 +1,6 @@
 FROM germanedge-docker.artifactory.new-solutions.com/edge-one/ge-ubuntu-generic:4.18.0
 
-ARG zookeper_version=3.8.5
+ARG zookeper_version=3.8.6
 
 ENV ZOOKEEPER_VERSION=$zookeper_version
 ENV PORT=2181
