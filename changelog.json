@@ -1,6 +1,27 @@
 [
   {
     "service": "zookeeper",
+    "version": "4.28.0",
+    "iso_timestamp": "2026-05-12T19:32:00Z",
+    "commits": [
+      {
+        "sha": "736daf0cc2ee0a0f8109f1d913ff5d4b6adde4a2",
+        "iso_timestamp": "2026-05-12T19:27:01Z",
+        "summary": "GE4-29269: Explicitly disable Filebeat and enable Vector via Dockerfile env vars (#116)",
+        "jira_refs": [
+          "GE4-29269"
+        ]
+      }
+    ],
+    "jira_issues": [
+      {
+        "key": "GE4-29269",
+        "title": "Switch platform services to Vector via ENV variable"
+      }
+    ]
+  },
+  {
+    "service": "zookeeper",
     "version": "4.27.0",
     "iso_timestamp": "2026-04-28T07:57:00Z",
     "commits": [
