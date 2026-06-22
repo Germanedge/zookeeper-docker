@@ -4,6 +4,10 @@
   "servicetype": "core",
   "ge_domain": "platform",
   "description": "zookeeper",
+  "metadata": {
+    "build_source": "zookeeper",
+    "build_source_version": "3.8.6"
+  },
   "homepage": "https://github.com/germanedge/zookeeper-docker",
   "keywords": [
     "kafka",
