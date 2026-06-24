@@ -17,4 +17,15 @@ resources:
 extends:
   template: azure-pipelines-docker-template.yml@templates
   parameters:
-    templateVersion: 2 
+    templateVersion: 2
+
+pr:
+  branches:
+    include:
+    - '*'
+
+trigger:
+  branches:
+    include:
+    - develop
+    - hotfix/*
