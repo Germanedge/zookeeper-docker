@@ -7,6 +7,17 @@ variables:
 
 name: "$(imageName) $(GitVersion.FullSemVer)"
 
+trigger:
+  branches:
+    include:
+    - develop
+    - hotfix/*
+
+pr:
+  branches:
+    include:
+    - '*'
+
 resources:
   repositories:
     - repository: templates
