@@ -1,485 +1,485 @@
 [
-  {
-    "service": "zookeeper",
-    "version": "4.28.0",
-    "iso_timestamp": "2026-05-12T19:32:00Z",
-    "commits": [
-      {
-        "sha": "736daf0cc2ee0a0f8109f1d913ff5d4b6adde4a2",
-        "iso_timestamp": "2026-05-12T19:27:01Z",
-        "summary": "GE4-29269: Explicitly disable Filebeat and enable Vector via Dockerfile env vars (#116)",
-        "jira_refs": [
-          "GE4-29269"
+    {
+        "service": "zookeeper",
+        "version": "4.28.0",
+        "iso_timestamp": "2026-05-12T19:32:00Z",
+        "commits": [
+            {
+                "sha": "736daf0cc2ee0a0f8109f1d913ff5d4b6adde4a2",
+                "iso_timestamp": "2026-05-12T19:27:01Z",
+                "summary": "GE4-29269: Explicitly disable Filebeat and enable Vector via Dockerfile env vars (#116)",
+                "jira_refs": [
+                    "GE4-29269"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-29269",
+                "title": "Switch platform services to Vector via ENV variable"
+            }
         ]
-      }
-    ],
-    "jira_issues": [
-      {
-        "key": "GE4-29269",
-        "title": "Switch platform services to Vector via ENV variable"
-      }
-    ]
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.27.0",
-    "iso_timestamp": "2026-04-28T07:57:00Z",
-    "commits": [
-      {
-        "sha": "ab5e4755740290f03e905d4d66cb0b342c47c025",
-        "iso_timestamp": "2026-04-28T07:38:37Z",
-        "summary": "Merge pull request #119 from Germanedge/fix/GE4-28968-CVE-2025-68121-zookeeper-docker",
-        "jira_refs": [
-          "GE4-28968"
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.27.0",
+        "iso_timestamp": "2026-04-28T07:57:00Z",
+        "commits": [
+            {
+                "sha": "ab5e4755740290f03e905d4d66cb0b342c47c025",
+                "iso_timestamp": "2026-04-28T07:38:37Z",
+                "summary": "Merge pull request #119 from Germanedge/fix/GE4-28968-CVE-2025-68121-zookeeper-docker",
+                "jira_refs": [
+                    "GE4-28968"
+                ]
+            },
+            {
+                "sha": "a2cb84babd5cdc9d87934ae2243c494780a25331",
+                "iso_timestamp": "2026-04-24T20:05:19Z",
+                "summary": "GE4-28968: fix(security): bump ge-ubuntu-generic 4.18.0→4.24.0 (CVE-2025-68121)",
+                "jira_refs": [
+                    "GE4-28968"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-28968",
+                "title": "CVE-2025-68121: Fix TLS handshake bypass in consul binary (ge-ubuntu-generic)",
+                "description": "<h2><a name=\"TriageEpic%3ACVE202568121\"></a>Triage Epic: CVE-2025-68121</h2>\n\n<p><b>CVE</b>: CVE-2025-68121 | <b>CVSS</b>: 10.0 CRITICAL<br/>\n<b>Vulnerability</b>: TLS resumed handshake bypass in Go stdlib (crypto/tls)<br/>\n<b>Fixed in</b>: Go &gt;= 1.24.13 or &gt;= 1.25.7<br/>\n<b>NVD</b>: <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2025-68121\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">https://nvd.nist.gov/vuln/detail/CVE-2025-68121</a><br/>\n<b>SLA deadline</b>: 2026-04-21<br/>\n<b>Status</b>: HUMAN_REVIEW_REQUIRED (CVSS ≥ 9.0 gate)</p>\n\n<h3><a name=\"VulnerableComponent\"></a>Vulnerable Component</h3>\n\n<p>consul 1.21.4 in <b>ge-ubuntu-generic</b> uses Go 1.23.12 (Aug 2025), which predates the Feb-2026 fix.<br/>\nconsul 1.22.6 uses Go 1.25.8 and contains the fix.</p>\n\n<h3><a name=\"FixProgress\"></a>Fix Progress</h3>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Step</th>\n<th class='confluenceTh'>Repo</th>\n<th class='confluenceTh'>Change</th>\n<th class='confluenceTh'>PR</th>\n<th class='confluenceTh'>Status</th>\n</tr>\n<tr>\n<td class='confluenceTd'>1</td>\n<td class='confluenceTd'>ge-ubuntu-generic</td>\n<td class='confluenceTd'>consul_version 1.21.4 → 1.22.6 in Dockerfile</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-generic/pull/130\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#130</a></td>\n<td class='confluenceTd'>OPEN — awaiting review</td>\n</tr>\n<tr>\n<td class='confluenceTd'>2</td>\n<td class='confluenceTd'>ge-ubuntu-generic consumers</td>\n<td class='confluenceTd'>cascade rebuild against ge-ubuntu-generic:4.22.0</td>\n<td class='confluenceTd'>pending</td>\n<td class='confluenceTd'>NOT STARTED</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h3><a name=\"BlastRadius\"></a>Blast Radius</h3>\n\n<p>43 services: all ge-ubuntu-generic consumers + transitive (ge-ubuntu-angular, ge-ubuntu-python, ge-ubuntu-node).</p>\n\n<h3><a name=\"BlockedComponents\"></a>Blocked Components</h3>\n\n<ul>\n\t<li><b>nginx-prometheus-exporter</b> — no upstream release with fixed Go. Monitoring.</li>\n</ul>\n\n\n<h3><a name=\"ClosingCriteria\"></a>Closing Criteria</h3>\n\n<p>All linked AUTOSCAN tickets must represent services with a post-fix published artifact.</p>",
+                "comments": [
+                    "<p>Root fix PR opened: <a href=\"https://github.com/Germanedge/ge-ubuntu-generic/pull/130\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">https://github.com/Germanedge/ge-ubuntu-generic/pull/130</a></p>\n\n<p>Change: consul_version 1.21.4 → 1.22.6 in ge-ubuntu-generic/Dockerfile<br/>\nBranch: fix/CVE-2025-68121-consul-upgrade</p>\n\n<p>Next: merge PR → cascade rebuild all 43 consumers.</p>",
+                    "<h3><a name=\"CVE202568121CascadeProgress%E2%80%94edgeone.cvetriagepatrolrun%2820260424%29\"></a>CVE-2025-68121 Cascade Progress — edgeone.cve-triage-patrol run (2026-04-24)</h3>\n\n<p><b>Root PR status</b>: <a href=\"https://github.com/Germanedge/ge-ubuntu-generic/pull/130\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#130</a> ✅ MERGED (2026-04-23)<br/>\n<b>ge-ubuntu-generic version with fix</b>: 4.23.0+ (consul 1.22.6 / Go 1.25.8)<br/>\n<b>Current latest</b>: 4.24.0</p>\n\n<h4><a name=\"BlastRadius%3A28directconsumersofgeubuntugeneric\"></a>Blast Radius: 28 direct consumers of ge-ubuntu-generic</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Status</th>\n<th class='confluenceTh'>Count</th>\n<th class='confluenceTh'>Details</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ALREADY_FIXED_CLEAN</td>\n<td class='confluenceTd'>9</td>\n<td class='confluenceTd'>elasticsearch (4.24.0), kafdrop (4.24.0), kibana (4.24.0), nsl-projectx (4.24.0), nsl-projectx-infraserv-wiesbaden (4.24.0), nsl-projectx-infraserv-wiesbaden-technik (4.24.0), pm-sapient (4.24.0), postfix (4.24.0), universal-sync-service (4.24.0)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>IN_PROGRESS (updated)</td>\n<td class='confluenceTd'>16</td>\n<td class='confluenceTd'>PRs updated from 4.21.0 → 4.24.0: chromadb #14, consul #159, device-controller #62, edgeone-wiki #2186, grafana #153, kafka #109, keycloak #173, nginx #135, ors-dfs-backend #437, planning-vac #104, postgres-db #146, prometheus #152, prometheus-pushgateway #94, sap-router #13, third-party-licences-archive #97, vouch-proxy #222</td>\n</tr>\n<tr>\n<td class='confluenceTd'>NEEDS_PR (new PRs opened)</td>\n<td class='confluenceTd'>3</td>\n<td class='confluenceTd'>logstash <a href=\"https://github.com/Germanedge/logstash/pull/156\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#156</a>, planning-backend <a href=\"https://github.com/Germanedge/planning-backend/pull/67\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#67</a>, zookeeper-docker <a href=\"https://github.com/Germanedge/zookeeper-docker/pull/119\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#119</a></td>\n</tr>\n</tbody></table>\n</div>\n\n\n<p><b>Total open PRs</b>: 19 awaiting CI + review merge<br/>\n<b>Patrol action</b>: Updated 16 stale PRs (had targeted 4.21.0 which predates fix), opened 3 new PRs.<br/>\n<b>Next</b>: All 19 PRs need CI to pass and be reviewed/merged. Once all merged, ticket can be closed.</p>\n\n<p><em>Updated automatically by `edgeone.cve-triage-patrol` — 2026-04-24</em></p>",
+                    "<h2><a name=\"CVE202568121ProgressCheck%E2%80%9420260424%28Agent1of21%2CGE428968%29\"></a>CVE-2025-68121 Progress Check — 2026-04-24 (Agent 1 of 21, <a href=\"https://jira.germanedge.com/browse/GE4-28968\" title=\"CVE-2025-68121: Fix TLS handshake bypass in consul binary (ge-ubuntu-generic)\" class=\"issue-link\" data-issue-key=\"GE4-28968\">GE4-28968</a>)</h2>\n\n<h3><a name=\"DataSource\"></a>Data Source</h3>\n<p>Live service.json registry (stack.json via GitHub API, 62 repos, 2026-04-24)</p>\n\n<h3><a name=\"FixThreshold\"></a>Fix Threshold</h3>\n<p>ge-ubuntu-generic &gt;= 4.23.0 (ships consul 1.22.6 / Go 1.25.8 which fixes the CVE)<br/>\nCurrent target version: 4.24.0 (develop HEAD)</p>\n\n<h3><a name=\"ConsumerStatus%2829totalgeubuntugenericconsumers%29\"></a>Consumer Status (29 total ge-ubuntu-generic consumers)</h3>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Category</th>\n<th class='confluenceTh'>Count</th>\n<th class='confluenceTh'>Repos</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ALREADY_FIXED_CLEAN</td>\n<td class='confluenceTd'>9</td>\n<td class='confluenceTd'>elasticsearch, kafdrop, kibana, nsl-projectx, nsl-projectx-infraserv-wiesbaden, nsl-projectx-infraserv-wiesbaden-technik, pm-sapient, postfix, universal-sync-service</td>\n</tr>\n<tr>\n<td class='confluenceTd'>IN_PROGRESS (open PR to 4.24.0)</td>\n<td class='confluenceTd'>19</td>\n<td class='confluenceTd'>chromadb #14, consul #159, device-controller #62, edgeone-wiki #2186, grafana #153, kafka #109, keycloak #173, logstash #156, nginx #135, ors-dfs-backend #437, planning-backend #67, planning-vac #104, postgres-db #146, prometheus #152, prometheus-pushgateway #94, sap-router #13, third-party-licences-archive #97, vouch-proxy #222, zookeeper-docker #119</td>\n</tr>\n<tr>\n<td class='confluenceTd'>STALE_PR_INSUFFICIENT</td>\n<td class='confluenceTd'>1</td>\n<td class='confluenceTd'>seaweedfs #56 (targets 4.21.0 — below fix threshold 4.23.0)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>NEEDS_PR</td>\n<td class='confluenceTd'>0</td>\n<td class='confluenceTd'>(all repos covered)</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h3><a name=\"PRMergeStatus\"></a>PR Merge Status</h3>\n<ul>\n\t<li>0 of 19 valid PRs have been merged to develop yet</li>\n\t<li>All 19 PRs in IN_PROGRESS state opened 2026-04-15 (16 PRs) and 2026-04-24 (3 PRs)</li>\n\t<li>PRs are blocked on branch protection (require at least 1 review approval)</li>\n\t<li>Azure DevOps CI is running on new PRs (zookeeper-docker #119, logstash #156, planning-backend #67)</li>\n</ul>\n\n\n<h3><a name=\"CriticalIssue%3Aseaweedfs%2356Stale\"></a>Critical Issue: seaweedfs #56 Stale</h3>\n<p>seaweedfs PR #56 bumps to ge-ubuntu-generic:4.21.0 which is <b>below the fix threshold 4.23.0</b>.<br/>\nThis PR does NOT fix CVE-2025-68121.<br/>\nAction taken: comment posted on PR flagging the issue and requesting update to 4.24.0.<br/>\nSeaweedfs: currently at 4.11.0 (Dockerfile) — needs bump to 4.24.0 on branch fix/<a href=\"https://jira.germanedge.com/browse/GE4-28924\" title=\"CVE-2025-68121: Fix TLS handshake bypass across base image stack (go-exporter + filebeat)\" class=\"issue-link\" data-issue-key=\"GE4-28924\">GE4-28924</a>-seaweedfs.</p>\n\n<h3><a name=\"ActionRequired\"></a>Action Required</h3>\n<ol>\n\t<li>Review and merge the 19 open PRs (all target ge-ubuntu-generic:4.24.0)</li>\n\t<li>Update seaweedfs #56 to target ge-ubuntu-generic:4.24.0 (currently targets 4.21.0 — insufficient)</li>\n\t<li>Priority merges (internet-facing/auth): vouch-proxy #222, nginx #135, keycloak #173, consul #159</li>\n</ol>\n\n\n<h3><a name=\"Progress%3A9%2F29reposfixed%2831%25%29\"></a>Progress: 9/29 repos fixed (31%)</h3>\n<p>Once all PRs are merged: 28/29 fixed (seaweedfs pending PR update)</p>",
+                    "<h3><a name=\"CVE202568121%E2%80%94ProgressUpdate%2820260424patrolrun%232%29\"></a>CVE-2025-68121 — Progress Update (2026-04-24 patrol run #2)</h3>\n\n<p><b>Status</b>: IN PROGRESS — cascade advancing</p>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Layer</th>\n<th class='confluenceTh'>Fixed</th>\n<th class='confluenceTh'>Total</th>\n<th class='confluenceTh'>Notes</th>\n</tr>\n<tr>\n<td class='confluenceTd'>Layer 0 (ge-ubuntu-generic 4.24.0)</td>\n<td class='confluenceTd'>1</td>\n<td class='confluenceTd'>1</td>\n<td class='confluenceTd'>Published 2026-04-23, consul 1.21.4 included</td>\n</tr>\n<tr>\n<td class='confluenceTd'>Layer 1 direct consumers</td>\n<td class='confluenceTd'>9</td>\n<td class='confluenceTd'>27</td>\n<td class='confluenceTd'>5 new merges since last patrol</td>\n</tr>\n<tr>\n<td class='confluenceTd'>Layer 1 tech layers (angular/node/python/delphi)</td>\n<td class='confluenceTd'>0</td>\n<td class='confluenceTd'>4</td>\n<td class='confluenceTd'>PRs open, not yet merged</td>\n</tr>\n<tr>\n<td class='confluenceTd'>Layer 2 (tech layer consumers)</td>\n<td class='confluenceTd'>0</td>\n<td class='confluenceTd'>16</td>\n<td class='confluenceTd'>Blocked on Layer 1 merges</td>\n</tr>\n<tr>\n<td class='confluenceTd'><b>Total</b></td>\n<td class='confluenceTd'><b>10</b></td>\n<td class='confluenceTd'><b>48</b></td>\n</tr>\n</tbody></table>\n</div>\n\n\n<p><b>New merges since last patrol (2026-04-24)</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>elasticsearch#126 (merged 07:06)</li>\n\t<li>kibana#141 (merged 07:05)</li>\n\t<li>kafdrop#125 (merged 10:16)</li>\n\t<li>postfix#120 (merged 02:44)</li>\n\t<li>pm-sapient#198 (merged 07:36)</li>\n\t<li>universal-sync-service#127 (merged 06:46)</li>\n\t<li>nsl-projectx#306 (merged 07:11)</li>\n\t<li>nsl-projectx-infraserv-wiesbaden#14 (merged 06:30)</li>\n\t<li>nsl-projectx-infraserv-wiesbaden-technik#23 (merged 06:30)</li>\n</ul>\n\n\n<p><b>Merge-ready PRs (action required)</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>planning-vac#104 and #105 (both clean — #104 is old wave, #105 is <a href=\"https://jira.germanedge.com/browse/GE4-29345\" title=\"CVE Triage: CVE-2026-27143 — go-exporter / consul / filebeat / vouch-proxy (ge-ubuntu-generic chain)\" class=\"issue-link\" data-issue-key=\"GE4-29345\">GE4-29345</a> wave; merge #105, close #104)</li>\n\t<li>edgeone-wiki#2186 and #2229 (both clean — #2186 is old wave; merge #2229, close #2186)</li>\n</ul>\n\n\n<p><b>Open PRs in progress (23 repos)</b>: consul#161, nginx#137, keycloak#176, kafka#111, zookeeper-docker#117, postgres-db#149, prometheus#156, grafana#156, logstash#155, vouch-proxy#222, sap-router#15, planning-backend#65, chromadb#15, ors-dfs-backend#438, prometheus-pushgateway#96, device-controller#64, third-party-licences-archive#100, ge-ubuntu-angular#153, ge-ubuntu-node#64, ge-ubuntu-python#108, ge-ubuntu-delphi#76, edgeone-wiki#2229, planning-vac#105</p>\n\n<p><b>Next step</b>: Merge tech layer PRs (ge-ubuntu-angular, ge-ubuntu-node, ge-ubuntu-python, ge-ubuntu-delphi) to unblock Layer 2 cascade.</p>\n\n<p><em>Updated by polaris.e1_cve_triage_patrol — agent 2/14.</em></p>",
+                    "<h3><a name=\"CVE202568121%E2%80%94CascadeActionsTaken%2820260424patrolrun%232%29\"></a>CVE-2025-68121 — Cascade Actions Taken (2026-04-24 patrol run #2)</h3>\n\n<p><b>PRs closed as superseded</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>planning-vac#104 (<a href=\"https://jira.germanedge.com/browse/GE4-28924\" title=\"CVE-2025-68121: Fix TLS handshake bypass across base image stack (go-exporter + filebeat)\" class=\"issue-link\" data-issue-key=\"GE4-28924\">GE4-28924</a> wave) closed — superseded by #105 (<a href=\"https://jira.germanedge.com/browse/GE4-29345\" title=\"CVE Triage: CVE-2026-27143 — go-exporter / consul / filebeat / vouch-proxy (ge-ubuntu-generic chain)\" class=\"issue-link\" data-issue-key=\"GE4-29345\">GE4-29345</a>)</li>\n\t<li>edgeone-wiki#2186 (<a href=\"https://jira.germanedge.com/browse/GE4-28924\" title=\"CVE-2025-68121: Fix TLS handshake bypass across base image stack (go-exporter + filebeat)\" class=\"issue-link\" data-issue-key=\"GE4-28924\">GE4-28924</a> wave) closed — superseded by #2229 (<a href=\"https://jira.germanedge.com/browse/GE4-29345\" title=\"CVE Triage: CVE-2026-27143 — go-exporter / consul / filebeat / vouch-proxy (ge-ubuntu-generic chain)\" class=\"issue-link\" data-issue-key=\"GE4-29345\">GE4-29345</a>)</li>\n</ul>\n\n\n<p><b>New PR opened</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>ge-ubuntu-node#65 — <a href=\"https://jira.germanedge.com/browse/GE4-28968\" title=\"CVE-2025-68121: Fix TLS handshake bypass in consul binary (ge-ubuntu-generic)\" class=\"issue-link\" data-issue-key=\"GE4-28968\">GE4-28968</a>: fix(security): bump ge-ubuntu-generic 4.22.0-&gt;4.24.0</li>\n</ul>\n\n\n<p><b>Layer 1 tech layer merge readiness</b> (action required from humans):</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>ge-ubuntu-angular#152 — ready to merge</li>\n\t<li>ge-ubuntu-node#65 — newly opened (CI pending)</li>\n\t<li>ge-ubuntu-python#106 — ready to review</li>\n\t<li>ge-ubuntu-delphi#74 — ready to review</li>\n</ul>\n\n\n<p><em>Until tech layers merge, Layer 2 (aap, device-controller-ui, pdp, pep, pm-printing,</em><br/>\n<em>websocket-dispatcher, mqtt-broker, node-red, upw-ui, consul-stager, etc.) cannot cascade.</em></p>",
+                    "<h3><a name=\"CVE202568121TriagePatrolUpdate%E2%80%9420260424\"></a>CVE-2025-68121 Triage Patrol Update — 2026-04-24</h3>\n\n<p><b>Status</b>: ADVANCED — cascade progressing, Layer 1 tech-image PRs open and awaiting merge</p>\n\n<h4><a name=\"Whatchangedsincelastpatrolrun\"></a>What changed since last patrol run</h4>\n\n<ul>\n\t<li><b>Root fix</b> (ge-ubuntu-generic#130): MERGED — consul 1.20.1→1.21.4 bumped into ge-ubuntu-generic 4.24.0 (published 2026-04-23).</li>\n\t<li><b>ge-ubuntu-generic</b> is now at <b>4.24.0</b> — artifact confirmed in Artifactory.</li>\n</ul>\n\n\n<h4><a name=\"Layer1techlayerPRs%284open%2Ctargeting4.24.0%29\"></a>Layer 1 tech-layer PRs (4 open, targeting 4.24.0)</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Repo</th>\n<th class='confluenceTh'>PR</th>\n<th class='confluenceTh'>Status</th>\n<th class='confluenceTh'>Issue</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-angular</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-angular/pull/152\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#152</a></td>\n<td class='confluenceTd'>open, mergeable (blocked — no review)</td>\n<td class='confluenceTd'>no conflicts</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-node</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-node/pull/65\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#65</a></td>\n<td class='confluenceTd'>open, mergeable (blocked — no review)</td>\n<td class='confluenceTd'>no conflicts</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-python</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-python/pull/106\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#106</a></td>\n<td class='confluenceTd'>open, mergeable (blocked — no review)</td>\n<td class='confluenceTd'>no conflicts</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-delphi</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-delphi/pull/74\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#74</a></td>\n<td class='confluenceTd'>open, <b>DIRTY</b> — merge conflict</td>\n<td class='confluenceTd'>needs rebase (develop at 4.22.0, PR branch has conflict)</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h4><a name=\"vouchproxy%E2%80%94CRITICALbuilderCVEnotyetfixed\"></a>vouch-proxy — CRITICAL builder CVE not yet fixed</h4>\n\n<ul>\n\t<li>vouch-proxy develop still uses <b>golang:1.25.3</b> (contains CVE-2025-68121 in Go crypto/tls).</li>\n\t<li>PR#222 only bumps ge-ubuntu-generic, does NOT fix the golang builder.</li>\n\t<li>PR#224 is the correct fix: golang:1.25.3→1.25.9 + ge-ubuntu-generic:4.24.0.</li>\n\t<li><b>Recommendation</b>: Close PR#222, merge PR#224. Both cannot merge together as #224 supersedes #222.</li>\n</ul>\n\n\n<h4><a name=\"ConsumerPRs%28Layer2%29\"></a>Consumer PRs (Layer 2)</h4>\n\n<ul>\n\t<li>28 open consumer PRs tagged <a href=\"https://jira.germanedge.com/browse/GE4-28968\" title=\"CVE-2025-68121: Fix TLS handshake bypass in consul binary (ge-ubuntu-generic)\" class=\"issue-link\" data-issue-key=\"GE4-28968\">GE4-28968</a> — awaiting Layer 1 tech-image merges.</li>\n\t<li>ge-ubuntu-delphi#74 merge conflict must be resolved first.</li>\n</ul>\n\n\n<h4><a name=\"Immediateactionsrequired\"></a>Immediate actions required</h4>\n\n<ol>\n\t<li><b>Close</b> vouch-proxy#222 (superseded by #224)</li>\n\t<li><b>Rebase</b> ge-ubuntu-delphi#74 to resolve merge conflict</li>\n\t<li><b>Review and merge</b> ge-ubuntu-angular#152, ge-ubuntu-node#65, ge-ubuntu-python#106 (all conflict-free)</li>\n\t<li>After tech-layer merges: cascade to Layer 2 consumer PRs</li>\n</ol>\n\n\n<p><em>Updated by polaris.e1_cve_triage-patrol agent 2/14 — 2026-04-24</em></p>",
+                    "<h3><a name=\"CVE202568121%E2%80%94Patrolupdate20260425\"></a>CVE-2025-68121 — Patrol update 2026-04-25</h3>\n\n<p>New merges since last patrol:</p>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Repo</th>\n<th class='confluenceTh'>PR</th>\n<th class='confluenceTh'>Merged</th>\n</tr>\n<tr>\n<td class='confluenceTd'>kafdrop</td>\n<td class='confluenceTd'>#125</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n<tr>\n<td class='confluenceTd'>postfix</td>\n<td class='confluenceTd'>#120</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n<tr>\n<td class='confluenceTd'>elasticsearch</td>\n<td class='confluenceTd'>#126</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n<tr>\n<td class='confluenceTd'>kibana</td>\n<td class='confluenceTd'>#141</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n<tr>\n<td class='confluenceTd'>pm-sapient</td>\n<td class='confluenceTd'>#198</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n<tr>\n<td class='confluenceTd'>nsl-projectx</td>\n<td class='confluenceTd'>#306</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<p>6 additional service consumers fixed. Updated count: 38/117.</p>\n\n<p>ge-ubuntu-generic#130 (consul 1.20.1→1.21.4) merged 2026-04-23 — root fix confirmed in 4.24.0.</p>\n\n<p>Tech-layer PRs awaiting review: ge-ubuntu-angular#152, ge-ubuntu-node#65, ge-ubuntu-python#106 — all mergeable, blocked on reviews.</p>\n\n<p>ge-ubuntu-delphi#74 — still dirty (merge conflict). Rebase instruction was posted 2026-04-24T22:33Z (less than 24h ago). No duplicate comment posted.</p>",
+                    "<h3><a name=\"CVE202568121%E2%80%94ThreetechlayersfixedviaDependabot%2820260425%29\"></a>CVE-2025-68121 — Three tech layers fixed via Dependabot (2026-04-25)</h3>\n\n<p><b>New merges confirmed today:</b></p>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Repo</th>\n<th class='confluenceTh'>Superseding PR</th>\n<th class='confluenceTh'>Merged</th>\n<th class='confluenceTh'>New pin</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-angular</td>\n<td class='confluenceTd'>#153 (Dependabot)</td>\n<td class='confluenceTd'>2026-04-25</td>\n<td class='confluenceTd'>ge-ubuntu-generic 4.24.0</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-node</td>\n<td class='confluenceTd'>#64 (Dependabot)</td>\n<td class='confluenceTd'>2026-04-25</td>\n<td class='confluenceTd'>ge-ubuntu-generic 4.24.0</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-python</td>\n<td class='confluenceTd'>#108 (Dependabot)</td>\n<td class='confluenceTd'>2026-04-25</td>\n<td class='confluenceTd'>ge-ubuntu-generic 4.24.0</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<p><b>CVE PRs closed as superseded:</b></p>\n<ul>\n\t<li>ge-ubuntu-angular#152 — closed (superseded by Dependabot #153)</li>\n\t<li>ge-ubuntu-node#65 — closed (superseded by Dependabot #64)</li>\n\t<li>ge-ubuntu-python#106 — closed (superseded by Dependabot #108)</li>\n</ul>\n\n\n<p><b>Remaining dirty PR:</b></p>\n<ul>\n\t<li>ge-ubuntu-delphi#74 — still dirty (rebase comment last posted 2026-04-24T22:33Z, within 24h — no new comment posted)</li>\n</ul>\n\n\n<p><b>Overall fix status:</b> 44→47/117 fixed (3 new merges this patrol). ge-ubuntu-delphi#74 remains the last open tech-layer CVE PR.</p>\n\n<p>Validated 2026-04-25 via automated CVE triage patrol (Agent 3/38).</p>",
+                    "<h3><a name=\"CVE202568121%E2%80%94PatrolUpdate20260425\"></a>CVE-2025-68121 — Patrol Update 2026-04-25</h3>\n\n<h4><a name=\"Progressthispatrolround%3A\"></a>Progress this patrol round:</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Action</th>\n<th class='confluenceTh'>Detail</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-generic</td>\n<td class='confluenceTd'>Already at 4.24.0 on develop (fix threshold met)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-angular</td>\n<td class='confluenceTd'>Bumped to 4.24.0 this patrol (now at v9.26.0 on develop)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-node</td>\n<td class='confluenceTd'>Bumped to 4.24.0 this patrol (now at v2.1.0 on develop)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-python</td>\n<td class='confluenceTd'>Bumped to 4.24.0 this patrol (now at v4.15.0 on develop)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-delphi</td>\n<td class='confluenceTd'>PR #74 (dirty/merge conflict) superseded by Dependabot PR #76 — #74 closed, #76 is clean and mergeable</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h4><a name=\"Blockingitem%3A\"></a>Blocking item:</h4>\n\n<p><b>ge-ubuntu-delphi PR #76</b> requires human merge to close out the tech-layer cascade. Layer 2 consumers (qda-linux-worker, qda-linux-worker-oracle) cannot be addressed until ge-ubuntu-delphi artifact is published.</p>\n\n<h4><a name=\"Fixedcount%3A50%2F117\"></a>Fixed count: 50/117</h4>\n\n<p>Layer 2 consumers of angular/node/python are not yet bumped — awaiting updated tech layer artifacts.</p>\n\n<p>Validated 2026-04-25 by automated CVE triage patrol (agent #9/78).</p>",
+                    "<h3><a name=\"PatrolAgentProgressUpdate%2820260425%29\"></a>Patrol Agent Progress Update (2026-04-25)</h3>\n\n<p>CVE triage progress check for patrol run #26/125.</p>\n\n<h4><a name=\"Rootfixstatus%3ACOMPLETE\"></a>Root fix status: COMPLETE</h4>\n<ul class=\"alternate\" type=\"square\">\n\t<li>go-exporter 0.5.0 -&gt; 0.7.0 (Go 1.25.0 -&gt; 1.25.8, fix for CVE-2025-68121) merged 2026-04-14</li>\n\t<li>ge-ubuntu 3.10.0 -&gt; 3.11.0 (embeds go-exporter 0.7.0) merged 2026-04-14 via PR#59</li>\n\t<li>ge-ubuntu-java 3.10.0 -&gt; 3.11.0 (CVE-2025-68121 fix) merged 2026-04-15 via PR#84</li>\n\t<li>ge-ubuntu-generic 4.20.0 -&gt; 4.21.0 (embeds ge-ubuntu 3.11.0) merged 2026-04-15 via PR#128</li>\n</ul>\n\n\n<h4><a name=\"Fixthresholds\"></a>Fix thresholds</h4>\n<ul class=\"alternate\" type=\"square\">\n\t<li>ge-ubuntu &gt;= 3.11.0</li>\n\t<li>ge-ubuntu-java &gt;= 4.15.0</li>\n\t<li>ge-ubuntu-generic &gt;= 4.21.0</li>\n\t<li>ge-ubuntu-angular &gt;= 9.23.0 (fixed)</li>\n\t<li>ge-ubuntu-node &gt;= 1.20.0 (fixed)</li>\n\t<li>ge-ubuntu-python &gt;= 4.14.0 (fixed)</li>\n</ul>\n\n\n<h4><a name=\"Phase2cSupersessioncheckresults%2861linkedAUTOSCANtickets%29\"></a>Phase 2c Supersession check results (61 linked AUTOSCAN tickets)</h4>\n\n<p><b>ALREADY_FIXED_CLEAN</b> (no action): ge-ubuntu, ge-ubuntu-generic, ge-ubuntu-java, ge-ubuntu-angular, ge-ubuntu-node, ge-ubuntu-python, grafana, qda-quality-data-collector (8 base/service layers)</p>\n\n<p><b>IN_PROGRESS - open PRs (15 PRs total)</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>ge-ubuntu-generic direct consumers: alertmanager#110, device-controller#64, isa95-designer#91, kafka#111, nginx#137, prometheus-pushgateway#96, session-directory#106, specification-editor#98</li>\n\t<li>ge-ubuntu-delphi: PR#76 (ge-ubuntu-generic 4.22.0-&gt;4.24.0)</li>\n\t<li>ge-ubuntu-java consumers: file-converter#86, qda-files-handler#23, cause-effect-analysis#87, file-repository#150, qda-audit-trail#84</li>\n\t<li>vouch-proxy: PR#224 (ge-ubuntu-generic 4.13.0-&gt;4.22.0) - sufficient (&gt;=4.21.0)</li>\n</ul>\n\n\n<p><b>STALE/INSUFFICIENT dependabot PRs (targeting 4.14.0, fix requires &gt;= 4.15.0)</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>qda-qualification-test PR#181 (java 4.6.0-&gt;4.14.0) INSUFFICIENT</li>\n\t<li>qda-process-diagram PR#91 (java 4.6.0-&gt;4.14.0) INSUFFICIENT</li>\n</ul>\n\n\n<p><b>NEEDS_PR (no CVE PR found)</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>ag-keycloak (ge-ubuntu-java 4.13.0 -&gt; needs &gt;= 4.15.0)</li>\n\t<li>datasource-api-service (ge-ubuntu-java 4.13.0 -&gt; needs &gt;= 4.15.0)</li>\n</ul>\n\n\n<p>GitHub API rate limit exhausted during this run. PRs for ag-keycloak, datasource-api-service, qda-qualification-test (superseding #181), and qda-process-diagram (superseding #91) will be opened when rate limit resets (expected ~00:00 UTC).</p>",
+                    "<h3><a name=\"Actionrequired%28PENDINGratelimit%29\"></a>Action required (PENDING - rate limit)</h3>\n\n<p>The following 4 PRs could not be opened due to GitHub API rate limit exhaustion during this patrol run. Rate limit resets at 2026-04-25 23:54 UTC.</p>\n\n<p><b>PRs to open (ge-ubuntu-java 4.13.0 -&gt; 4.17.0, branch fix/<a href=\"https://jira.germanedge.com/browse/GE4-28968\" title=\"CVE-2025-68121: Fix TLS handshake bypass in consul binary (ge-ubuntu-generic)\" class=\"issue-link\" data-issue-key=\"GE4-28968\">GE4-28968</a>-ge-ubuntu-java-4.17.0):</b><br/>\n1. Germanedge/ag-keycloak - no existing CVE PR, needs bump from java 4.13.0 -&gt; 4.17.0<br/>\n2. Germanedge/datasource-api-service - no existing CVE PR, needs bump from java 4.13.0 -&gt; 4.17.0</p>\n\n<p><b>PRs to supersede (dependabot bumped to 4.14.0 but fix requires &gt;= 4.15.0):</b><br/>\n3. Germanedge/qda-qualification-test - PR#181 targets java 4.6.0-&gt;4.14.0 (INSUFFICIENT). New PR needed for 4.6.0-&gt;4.17.0.<br/>\n4. Germanedge/qda-process-diagram - PR#91 targets java 4.6.0-&gt;4.14.0 (INSUFFICIENT). New PR needed for 4.6.0-&gt;4.17.0.</p>\n\n<p>These will be addressed on next patrol run or manual follow-up. All other 57 services are either FIXED or have IN_PROGRESS CVE PRs.</p>",
+                    "<h3><a name=\"CVE202568121%E2%80%94PatrolAgentProgressUpdate%2820260427%2Cpatrolrun%235%2F30%29\"></a>CVE-2025-68121 — Patrol Agent Progress Update (2026-04-27, patrol run #5/30)</h3>\n\n<h4><a name=\"RootFixStatus%3ACOMPLETE\"></a>Root Fix Status: COMPLETE</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Component</th>\n<th class='confluenceTh'>Change</th>\n<th class='confluenceTh'>PR</th>\n<th class='confluenceTh'>Merged</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-generic</td>\n<td class='confluenceTd'>consul 1.21.4 → 1.22.6 (Go 1.23.12 → 1.25.8)</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-generic/pull/130\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#130</a></td>\n<td class='confluenceTd'>2026-04-23</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<p>ge-ubuntu-generic is at <b>4.24.0</b> on develop. Fix threshold: &gt;= 4.23.0.</p>\n\n<h4><a name=\"TechLayerStatus\"></a>Tech Layer Status</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Layer</th>\n<th class='confluenceTh'>PR</th>\n<th class='confluenceTh'>Status</th>\n<th class='confluenceTh'>Notes</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-angular</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-angular/pull/153\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#153 (Dependabot)</a></td>\n<td class='confluenceTd'>MERGED 2026-04-25</td>\n<td class='confluenceTd'>Now at v9.26.0</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-node</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-node/pull/64\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#64 (Dependabot)</a></td>\n<td class='confluenceTd'>MERGED 2026-04-25</td>\n<td class='confluenceTd'>Now at v2.1.0</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-python</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-python/pull/108\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#108 (Dependabot)</a></td>\n<td class='confluenceTd'>MERGED 2026-04-25</td>\n<td class='confluenceTd'>Now at v4.15.0</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-delphi</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-delphi/pull/76\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#76 (Dependabot)</a></td>\n<td class='confluenceTd'><b>CI FAILURE — BLOCKER</b></td>\n<td class='confluenceTd'>Docker build fails with ge-ubuntu-generic:4.24.0; investigate Azure DevOps build #280506</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h4><a name=\"ActiveBlockers\"></a>Active Blockers</h4>\n\n<p><b>BLOCKER 1 — ge-ubuntu-delphi PR#76 CI failure</b><br/>\nAzure DevOps build #280506 fails at 'Build and save docker image' step when bumping to ge-ubuntu-generic:4.24.0. This blocks qda-linux-worker and qda-linux-worker-oracle cascade. Requires human investigation to determine if this is a build toolchain issue with ge-ubuntu:3.13.0 (go-exporter 0.8.0 / Go 1.26).</p>\n\n<p><b>BLOCKER 2 — kafka PR#111 CI failure</b><br/>\nkafka#111 (ge-ubuntu-generic 4.15.0→4.24.0) CI fails. Likely conflicts with competing kafka upgrade PRs (#113, #114). Recommend: close #109 and #111 and rebase on #114 (kafka 3.9.2) which also needs the ge-ubuntu-generic bump.</p>\n\n<p><b>BLOCKER 3 — ge-ubuntu-java consumer PRs not opened</b><br/>\n4 PRs blocked from prior patrol rate limit exhaustion. PRs needed for:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>Germanedge/ag-keycloak (java 4.13.0 → 4.17.0)</li>\n\t<li>Germanedge/datasource-api-service (java 4.13.0 → 4.17.0)</li>\n\t<li>Germanedge/qda-qualification-test (java 4.14.0 → 4.17.0, supersedes existing insufficient PR)</li>\n\t<li>Germanedge/qda-process-diagram (java 4.14.0 → 4.17.0, supersedes existing insufficient PR)</li>\n</ul>\n\n\n<h4><a name=\"ConsumerCascadeProgress\"></a>Consumer Cascade Progress</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Status</th>\n<th class='confluenceTh'>Count</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ALREADY_FIXED_CLEAN (develop &gt;= 4.24.0)</td>\n<td class='confluenceTd'>~15</td>\n</tr>\n<tr>\n<td class='confluenceTd'>IN_PROGRESS (open PR, CI passing, awaiting review)</td>\n<td class='confluenceTd'>~20</td>\n</tr>\n<tr>\n<td class='confluenceTd'>IN_PROGRESS (open PR, CI failing — needs investigation)</td>\n<td class='confluenceTd'>2 (ge-ubuntu-delphi, kafka)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>NEEDS_PR (ge-ubuntu-java consumers not yet opened)</td>\n<td class='confluenceTd'>4</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h4><a name=\"SiblingTicketCoordination\"></a>Sibling Ticket Coordination</h4>\n\n<p>See sibling tickets for parallel CVE-2025-68121 tracks: <a href=\"https://jira.germanedge.com/browse/GE4-30358\" title=\"CVE Triage: CVE-2025-68121 — go-exporter / upw (compiled Go binary)\" class=\"issue-link\" data-issue-key=\"GE4-30358\">GE4-30358</a> (go-exporter/upw), <a href=\"https://jira.germanedge.com/browse/GE4-31175\" title=\"CVE Triage: CVE-2025-68121 — ge-ubuntu-generic (Go crypto/tls in compiled binaries)\" class=\"issue-link\" data-issue-key=\"GE4-31175\">GE4-31175</a> (ge-ubuntu-generic compiled binaries), <a href=\"https://jira.germanedge.com/browse/GE4-32175\" title=\"CVE Triage: CVE-2025-68121 — golang/crypto/tls\" class=\"issue-link\" data-issue-key=\"GE4-32175\">GE4-32175</a> (golang/crypto/tls), <a href=\"https://jira.germanedge.com/browse/GE4-32184\" title=\"CVE Triage: CVE-2025-68121 — golang/go crypto/tls\" class=\"issue-link\" data-issue-key=\"GE4-32184\">GE4-32184</a> (vouch-proxy), <a href=\"https://jira.germanedge.com/browse/GE4-32367\" title=\"CVE Triage: CVE-2025-68121 — crypto/tls (Go stdlib)\" class=\"issue-link\" data-issue-key=\"GE4-32367\">GE4-32367</a> (vouch-proxy PR#232 CI failure — PR#224 at golang 1.25.9 CI PASSING, recommend using #224 instead).</p>\n\n<h4><a name=\"NextSteps%28actionrequiredfromhumans%29\"></a>Next Steps (action required from humans)</h4>\n\n<ol>\n\t<li>Investigate ge-ubuntu-delphi#76 CI failure (Azure DevOps build #280506)</li>\n\t<li>Resolve kafka PR proliferation: consolidate #109/#111 into #114 with ge-ubuntu-generic bump</li>\n\t<li>Open PRs for 4 ge-ubuntu-java consumers listed above</li>\n\t<li>Review and merge the 20+ open PRs with CI passing</li>\n</ol>\n\n\n<p>Patrol run #5/30 — 2026-04-27</p>"
+                ]
+            }
         ]
-      },
-      {
-        "sha": "a2cb84babd5cdc9d87934ae2243c494780a25331",
-        "iso_timestamp": "2026-04-24T20:05:19Z",
-        "summary": "GE4-28968: fix(security): bump ge-ubuntu-generic 4.18.0\u21924.24.0 (CVE-2025-68121)",
-        "jira_refs": [
-          "GE4-28968"
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.26.0",
+        "iso_timestamp": "2026-02-20T08:12:00Z",
+        "commits": [
+            {
+                "sha": "dd765e90692f8259a91c18c8e5fd04657a7a9469",
+                "iso_timestamp": "2026-02-20T08:08:48Z",
+                "summary": "Merge pull request #112 from Germanedge/feature/bump-zookeeper-to-3.8.6"
+            },
+            {
+                "sha": "bc072a205320c52951fdc64c6b13013dc2a1ea83",
+                "iso_timestamp": "2026-02-20T07:47:50Z",
+                "summary": "Update Zookeeper version to 3.8.6"
+            },
+            {
+                "sha": "ff87257d50d64548133276fc29251ce650d9500f",
+                "iso_timestamp": "2026-02-20T07:40:42Z",
+                "summary": "Merge pull request #111 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-4.18.0"
+            },
+            {
+                "sha": "ac9a7786deffc589c7c245ec5f5d7391b051b6eb",
+                "iso_timestamp": "2026-02-10T02:41:17Z",
+                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 4.12.2 to 4.18.0"
+            }
+        ],
+        "jira_issues": []
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.24.1",
+        "iso_timestamp": "2025-12-16T09:02:00Z",
+        "commits": [
+            {
+                "sha": "a8ab25bcf73002de774a81f5f4925265c2a8c0f1",
+                "iso_timestamp": "2025-12-16T08:56:30Z",
+                "summary": "[+semver: patch] GE4-25502: Strict ISO8601 timestamp format (#106)",
+                "jira_refs": [
+                    "GE4-25502"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-25502",
+                "title": "Build and deploy generic-based apps with Vector logging",
+                "description": "<p>The goal of this ticket is to track deployments of apps based on generic image with Vector enabled. In order for the deployment to be considered done, in the scope of this ticket, the app should:</p>\n<ul>\n\t<li>be based on the base image with Vector agent included</li>\n\t<li>be configured to log into a known-in-Vector (file) location</li>\n\t<li>be configured to produce logs in a format understandable and parsable by Vector transforms</li>\n</ul>\n\n\n<p>and the deployment should:</p>\n<ul>\n\t<li>have Vector agent enabled <span class=\"error\">&#91;define DISABLE_FILEBEAT env variable defined as true and DISABLE_VECTOR as false&#93;</span></li>\n</ul>\n\n\n<p> </p>\n\n<p>Please refer to the \"Sub-Tasks\" section for a list of relevant apps and overall progress indication.</p>\n\n<p>Some apps will need to be redeployed due to \"minimal config\" rework, so there might be cases where an old, seemingly duplicate, ticket existed such as <a href=\"https://jira.germanedge.com/browse/GE4-24967\" title=\"Build and deploy Keycloak with Vector logging\" class=\"issue-link\" data-issue-key=\"GE4-24967\"><del>GE4-24967</del></a>. </p>"
+            }
         ]
-      }
-    ],
-    "jira_issues": [
-      {
-        "key": "GE4-28968",
-        "title": "CVE-2025-68121: Fix TLS handshake bypass in consul binary (ge-ubuntu-generic)",
-        "description": "<h2><a name=\"TriageEpic%3ACVE202568121\"></a>Triage Epic: CVE-2025-68121</h2>\n\n<p><b>CVE</b>: CVE-2025-68121 | <b>CVSS</b>: 10.0 CRITICAL<br/>\n<b>Vulnerability</b>: TLS resumed handshake bypass in Go stdlib (crypto/tls)<br/>\n<b>Fixed in</b>: Go &gt;= 1.24.13 or &gt;= 1.25.7<br/>\n<b>NVD</b>: <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2025-68121\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">https://nvd.nist.gov/vuln/detail/CVE-2025-68121</a><br/>\n<b>SLA deadline</b>: 2026-04-21<br/>\n<b>Status</b>: HUMAN_REVIEW_REQUIRED (CVSS \u2265 9.0 gate)</p>\n\n<h3><a name=\"VulnerableComponent\"></a>Vulnerable Component</h3>\n\n<p>consul 1.21.4 in <b>ge-ubuntu-generic</b> uses Go 1.23.12 (Aug 2025), which predates the Feb-2026 fix.<br/>\nconsul 1.22.6 uses Go 1.25.8 and contains the fix.</p>\n\n<h3><a name=\"FixProgress\"></a>Fix Progress</h3>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Step</th>\n<th class='confluenceTh'>Repo</th>\n<th class='confluenceTh'>Change</th>\n<th class='confluenceTh'>PR</th>\n<th class='confluenceTh'>Status</th>\n</tr>\n<tr>\n<td class='confluenceTd'>1</td>\n<td class='confluenceTd'>ge-ubuntu-generic</td>\n<td class='confluenceTd'>consul_version 1.21.4 \u2192 1.22.6 in Dockerfile</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-generic/pull/130\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#130</a></td>\n<td class='confluenceTd'>OPEN \u2014 awaiting review</td>\n</tr>\n<tr>\n<td class='confluenceTd'>2</td>\n<td class='confluenceTd'>ge-ubuntu-generic consumers</td>\n<td class='confluenceTd'>cascade rebuild against ge-ubuntu-generic:4.22.0</td>\n<td class='confluenceTd'>pending</td>\n<td class='confluenceTd'>NOT STARTED</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h3><a name=\"BlastRadius\"></a>Blast Radius</h3>\n\n<p>43 services: all ge-ubuntu-generic consumers + transitive (ge-ubuntu-angular, ge-ubuntu-python, ge-ubuntu-node).</p>\n\n<h3><a name=\"BlockedComponents\"></a>Blocked Components</h3>\n\n<ul>\n\t<li><b>nginx-prometheus-exporter</b> \u2014 no upstream release with fixed Go. Monitoring.</li>\n</ul>\n\n\n<h3><a name=\"ClosingCriteria\"></a>Closing Criteria</h3>\n\n<p>All linked AUTOSCAN tickets must represent services with a post-fix published artifact.</p>",
-        "comments": [
-          "<p>Root fix PR opened: <a href=\"https://github.com/Germanedge/ge-ubuntu-generic/pull/130\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">https://github.com/Germanedge/ge-ubuntu-generic/pull/130</a></p>\n\n<p>Change: consul_version 1.21.4 \u2192 1.22.6 in ge-ubuntu-generic/Dockerfile<br/>\nBranch: fix/CVE-2025-68121-consul-upgrade</p>\n\n<p>Next: merge PR \u2192 cascade rebuild all 43 consumers.</p>",
-          "<h3><a name=\"CVE202568121CascadeProgress%E2%80%94edgeone.cvetriagepatrolrun%2820260424%29\"></a>CVE-2025-68121 Cascade Progress \u2014 edgeone.cve-triage-patrol run (2026-04-24)</h3>\n\n<p><b>Root PR status</b>: <a href=\"https://github.com/Germanedge/ge-ubuntu-generic/pull/130\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#130</a> \u2705 MERGED (2026-04-23)<br/>\n<b>ge-ubuntu-generic version with fix</b>: 4.23.0+ (consul 1.22.6 / Go 1.25.8)<br/>\n<b>Current latest</b>: 4.24.0</p>\n\n<h4><a name=\"BlastRadius%3A28directconsumersofgeubuntugeneric\"></a>Blast Radius: 28 direct consumers of ge-ubuntu-generic</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Status</th>\n<th class='confluenceTh'>Count</th>\n<th class='confluenceTh'>Details</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ALREADY_FIXED_CLEAN</td>\n<td class='confluenceTd'>9</td>\n<td class='confluenceTd'>elasticsearch (4.24.0), kafdrop (4.24.0), kibana (4.24.0), nsl-projectx (4.24.0), nsl-projectx-infraserv-wiesbaden (4.24.0), nsl-projectx-infraserv-wiesbaden-technik (4.24.0), pm-sapient (4.24.0), postfix (4.24.0), universal-sync-service (4.24.0)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>IN_PROGRESS (updated)</td>\n<td class='confluenceTd'>16</td>\n<td class='confluenceTd'>PRs updated from 4.21.0 \u2192 4.24.0: chromadb #14, consul #159, device-controller #62, edgeone-wiki #2186, grafana #153, kafka #109, keycloak #173, nginx #135, ors-dfs-backend #437, planning-vac #104, postgres-db #146, prometheus #152, prometheus-pushgateway #94, sap-router #13, third-party-licences-archive #97, vouch-proxy #222</td>\n</tr>\n<tr>\n<td class='confluenceTd'>NEEDS_PR (new PRs opened)</td>\n<td class='confluenceTd'>3</td>\n<td class='confluenceTd'>logstash <a href=\"https://github.com/Germanedge/logstash/pull/156\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#156</a>, planning-backend <a href=\"https://github.com/Germanedge/planning-backend/pull/67\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#67</a>, zookeeper-docker <a href=\"https://github.com/Germanedge/zookeeper-docker/pull/119\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#119</a></td>\n</tr>\n</tbody></table>\n</div>\n\n\n<p><b>Total open PRs</b>: 19 awaiting CI + review merge<br/>\n<b>Patrol action</b>: Updated 16 stale PRs (had targeted 4.21.0 which predates fix), opened 3 new PRs.<br/>\n<b>Next</b>: All 19 PRs need CI to pass and be reviewed/merged. Once all merged, ticket can be closed.</p>\n\n<p><em>Updated automatically by `edgeone.cve-triage-patrol` \u2014 2026-04-24</em></p>",
-          "<h2><a name=\"CVE202568121ProgressCheck%E2%80%9420260424%28Agent1of21%2CGE428968%29\"></a>CVE-2025-68121 Progress Check \u2014 2026-04-24 (Agent 1 of 21, <a href=\"https://jira.germanedge.com/browse/GE4-28968\" title=\"CVE-2025-68121: Fix TLS handshake bypass in consul binary (ge-ubuntu-generic)\" class=\"issue-link\" data-issue-key=\"GE4-28968\">GE4-28968</a>)</h2>\n\n<h3><a name=\"DataSource\"></a>Data Source</h3>\n<p>Live service.json registry (stack.json via GitHub API, 62 repos, 2026-04-24)</p>\n\n<h3><a name=\"FixThreshold\"></a>Fix Threshold</h3>\n<p>ge-ubuntu-generic &gt;= 4.23.0 (ships consul 1.22.6 / Go 1.25.8 which fixes the CVE)<br/>\nCurrent target version: 4.24.0 (develop HEAD)</p>\n\n<h3><a name=\"ConsumerStatus%2829totalgeubuntugenericconsumers%29\"></a>Consumer Status (29 total ge-ubuntu-generic consumers)</h3>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Category</th>\n<th class='confluenceTh'>Count</th>\n<th class='confluenceTh'>Repos</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ALREADY_FIXED_CLEAN</td>\n<td class='confluenceTd'>9</td>\n<td class='confluenceTd'>elasticsearch, kafdrop, kibana, nsl-projectx, nsl-projectx-infraserv-wiesbaden, nsl-projectx-infraserv-wiesbaden-technik, pm-sapient, postfix, universal-sync-service</td>\n</tr>\n<tr>\n<td class='confluenceTd'>IN_PROGRESS (open PR to 4.24.0)</td>\n<td class='confluenceTd'>19</td>\n<td class='confluenceTd'>chromadb #14, consul #159, device-controller #62, edgeone-wiki #2186, grafana #153, kafka #109, keycloak #173, logstash #156, nginx #135, ors-dfs-backend #437, planning-backend #67, planning-vac #104, postgres-db #146, prometheus #152, prometheus-pushgateway #94, sap-router #13, third-party-licences-archive #97, vouch-proxy #222, zookeeper-docker #119</td>\n</tr>\n<tr>\n<td class='confluenceTd'>STALE_PR_INSUFFICIENT</td>\n<td class='confluenceTd'>1</td>\n<td class='confluenceTd'>seaweedfs #56 (targets 4.21.0 \u2014 below fix threshold 4.23.0)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>NEEDS_PR</td>\n<td class='confluenceTd'>0</td>\n<td class='confluenceTd'>(all repos covered)</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h3><a name=\"PRMergeStatus\"></a>PR Merge Status</h3>\n<ul>\n\t<li>0 of 19 valid PRs have been merged to develop yet</li>\n\t<li>All 19 PRs in IN_PROGRESS state opened 2026-04-15 (16 PRs) and 2026-04-24 (3 PRs)</li>\n\t<li>PRs are blocked on branch protection (require at least 1 review approval)</li>\n\t<li>Azure DevOps CI is running on new PRs (zookeeper-docker #119, logstash #156, planning-backend #67)</li>\n</ul>\n\n\n<h3><a name=\"CriticalIssue%3Aseaweedfs%2356Stale\"></a>Critical Issue: seaweedfs #56 Stale</h3>\n<p>seaweedfs PR #56 bumps to ge-ubuntu-generic:4.21.0 which is <b>below the fix threshold 4.23.0</b>.<br/>\nThis PR does NOT fix CVE-2025-68121.<br/>\nAction taken: comment posted on PR flagging the issue and requesting update to 4.24.0.<br/>\nSeaweedfs: currently at 4.11.0 (Dockerfile) \u2014 needs bump to 4.24.0 on branch fix/<a href=\"https://jira.germanedge.com/browse/GE4-28924\" title=\"CVE-2025-68121: Fix TLS handshake bypass across base image stack (go-exporter + filebeat)\" class=\"issue-link\" data-issue-key=\"GE4-28924\">GE4-28924</a>-seaweedfs.</p>\n\n<h3><a name=\"ActionRequired\"></a>Action Required</h3>\n<ol>\n\t<li>Review and merge the 19 open PRs (all target ge-ubuntu-generic:4.24.0)</li>\n\t<li>Update seaweedfs #56 to target ge-ubuntu-generic:4.24.0 (currently targets 4.21.0 \u2014 insufficient)</li>\n\t<li>Priority merges (internet-facing/auth): vouch-proxy #222, nginx #135, keycloak #173, consul #159</li>\n</ol>\n\n\n<h3><a name=\"Progress%3A9%2F29reposfixed%2831%25%29\"></a>Progress: 9/29 repos fixed (31%)</h3>\n<p>Once all PRs are merged: 28/29 fixed (seaweedfs pending PR update)</p>",
-          "<h3><a name=\"CVE202568121%E2%80%94ProgressUpdate%2820260424patrolrun%232%29\"></a>CVE-2025-68121 \u2014 Progress Update (2026-04-24 patrol run #2)</h3>\n\n<p><b>Status</b>: IN PROGRESS \u2014 cascade advancing</p>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Layer</th>\n<th class='confluenceTh'>Fixed</th>\n<th class='confluenceTh'>Total</th>\n<th class='confluenceTh'>Notes</th>\n</tr>\n<tr>\n<td class='confluenceTd'>Layer 0 (ge-ubuntu-generic 4.24.0)</td>\n<td class='confluenceTd'>1</td>\n<td class='confluenceTd'>1</td>\n<td class='confluenceTd'>Published 2026-04-23, consul 1.21.4 included</td>\n</tr>\n<tr>\n<td class='confluenceTd'>Layer 1 direct consumers</td>\n<td class='confluenceTd'>9</td>\n<td class='confluenceTd'>27</td>\n<td class='confluenceTd'>5 new merges since last patrol</td>\n</tr>\n<tr>\n<td class='confluenceTd'>Layer 1 tech layers (angular/node/python/delphi)</td>\n<td class='confluenceTd'>0</td>\n<td class='confluenceTd'>4</td>\n<td class='confluenceTd'>PRs open, not yet merged</td>\n</tr>\n<tr>\n<td class='confluenceTd'>Layer 2 (tech layer consumers)</td>\n<td class='confluenceTd'>0</td>\n<td class='confluenceTd'>16</td>\n<td class='confluenceTd'>Blocked on Layer 1 merges</td>\n</tr>\n<tr>\n<td class='confluenceTd'><b>Total</b></td>\n<td class='confluenceTd'><b>10</b></td>\n<td class='confluenceTd'><b>48</b></td>\n</tr>\n</tbody></table>\n</div>\n\n\n<p><b>New merges since last patrol (2026-04-24)</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>elasticsearch#126 (merged 07:06)</li>\n\t<li>kibana#141 (merged 07:05)</li>\n\t<li>kafdrop#125 (merged 10:16)</li>\n\t<li>postfix#120 (merged 02:44)</li>\n\t<li>pm-sapient#198 (merged 07:36)</li>\n\t<li>universal-sync-service#127 (merged 06:46)</li>\n\t<li>nsl-projectx#306 (merged 07:11)</li>\n\t<li>nsl-projectx-infraserv-wiesbaden#14 (merged 06:30)</li>\n\t<li>nsl-projectx-infraserv-wiesbaden-technik#23 (merged 06:30)</li>\n</ul>\n\n\n<p><b>Merge-ready PRs (action required)</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>planning-vac#104 and #105 (both clean \u2014 #104 is old wave, #105 is <a href=\"https://jira.germanedge.com/browse/GE4-29345\" title=\"CVE Triage: CVE-2026-27143 \u2014 go-exporter / consul / filebeat / vouch-proxy (ge-ubuntu-generic chain)\" class=\"issue-link\" data-issue-key=\"GE4-29345\">GE4-29345</a> wave; merge #105, close #104)</li>\n\t<li>edgeone-wiki#2186 and #2229 (both clean \u2014 #2186 is old wave; merge #2229, close #2186)</li>\n</ul>\n\n\n<p><b>Open PRs in progress (23 repos)</b>: consul#161, nginx#137, keycloak#176, kafka#111, zookeeper-docker#117, postgres-db#149, prometheus#156, grafana#156, logstash#155, vouch-proxy#222, sap-router#15, planning-backend#65, chromadb#15, ors-dfs-backend#438, prometheus-pushgateway#96, device-controller#64, third-party-licences-archive#100, ge-ubuntu-angular#153, ge-ubuntu-node#64, ge-ubuntu-python#108, ge-ubuntu-delphi#76, edgeone-wiki#2229, planning-vac#105</p>\n\n<p><b>Next step</b>: Merge tech layer PRs (ge-ubuntu-angular, ge-ubuntu-node, ge-ubuntu-python, ge-ubuntu-delphi) to unblock Layer 2 cascade.</p>\n\n<p><em>Updated by polaris.e1_cve_triage_patrol \u2014 agent 2/14.</em></p>",
-          "<h3><a name=\"CVE202568121%E2%80%94CascadeActionsTaken%2820260424patrolrun%232%29\"></a>CVE-2025-68121 \u2014 Cascade Actions Taken (2026-04-24 patrol run #2)</h3>\n\n<p><b>PRs closed as superseded</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>planning-vac#104 (<a href=\"https://jira.germanedge.com/browse/GE4-28924\" title=\"CVE-2025-68121: Fix TLS handshake bypass across base image stack (go-exporter + filebeat)\" class=\"issue-link\" data-issue-key=\"GE4-28924\">GE4-28924</a> wave) closed \u2014 superseded by #105 (<a href=\"https://jira.germanedge.com/browse/GE4-29345\" title=\"CVE Triage: CVE-2026-27143 \u2014 go-exporter / consul / filebeat / vouch-proxy (ge-ubuntu-generic chain)\" class=\"issue-link\" data-issue-key=\"GE4-29345\">GE4-29345</a>)</li>\n\t<li>edgeone-wiki#2186 (<a href=\"https://jira.germanedge.com/browse/GE4-28924\" title=\"CVE-2025-68121: Fix TLS handshake bypass across base image stack (go-exporter + filebeat)\" class=\"issue-link\" data-issue-key=\"GE4-28924\">GE4-28924</a> wave) closed \u2014 superseded by #2229 (<a href=\"https://jira.germanedge.com/browse/GE4-29345\" title=\"CVE Triage: CVE-2026-27143 \u2014 go-exporter / consul / filebeat / vouch-proxy (ge-ubuntu-generic chain)\" class=\"issue-link\" data-issue-key=\"GE4-29345\">GE4-29345</a>)</li>\n</ul>\n\n\n<p><b>New PR opened</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>ge-ubuntu-node#65 \u2014 <a href=\"https://jira.germanedge.com/browse/GE4-28968\" title=\"CVE-2025-68121: Fix TLS handshake bypass in consul binary (ge-ubuntu-generic)\" class=\"issue-link\" data-issue-key=\"GE4-28968\">GE4-28968</a>: fix(security): bump ge-ubuntu-generic 4.22.0-&gt;4.24.0</li>\n</ul>\n\n\n<p><b>Layer 1 tech layer merge readiness</b> (action required from humans):</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>ge-ubuntu-angular#152 \u2014 ready to merge</li>\n\t<li>ge-ubuntu-node#65 \u2014 newly opened (CI pending)</li>\n\t<li>ge-ubuntu-python#106 \u2014 ready to review</li>\n\t<li>ge-ubuntu-delphi#74 \u2014 ready to review</li>\n</ul>\n\n\n<p><em>Until tech layers merge, Layer 2 (aap, device-controller-ui, pdp, pep, pm-printing,</em><br/>\n<em>websocket-dispatcher, mqtt-broker, node-red, upw-ui, consul-stager, etc.) cannot cascade.</em></p>",
-          "<h3><a name=\"CVE202568121TriagePatrolUpdate%E2%80%9420260424\"></a>CVE-2025-68121 Triage Patrol Update \u2014 2026-04-24</h3>\n\n<p><b>Status</b>: ADVANCED \u2014 cascade progressing, Layer 1 tech-image PRs open and awaiting merge</p>\n\n<h4><a name=\"Whatchangedsincelastpatrolrun\"></a>What changed since last patrol run</h4>\n\n<ul>\n\t<li><b>Root fix</b> (ge-ubuntu-generic#130): MERGED \u2014 consul 1.20.1\u21921.21.4 bumped into ge-ubuntu-generic 4.24.0 (published 2026-04-23).</li>\n\t<li><b>ge-ubuntu-generic</b> is now at <b>4.24.0</b> \u2014 artifact confirmed in Artifactory.</li>\n</ul>\n\n\n<h4><a name=\"Layer1techlayerPRs%284open%2Ctargeting4.24.0%29\"></a>Layer 1 tech-layer PRs (4 open, targeting 4.24.0)</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Repo</th>\n<th class='confluenceTh'>PR</th>\n<th class='confluenceTh'>Status</th>\n<th class='confluenceTh'>Issue</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-angular</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-angular/pull/152\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#152</a></td>\n<td class='confluenceTd'>open, mergeable (blocked \u2014 no review)</td>\n<td class='confluenceTd'>no conflicts</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-node</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-node/pull/65\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#65</a></td>\n<td class='confluenceTd'>open, mergeable (blocked \u2014 no review)</td>\n<td class='confluenceTd'>no conflicts</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-python</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-python/pull/106\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#106</a></td>\n<td class='confluenceTd'>open, mergeable (blocked \u2014 no review)</td>\n<td class='confluenceTd'>no conflicts</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-delphi</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-delphi/pull/74\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#74</a></td>\n<td class='confluenceTd'>open, <b>DIRTY</b> \u2014 merge conflict</td>\n<td class='confluenceTd'>needs rebase (develop at 4.22.0, PR branch has conflict)</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h4><a name=\"vouchproxy%E2%80%94CRITICALbuilderCVEnotyetfixed\"></a>vouch-proxy \u2014 CRITICAL builder CVE not yet fixed</h4>\n\n<ul>\n\t<li>vouch-proxy develop still uses <b>golang:1.25.3</b> (contains CVE-2025-68121 in Go crypto/tls).</li>\n\t<li>PR#222 only bumps ge-ubuntu-generic, does NOT fix the golang builder.</li>\n\t<li>PR#224 is the correct fix: golang:1.25.3\u21921.25.9 + ge-ubuntu-generic:4.24.0.</li>\n\t<li><b>Recommendation</b>: Close PR#222, merge PR#224. Both cannot merge together as #224 supersedes #222.</li>\n</ul>\n\n\n<h4><a name=\"ConsumerPRs%28Layer2%29\"></a>Consumer PRs (Layer 2)</h4>\n\n<ul>\n\t<li>28 open consumer PRs tagged <a href=\"https://jira.germanedge.com/browse/GE4-28968\" title=\"CVE-2025-68121: Fix TLS handshake bypass in consul binary (ge-ubuntu-generic)\" class=\"issue-link\" data-issue-key=\"GE4-28968\">GE4-28968</a> \u2014 awaiting Layer 1 tech-image merges.</li>\n\t<li>ge-ubuntu-delphi#74 merge conflict must be resolved first.</li>\n</ul>\n\n\n<h4><a name=\"Immediateactionsrequired\"></a>Immediate actions required</h4>\n\n<ol>\n\t<li><b>Close</b> vouch-proxy#222 (superseded by #224)</li>\n\t<li><b>Rebase</b> ge-ubuntu-delphi#74 to resolve merge conflict</li>\n\t<li><b>Review and merge</b> ge-ubuntu-angular#152, ge-ubuntu-node#65, ge-ubuntu-python#106 (all conflict-free)</li>\n\t<li>After tech-layer merges: cascade to Layer 2 consumer PRs</li>\n</ol>\n\n\n<p><em>Updated by polaris.e1_cve_triage-patrol agent 2/14 \u2014 2026-04-24</em></p>",
-          "<h3><a name=\"CVE202568121%E2%80%94Patrolupdate20260425\"></a>CVE-2025-68121 \u2014 Patrol update 2026-04-25</h3>\n\n<p>New merges since last patrol:</p>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Repo</th>\n<th class='confluenceTh'>PR</th>\n<th class='confluenceTh'>Merged</th>\n</tr>\n<tr>\n<td class='confluenceTd'>kafdrop</td>\n<td class='confluenceTd'>#125</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n<tr>\n<td class='confluenceTd'>postfix</td>\n<td class='confluenceTd'>#120</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n<tr>\n<td class='confluenceTd'>elasticsearch</td>\n<td class='confluenceTd'>#126</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n<tr>\n<td class='confluenceTd'>kibana</td>\n<td class='confluenceTd'>#141</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n<tr>\n<td class='confluenceTd'>pm-sapient</td>\n<td class='confluenceTd'>#198</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n<tr>\n<td class='confluenceTd'>nsl-projectx</td>\n<td class='confluenceTd'>#306</td>\n<td class='confluenceTd'>2026-04-24</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<p>6 additional service consumers fixed. Updated count: 38/117.</p>\n\n<p>ge-ubuntu-generic#130 (consul 1.20.1\u21921.21.4) merged 2026-04-23 \u2014 root fix confirmed in 4.24.0.</p>\n\n<p>Tech-layer PRs awaiting review: ge-ubuntu-angular#152, ge-ubuntu-node#65, ge-ubuntu-python#106 \u2014 all mergeable, blocked on reviews.</p>\n\n<p>ge-ubuntu-delphi#74 \u2014 still dirty (merge conflict). Rebase instruction was posted 2026-04-24T22:33Z (less than 24h ago). No duplicate comment posted.</p>",
-          "<h3><a name=\"CVE202568121%E2%80%94ThreetechlayersfixedviaDependabot%2820260425%29\"></a>CVE-2025-68121 \u2014 Three tech layers fixed via Dependabot (2026-04-25)</h3>\n\n<p><b>New merges confirmed today:</b></p>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Repo</th>\n<th class='confluenceTh'>Superseding PR</th>\n<th class='confluenceTh'>Merged</th>\n<th class='confluenceTh'>New pin</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-angular</td>\n<td class='confluenceTd'>#153 (Dependabot)</td>\n<td class='confluenceTd'>2026-04-25</td>\n<td class='confluenceTd'>ge-ubuntu-generic 4.24.0</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-node</td>\n<td class='confluenceTd'>#64 (Dependabot)</td>\n<td class='confluenceTd'>2026-04-25</td>\n<td class='confluenceTd'>ge-ubuntu-generic 4.24.0</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-python</td>\n<td class='confluenceTd'>#108 (Dependabot)</td>\n<td class='confluenceTd'>2026-04-25</td>\n<td class='confluenceTd'>ge-ubuntu-generic 4.24.0</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<p><b>CVE PRs closed as superseded:</b></p>\n<ul>\n\t<li>ge-ubuntu-angular#152 \u2014 closed (superseded by Dependabot #153)</li>\n\t<li>ge-ubuntu-node#65 \u2014 closed (superseded by Dependabot #64)</li>\n\t<li>ge-ubuntu-python#106 \u2014 closed (superseded by Dependabot #108)</li>\n</ul>\n\n\n<p><b>Remaining dirty PR:</b></p>\n<ul>\n\t<li>ge-ubuntu-delphi#74 \u2014 still dirty (rebase comment last posted 2026-04-24T22:33Z, within 24h \u2014 no new comment posted)</li>\n</ul>\n\n\n<p><b>Overall fix status:</b> 44\u219247/117 fixed (3 new merges this patrol). ge-ubuntu-delphi#74 remains the last open tech-layer CVE PR.</p>\n\n<p>Validated 2026-04-25 via automated CVE triage patrol (Agent 3/38).</p>",
-          "<h3><a name=\"CVE202568121%E2%80%94PatrolUpdate20260425\"></a>CVE-2025-68121 \u2014 Patrol Update 2026-04-25</h3>\n\n<h4><a name=\"Progressthispatrolround%3A\"></a>Progress this patrol round:</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Action</th>\n<th class='confluenceTh'>Detail</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-generic</td>\n<td class='confluenceTd'>Already at 4.24.0 on develop (fix threshold met)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-angular</td>\n<td class='confluenceTd'>Bumped to 4.24.0 this patrol (now at v9.26.0 on develop)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-node</td>\n<td class='confluenceTd'>Bumped to 4.24.0 this patrol (now at v2.1.0 on develop)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-python</td>\n<td class='confluenceTd'>Bumped to 4.24.0 this patrol (now at v4.15.0 on develop)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-delphi</td>\n<td class='confluenceTd'>PR #74 (dirty/merge conflict) superseded by Dependabot PR #76 \u2014 #74 closed, #76 is clean and mergeable</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h4><a name=\"Blockingitem%3A\"></a>Blocking item:</h4>\n\n<p><b>ge-ubuntu-delphi PR #76</b> requires human merge to close out the tech-layer cascade. Layer 2 consumers (qda-linux-worker, qda-linux-worker-oracle) cannot be addressed until ge-ubuntu-delphi artifact is published.</p>\n\n<h4><a name=\"Fixedcount%3A50%2F117\"></a>Fixed count: 50/117</h4>\n\n<p>Layer 2 consumers of angular/node/python are not yet bumped \u2014 awaiting updated tech layer artifacts.</p>\n\n<p>Validated 2026-04-25 by automated CVE triage patrol (agent #9/78).</p>",
-          "<h3><a name=\"PatrolAgentProgressUpdate%2820260425%29\"></a>Patrol Agent Progress Update (2026-04-25)</h3>\n\n<p>CVE triage progress check for patrol run #26/125.</p>\n\n<h4><a name=\"Rootfixstatus%3ACOMPLETE\"></a>Root fix status: COMPLETE</h4>\n<ul class=\"alternate\" type=\"square\">\n\t<li>go-exporter 0.5.0 -&gt; 0.7.0 (Go 1.25.0 -&gt; 1.25.8, fix for CVE-2025-68121) merged 2026-04-14</li>\n\t<li>ge-ubuntu 3.10.0 -&gt; 3.11.0 (embeds go-exporter 0.7.0) merged 2026-04-14 via PR#59</li>\n\t<li>ge-ubuntu-java 3.10.0 -&gt; 3.11.0 (CVE-2025-68121 fix) merged 2026-04-15 via PR#84</li>\n\t<li>ge-ubuntu-generic 4.20.0 -&gt; 4.21.0 (embeds ge-ubuntu 3.11.0) merged 2026-04-15 via PR#128</li>\n</ul>\n\n\n<h4><a name=\"Fixthresholds\"></a>Fix thresholds</h4>\n<ul class=\"alternate\" type=\"square\">\n\t<li>ge-ubuntu &gt;= 3.11.0</li>\n\t<li>ge-ubuntu-java &gt;= 4.15.0</li>\n\t<li>ge-ubuntu-generic &gt;= 4.21.0</li>\n\t<li>ge-ubuntu-angular &gt;= 9.23.0 (fixed)</li>\n\t<li>ge-ubuntu-node &gt;= 1.20.0 (fixed)</li>\n\t<li>ge-ubuntu-python &gt;= 4.14.0 (fixed)</li>\n</ul>\n\n\n<h4><a name=\"Phase2cSupersessioncheckresults%2861linkedAUTOSCANtickets%29\"></a>Phase 2c Supersession check results (61 linked AUTOSCAN tickets)</h4>\n\n<p><b>ALREADY_FIXED_CLEAN</b> (no action): ge-ubuntu, ge-ubuntu-generic, ge-ubuntu-java, ge-ubuntu-angular, ge-ubuntu-node, ge-ubuntu-python, grafana, qda-quality-data-collector (8 base/service layers)</p>\n\n<p><b>IN_PROGRESS - open PRs (15 PRs total)</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>ge-ubuntu-generic direct consumers: alertmanager#110, device-controller#64, isa95-designer#91, kafka#111, nginx#137, prometheus-pushgateway#96, session-directory#106, specification-editor#98</li>\n\t<li>ge-ubuntu-delphi: PR#76 (ge-ubuntu-generic 4.22.0-&gt;4.24.0)</li>\n\t<li>ge-ubuntu-java consumers: file-converter#86, qda-files-handler#23, cause-effect-analysis#87, file-repository#150, qda-audit-trail#84</li>\n\t<li>vouch-proxy: PR#224 (ge-ubuntu-generic 4.13.0-&gt;4.22.0) - sufficient (&gt;=4.21.0)</li>\n</ul>\n\n\n<p><b>STALE/INSUFFICIENT dependabot PRs (targeting 4.14.0, fix requires &gt;= 4.15.0)</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>qda-qualification-test PR#181 (java 4.6.0-&gt;4.14.0) INSUFFICIENT</li>\n\t<li>qda-process-diagram PR#91 (java 4.6.0-&gt;4.14.0) INSUFFICIENT</li>\n</ul>\n\n\n<p><b>NEEDS_PR (no CVE PR found)</b>:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>ag-keycloak (ge-ubuntu-java 4.13.0 -&gt; needs &gt;= 4.15.0)</li>\n\t<li>datasource-api-service (ge-ubuntu-java 4.13.0 -&gt; needs &gt;= 4.15.0)</li>\n</ul>\n\n\n<p>GitHub API rate limit exhausted during this run. PRs for ag-keycloak, datasource-api-service, qda-qualification-test (superseding #181), and qda-process-diagram (superseding #91) will be opened when rate limit resets (expected ~00:00 UTC).</p>",
-          "<h3><a name=\"Actionrequired%28PENDINGratelimit%29\"></a>Action required (PENDING - rate limit)</h3>\n\n<p>The following 4 PRs could not be opened due to GitHub API rate limit exhaustion during this patrol run. Rate limit resets at 2026-04-25 23:54 UTC.</p>\n\n<p><b>PRs to open (ge-ubuntu-java 4.13.0 -&gt; 4.17.0, branch fix/<a href=\"https://jira.germanedge.com/browse/GE4-28968\" title=\"CVE-2025-68121: Fix TLS handshake bypass in consul binary (ge-ubuntu-generic)\" class=\"issue-link\" data-issue-key=\"GE4-28968\">GE4-28968</a>-ge-ubuntu-java-4.17.0):</b><br/>\n1. Germanedge/ag-keycloak - no existing CVE PR, needs bump from java 4.13.0 -&gt; 4.17.0<br/>\n2. Germanedge/datasource-api-service - no existing CVE PR, needs bump from java 4.13.0 -&gt; 4.17.0</p>\n\n<p><b>PRs to supersede (dependabot bumped to 4.14.0 but fix requires &gt;= 4.15.0):</b><br/>\n3. Germanedge/qda-qualification-test - PR#181 targets java 4.6.0-&gt;4.14.0 (INSUFFICIENT). New PR needed for 4.6.0-&gt;4.17.0.<br/>\n4. Germanedge/qda-process-diagram - PR#91 targets java 4.6.0-&gt;4.14.0 (INSUFFICIENT). New PR needed for 4.6.0-&gt;4.17.0.</p>\n\n<p>These will be addressed on next patrol run or manual follow-up. All other 57 services are either FIXED or have IN_PROGRESS CVE PRs.</p>",
-          "<h3><a name=\"CVE202568121%E2%80%94PatrolAgentProgressUpdate%2820260427%2Cpatrolrun%235%2F30%29\"></a>CVE-2025-68121 \u2014 Patrol Agent Progress Update (2026-04-27, patrol run #5/30)</h3>\n\n<h4><a name=\"RootFixStatus%3ACOMPLETE\"></a>Root Fix Status: COMPLETE</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Component</th>\n<th class='confluenceTh'>Change</th>\n<th class='confluenceTh'>PR</th>\n<th class='confluenceTh'>Merged</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-generic</td>\n<td class='confluenceTd'>consul 1.21.4 \u2192 1.22.6 (Go 1.23.12 \u2192 1.25.8)</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-generic/pull/130\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#130</a></td>\n<td class='confluenceTd'>2026-04-23</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<p>ge-ubuntu-generic is at <b>4.24.0</b> on develop. Fix threshold: &gt;= 4.23.0.</p>\n\n<h4><a name=\"TechLayerStatus\"></a>Tech Layer Status</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Layer</th>\n<th class='confluenceTh'>PR</th>\n<th class='confluenceTh'>Status</th>\n<th class='confluenceTh'>Notes</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-angular</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-angular/pull/153\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#153 (Dependabot)</a></td>\n<td class='confluenceTd'>MERGED 2026-04-25</td>\n<td class='confluenceTd'>Now at v9.26.0</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-node</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-node/pull/64\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#64 (Dependabot)</a></td>\n<td class='confluenceTd'>MERGED 2026-04-25</td>\n<td class='confluenceTd'>Now at v2.1.0</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-python</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-python/pull/108\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#108 (Dependabot)</a></td>\n<td class='confluenceTd'>MERGED 2026-04-25</td>\n<td class='confluenceTd'>Now at v4.15.0</td>\n</tr>\n<tr>\n<td class='confluenceTd'>ge-ubuntu-delphi</td>\n<td class='confluenceTd'><a href=\"https://github.com/Germanedge/ge-ubuntu-delphi/pull/76\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">#76 (Dependabot)</a></td>\n<td class='confluenceTd'><b>CI FAILURE \u2014 BLOCKER</b></td>\n<td class='confluenceTd'>Docker build fails with ge-ubuntu-generic:4.24.0; investigate Azure DevOps build #280506</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h4><a name=\"ActiveBlockers\"></a>Active Blockers</h4>\n\n<p><b>BLOCKER 1 \u2014 ge-ubuntu-delphi PR#76 CI failure</b><br/>\nAzure DevOps build #280506 fails at 'Build and save docker image' step when bumping to ge-ubuntu-generic:4.24.0. This blocks qda-linux-worker and qda-linux-worker-oracle cascade. Requires human investigation to determine if this is a build toolchain issue with ge-ubuntu:3.13.0 (go-exporter 0.8.0 / Go 1.26).</p>\n\n<p><b>BLOCKER 2 \u2014 kafka PR#111 CI failure</b><br/>\nkafka#111 (ge-ubuntu-generic 4.15.0\u21924.24.0) CI fails. Likely conflicts with competing kafka upgrade PRs (#113, #114). Recommend: close #109 and #111 and rebase on #114 (kafka 3.9.2) which also needs the ge-ubuntu-generic bump.</p>\n\n<p><b>BLOCKER 3 \u2014 ge-ubuntu-java consumer PRs not opened</b><br/>\n4 PRs blocked from prior patrol rate limit exhaustion. PRs needed for:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>Germanedge/ag-keycloak (java 4.13.0 \u2192 4.17.0)</li>\n\t<li>Germanedge/datasource-api-service (java 4.13.0 \u2192 4.17.0)</li>\n\t<li>Germanedge/qda-qualification-test (java 4.14.0 \u2192 4.17.0, supersedes existing insufficient PR)</li>\n\t<li>Germanedge/qda-process-diagram (java 4.14.0 \u2192 4.17.0, supersedes existing insufficient PR)</li>\n</ul>\n\n\n<h4><a name=\"ConsumerCascadeProgress\"></a>Consumer Cascade Progress</h4>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'>Status</th>\n<th class='confluenceTh'>Count</th>\n</tr>\n<tr>\n<td class='confluenceTd'>ALREADY_FIXED_CLEAN (develop &gt;= 4.24.0)</td>\n<td class='confluenceTd'>~15</td>\n</tr>\n<tr>\n<td class='confluenceTd'>IN_PROGRESS (open PR, CI passing, awaiting review)</td>\n<td class='confluenceTd'>~20</td>\n</tr>\n<tr>\n<td class='confluenceTd'>IN_PROGRESS (open PR, CI failing \u2014 needs investigation)</td>\n<td class='confluenceTd'>2 (ge-ubuntu-delphi, kafka)</td>\n</tr>\n<tr>\n<td class='confluenceTd'>NEEDS_PR (ge-ubuntu-java consumers not yet opened)</td>\n<td class='confluenceTd'>4</td>\n</tr>\n</tbody></table>\n</div>\n\n\n<h4><a name=\"SiblingTicketCoordination\"></a>Sibling Ticket Coordination</h4>\n\n<p>See sibling tickets for parallel CVE-2025-68121 tracks: <a href=\"https://jira.germanedge.com/browse/GE4-30358\" title=\"CVE Triage: CVE-2025-68121 \u2014 go-exporter / upw (compiled Go binary)\" class=\"issue-link\" data-issue-key=\"GE4-30358\">GE4-30358</a> (go-exporter/upw), <a href=\"https://jira.germanedge.com/browse/GE4-31175\" title=\"CVE Triage: CVE-2025-68121 \u2014 ge-ubuntu-generic (Go crypto/tls in compiled binaries)\" class=\"issue-link\" data-issue-key=\"GE4-31175\">GE4-31175</a> (ge-ubuntu-generic compiled binaries), <a href=\"https://jira.germanedge.com/browse/GE4-32175\" title=\"CVE Triage: CVE-2025-68121 \u2014 golang/crypto/tls\" class=\"issue-link\" data-issue-key=\"GE4-32175\">GE4-32175</a> (golang/crypto/tls), <a href=\"https://jira.germanedge.com/browse/GE4-32184\" title=\"CVE Triage: CVE-2025-68121 \u2014 golang/go crypto/tls\" class=\"issue-link\" data-issue-key=\"GE4-32184\">GE4-32184</a> (vouch-proxy), <a href=\"https://jira.germanedge.com/browse/GE4-32367\" title=\"CVE Triage: CVE-2025-68121 \u2014 crypto/tls (Go stdlib)\" class=\"issue-link\" data-issue-key=\"GE4-32367\">GE4-32367</a> (vouch-proxy PR#232 CI failure \u2014 PR#224 at golang 1.25.9 CI PASSING, recommend using #224 instead).</p>\n\n<h4><a name=\"NextSteps%28actionrequiredfromhumans%29\"></a>Next Steps (action required from humans)</h4>\n\n<ol>\n\t<li>Investigate ge-ubuntu-delphi#76 CI failure (Azure DevOps build #280506)</li>\n\t<li>Resolve kafka PR proliferation: consolidate #109/#111 into #114 with ge-ubuntu-generic bump</li>\n\t<li>Open PRs for 4 ge-ubuntu-java consumers listed above</li>\n\t<li>Review and merge the 20+ open PRs with CI passing</li>\n</ol>\n\n\n<p>Patrol run #5/30 \u2014 2026-04-27</p>"
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.24.0",
+        "iso_timestamp": "2025-12-05T15:27:00Z",
+        "commits": [
+            {
+                "sha": "d26015cd93c2674e05f007797fe9792097c0dc89",
+                "iso_timestamp": "2025-12-05T15:21:54Z",
+                "summary": "GE4-25502: Vector logging compatibility (#104)",
+                "jira_refs": [
+                    "GE4-25502"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-25502",
+                "title": "Build and deploy generic-based apps with Vector logging",
+                "description": "<p>The goal of this ticket is to track deployments of apps based on generic image with Vector enabled. In order for the deployment to be considered done, in the scope of this ticket, the app should:</p>\n<ul>\n\t<li>be based on the base image with Vector agent included</li>\n\t<li>be configured to log into a known-in-Vector (file) location</li>\n\t<li>be configured to produce logs in a format understandable and parsable by Vector transforms</li>\n</ul>\n\n\n<p>and the deployment should:</p>\n<ul>\n\t<li>have Vector agent enabled <span class=\"error\">&#91;define DISABLE_FILEBEAT env variable defined as true and DISABLE_VECTOR as false&#93;</span></li>\n</ul>\n\n\n<p> </p>\n\n<p>Please refer to the \"Sub-Tasks\" section for a list of relevant apps and overall progress indication.</p>\n\n<p>Some apps will need to be redeployed due to \"minimal config\" rework, so there might be cases where an old, seemingly duplicate, ticket existed such as <a href=\"https://jira.germanedge.com/browse/GE4-24967\" title=\"Build and deploy Keycloak with Vector logging\" class=\"issue-link\" data-issue-key=\"GE4-24967\"><del>GE4-24967</del></a>. </p>"
+            }
         ]
-      }
-    ]
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.26.0",
-    "iso_timestamp": "2026-02-20T08:12:00Z",
-    "commits": [
-      {
-        "sha": "dd765e90692f8259a91c18c8e5fd04657a7a9469",
-        "iso_timestamp": "2026-02-20T08:08:48Z",
-        "summary": "Merge pull request #112 from Germanedge/feature/bump-zookeeper-to-3.8.6"
-      },
-      {
-        "sha": "bc072a205320c52951fdc64c6b13013dc2a1ea83",
-        "iso_timestamp": "2026-02-20T07:47:50Z",
-        "summary": "Update Zookeeper version to 3.8.6"
-      },
-      {
-        "sha": "ff87257d50d64548133276fc29251ce650d9500f",
-        "iso_timestamp": "2026-02-20T07:40:42Z",
-        "summary": "Merge pull request #111 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-4.18.0"
-      },
-      {
-        "sha": "ac9a7786deffc589c7c245ec5f5d7391b051b6eb",
-        "iso_timestamp": "2026-02-10T02:41:17Z",
-        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 4.12.2 to 4.18.0"
-      }
-    ],
-    "jira_issues": []
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.24.1",
-    "iso_timestamp": "2025-12-16T09:02:00Z",
-    "commits": [
-      {
-        "sha": "a8ab25bcf73002de774a81f5f4925265c2a8c0f1",
-        "iso_timestamp": "2025-12-16T08:56:30Z",
-        "summary": "[+semver: patch] GE4-25502: Strict ISO8601 timestamp format (#106)",
-        "jira_refs": [
-          "GE4-25502"
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.23.0",
+        "iso_timestamp": "2025-09-12T08:07:00Z",
+        "commits": [
+            {
+                "sha": "b1cbd85d325ae078ba5e4117fbf0a9f6516029e0",
+                "iso_timestamp": "2025-09-12T08:02:11Z",
+                "summary": "Merge pull request #95 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-4.7.0"
+            },
+            {
+                "sha": "06b8fc23a04a5ddc16ed11d1b44895191e028651",
+                "iso_timestamp": "2025-09-12T01:01:23Z",
+                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 4.6.0 to 4.7.0"
+            }
+        ],
+        "jira_issues": []
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.22.0",
+        "iso_timestamp": "2025-09-08T18:32:00Z",
+        "commits": [
+            {
+                "sha": "36a285412f3016db48d015f7fbdb3aa0f05e992b",
+                "iso_timestamp": "2025-09-08T18:29:00Z",
+                "summary": "Merge pull request #93 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-4.6.0"
+            },
+            {
+                "sha": "9d55449171d470863ab5c326d28df65b5f95ab6f",
+                "iso_timestamp": "2025-09-08T18:08:42Z",
+                "summary": "Fix deployment template for Kubernetes"
+            },
+            {
+                "sha": "253556b2fbf1f798017cddb372c68d293027ee76",
+                "iso_timestamp": "2025-09-08T07:39:16Z",
+                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 3.18.0 to 4.6.0"
+            }
+        ],
+        "jira_issues": []
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.21.0",
+        "iso_timestamp": "2025-08-29T12:43:00Z",
+        "commits": [
+            {
+                "sha": "ebef907ce2742eefc2c4bcdc69ec5dd34e10a446",
+                "iso_timestamp": "2025-08-29T12:40:40Z",
+                "summary": "GE4-24046: Improve probe configurations for faster health checks (#91)",
+                "jira_refs": [
+                    "GE4-24046"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-24046",
+                "title": "zookeeper improve probes"
+            }
         ]
-      }
-    ],
-    "jira_issues": [
-      {
-        "key": "GE4-25502",
-        "title": "Build and deploy generic-based apps with Vector logging",
-        "description": "<p>The goal of this ticket is to track deployments of apps based on generic image with Vector enabled. In order for the deployment to be considered done, in the scope of this ticket, the app should:</p>\n<ul>\n\t<li>be based on the base image with Vector agent included</li>\n\t<li>be configured to log into a known-in-Vector (file) location</li>\n\t<li>be configured to produce logs in a format understandable and parsable by Vector transforms</li>\n</ul>\n\n\n<p>and the deployment should:</p>\n<ul>\n\t<li>have Vector agent enabled <span class=\"error\">&#91;define DISABLE_FILEBEAT env variable defined as true and DISABLE_VECTOR as false&#93;</span></li>\n</ul>\n\n\n<p>\u00a0</p>\n\n<p>Please refer to the \"Sub-Tasks\" section for a list of relevant apps and overall progress indication.</p>\n\n<p>Some apps will need to be redeployed due to \"minimal config\" rework, so there might be cases where an old, seemingly duplicate, ticket existed such as <a href=\"https://jira.germanedge.com/browse/GE4-24967\" title=\"Build and deploy Keycloak with Vector logging\" class=\"issue-link\" data-issue-key=\"GE4-24967\"><del>GE4-24967</del></a>.\u00a0</p>"
-      }
-    ]
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.24.0",
-    "iso_timestamp": "2025-12-05T15:27:00Z",
-    "commits": [
-      {
-        "sha": "d26015cd93c2674e05f007797fe9792097c0dc89",
-        "iso_timestamp": "2025-12-05T15:21:54Z",
-        "summary": "GE4-25502: Vector logging compatibility (#104)",
-        "jira_refs": [
-          "GE4-25502"
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.20.0",
+        "iso_timestamp": "2025-06-17T22:15:00Z",
+        "commits": [
+            {
+                "sha": "b453677c26fe11167049870284785a5356eb91bc",
+                "iso_timestamp": "2025-06-17T22:12:14Z",
+                "summary": "Merge pull request #83 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-3.18.0"
+            },
+            {
+                "sha": "8e9669e6760db3ccd6662621660216b9030d595c",
+                "iso_timestamp": "2025-06-17T22:05:16Z",
+                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 3.16.0 to 3.18.0"
+            }
+        ],
+        "jira_issues": []
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.19.0",
+        "iso_timestamp": "2025-06-13T09:18:00Z",
+        "commits": [
+            {
+                "sha": "512c66a41d9383c49110e72ba4708528b712853b",
+                "iso_timestamp": "2025-06-13T09:11:47Z",
+                "summary": "Merge pull request #81 from Germanedge/fix-deploy-pipeline"
+            },
+            {
+                "sha": "8ad160299bf49dc340a1aa737aa048927ed851a7",
+                "iso_timestamp": "2025-06-13T08:46:40Z",
+                "summary": "Update azure-pipelines-deploy-ec1-e1-dev.yaml"
+            }
+        ],
+        "jira_issues": []
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.18.0",
+        "iso_timestamp": "2025-06-13T08:39:00Z",
+        "commits": [
+            {
+                "sha": "825235476547ad75eb1ecbeb1d08157dd10cf7d7",
+                "iso_timestamp": "2025-06-13T08:35:39Z",
+                "summary": "Merge pull request #80 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-3.16.0"
+            },
+            {
+                "sha": "277de615433acda813d4a10403c2ef978012a92c",
+                "iso_timestamp": "2025-06-06T01:27:23Z",
+                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 3.7.0 to 3.16.0"
+            },
+            {
+                "sha": "e63c7dc26e1ba82854564cdb8ab7432e3eece5d4",
+                "iso_timestamp": "2025-03-17T14:15:16Z",
+                "summary": "Merge pull request #75 from Germanedge/GE4-21816/remove-deploy-pipeline-to-legacy-cluster",
+                "jira_refs": [
+                    "GE4-21816"
+                ]
+            },
+            {
+                "sha": "2486283691805667a3cd5eaa275a553cea50420a",
+                "iso_timestamp": "2025-03-13T22:18:13Z",
+                "summary": "[+semver: skip][skip ci] Remove deploy pipeline to legacy cluster"
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-21816",
+                "title": "Create additional deploy pipeline to new cluster for all relevant e1-dev services",
+                "description": "<p>For all services being part of stack-definition branch develop a new deploy pipeline should be created:</p>\n<ul>\n\t<li>template:  deploy/service/azure-pipelines-template-k8s.yaml</li>\n\t<li>env:</li>\n</ul>\n"
+            }
         ]
-      }
-    ],
-    "jira_issues": [
-      {
-        "key": "GE4-25502",
-        "title": "Build and deploy generic-based apps with Vector logging",
-        "description": "<p>The goal of this ticket is to track deployments of apps based on generic image with Vector enabled. In order for the deployment to be considered done, in the scope of this ticket, the app should:</p>\n<ul>\n\t<li>be based on the base image with Vector agent included</li>\n\t<li>be configured to log into a known-in-Vector (file) location</li>\n\t<li>be configured to produce logs in a format understandable and parsable by Vector transforms</li>\n</ul>\n\n\n<p>and the deployment should:</p>\n<ul>\n\t<li>have Vector agent enabled <span class=\"error\">&#91;define DISABLE_FILEBEAT env variable defined as true and DISABLE_VECTOR as false&#93;</span></li>\n</ul>\n\n\n<p>\u00a0</p>\n\n<p>Please refer to the \"Sub-Tasks\" section for a list of relevant apps and overall progress indication.</p>\n\n<p>Some apps will need to be redeployed due to \"minimal config\" rework, so there might be cases where an old, seemingly duplicate, ticket existed such as <a href=\"https://jira.germanedge.com/browse/GE4-24967\" title=\"Build and deploy Keycloak with Vector logging\" class=\"issue-link\" data-issue-key=\"GE4-24967\"><del>GE4-24967</del></a>.\u00a0</p>"
-      }
-    ]
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.23.0",
-    "iso_timestamp": "2025-09-12T08:07:00Z",
-    "commits": [
-      {
-        "sha": "b1cbd85d325ae078ba5e4117fbf0a9f6516029e0",
-        "iso_timestamp": "2025-09-12T08:02:11Z",
-        "summary": "Merge pull request #95 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-4.7.0"
-      },
-      {
-        "sha": "06b8fc23a04a5ddc16ed11d1b44895191e028651",
-        "iso_timestamp": "2025-09-12T01:01:23Z",
-        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 4.6.0 to 4.7.0"
-      }
-    ],
-    "jira_issues": []
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.22.0",
-    "iso_timestamp": "2025-09-08T18:32:00Z",
-    "commits": [
-      {
-        "sha": "36a285412f3016db48d015f7fbdb3aa0f05e992b",
-        "iso_timestamp": "2025-09-08T18:29:00Z",
-        "summary": "Merge pull request #93 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-4.6.0"
-      },
-      {
-        "sha": "9d55449171d470863ab5c326d28df65b5f95ab6f",
-        "iso_timestamp": "2025-09-08T18:08:42Z",
-        "summary": "Fix deployment template for Kubernetes"
-      },
-      {
-        "sha": "253556b2fbf1f798017cddb372c68d293027ee76",
-        "iso_timestamp": "2025-09-08T07:39:16Z",
-        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 3.18.0 to 4.6.0"
-      }
-    ],
-    "jira_issues": []
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.21.0",
-    "iso_timestamp": "2025-08-29T12:43:00Z",
-    "commits": [
-      {
-        "sha": "ebef907ce2742eefc2c4bcdc69ec5dd34e10a446",
-        "iso_timestamp": "2025-08-29T12:40:40Z",
-        "summary": "GE4-24046: Improve probe configurations for faster health checks (#91)",
-        "jira_refs": [
-          "GE4-24046"
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.17.0",
+        "iso_timestamp": "2025-03-12T14:50:45Z",
+        "commits": [
+            {
+                "sha": "13a2bcbd5ab44ba4122a984e951cae6eb035a4cb",
+                "iso_timestamp": "2025-03-12T14:31:20Z",
+                "summary": "Merge pull request #74 from Germanedge/feature/GE4-18585",
+                "jira_refs": [
+                    "GE4-18585"
+                ]
+            },
+            {
+                "sha": "b0a987df7fbc5d2b950bbea60c9e2065fa41e893",
+                "iso_timestamp": "2025-03-11T15:32:12Z",
+                "summary": "GE4-18585 Add deploy template to new k8s dev cluster",
+                "jira_refs": [
+                    "GE4-18585"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-18585",
+                "title": "[Platform] e1-dev",
+                "comments": [
+                    "<p>Hi , this \"Open\" issue has a U4 Project associated, which got closed in the Unit 4 ERP tool. Please reassign the issue to another project value.  </p>",
+                    "<p>1. <b>Onboard DevOps Sapient Engineers  to the new cluster</b><br/>\n<b>-&gt; Provide Guides in terms of usage of kubectl an awscli</b> <br/>\n<b>-&gt; add team members in EntraID Group: AWS Team Product  DevOps Dev  (This needs to be requested)</b></p>\n\n<p>2. <b>Use Velero to migrate the namespace according to the provided guide  ( Team effort/Pair programming with Cloud Team )</b><br/>\n<b><a href=\"https://confluence.germanedge.com/display/Platform/How+to+migrate+Edge.One+Stack+into+new+EKS+Cluster\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">https://confluence.germanedge.com/display/Platform/How+to+migrate+Edge.One+Stack+into+new+EKS+Cluster</a></b></p>\n\n<p>3. <b>Migrate all related pipelines to the Dev EKS cluster for both namespaces</b></p>",
+                    "<p>TODO:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>nginx build failing</li>\n\t<li>ag-keycloak pipeline to be done</li>\n\t<li>zookeper pipeline to be done</li>\n\t<li>5 PRs needs to be merged by code owners</li>\n\t<li>deploy pipelines to be created in azure devops</li>\n</ul>\n"
+                ]
+            }
         ]
-      }
-    ],
-    "jira_issues": [
-      {
-        "key": "GE4-24046",
-        "title": "zookeeper improve probes"
-      }
-    ]
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.20.0",
-    "iso_timestamp": "2025-06-17T22:15:00Z",
-    "commits": [
-      {
-        "sha": "b453677c26fe11167049870284785a5356eb91bc",
-        "iso_timestamp": "2025-06-17T22:12:14Z",
-        "summary": "Merge pull request #83 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-3.18.0"
-      },
-      {
-        "sha": "8e9669e6760db3ccd6662621660216b9030d595c",
-        "iso_timestamp": "2025-06-17T22:05:16Z",
-        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 3.16.0 to 3.18.0"
-      }
-    ],
-    "jira_issues": []
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.19.0",
-    "iso_timestamp": "2025-06-13T09:18:00Z",
-    "commits": [
-      {
-        "sha": "512c66a41d9383c49110e72ba4708528b712853b",
-        "iso_timestamp": "2025-06-13T09:11:47Z",
-        "summary": "Merge pull request #81 from Germanedge/fix-deploy-pipeline"
-      },
-      {
-        "sha": "8ad160299bf49dc340a1aa737aa048927ed851a7",
-        "iso_timestamp": "2025-06-13T08:46:40Z",
-        "summary": "Update azure-pipelines-deploy-ec1-e1-dev.yaml"
-      }
-    ],
-    "jira_issues": []
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.18.0",
-    "iso_timestamp": "2025-06-13T08:39:00Z",
-    "commits": [
-      {
-        "sha": "825235476547ad75eb1ecbeb1d08157dd10cf7d7",
-        "iso_timestamp": "2025-06-13T08:35:39Z",
-        "summary": "Merge pull request #80 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-3.16.0"
-      },
-      {
-        "sha": "277de615433acda813d4a10403c2ef978012a92c",
-        "iso_timestamp": "2025-06-06T01:27:23Z",
-        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 3.7.0 to 3.16.0"
-      },
-      {
-        "sha": "e63c7dc26e1ba82854564cdb8ab7432e3eece5d4",
-        "iso_timestamp": "2025-03-17T14:15:16Z",
-        "summary": "Merge pull request #75 from Germanedge/GE4-21816/remove-deploy-pipeline-to-legacy-cluster",
-        "jira_refs": [
-          "GE4-21816"
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.16.0",
+        "iso_timestamp": "2025-03-05T10:33:00Z",
+        "commits": [
+            {
+                "sha": "0af0e930b9484ed002fb7000258e20521bb4a632",
+                "iso_timestamp": "2025-03-05T10:24:27Z",
+                "summary": "Merge pull request #72 from Germanedge/GE4-21454-rollout-v2-pipeline",
+                "jira_refs": [
+                    "GE4-21454"
+                ]
+            },
+            {
+                "sha": "15cfd9c13951c98f88ad6f649421fb18fcc8f79e",
+                "iso_timestamp": "2025-03-04T10:59:38Z",
+                "summary": "Update zookeeper version to 3.8.4"
+            },
+            {
+                "sha": "260ea6dc0ae8d5924d873e0f06575714acc6d84d",
+                "iso_timestamp": "2025-03-04T10:58:46Z",
+                "summary": "Merge branch 'dependabot/docker/edge-one/ge-ubuntu-generic-3.2.0' into GE4-21454-rollout-v2-pipeline",
+                "jira_refs": [
+                    "GE4-21454"
+                ]
+            },
+            {
+                "sha": "5c96465718d7597a2191628703cf394fec17bf10",
+                "iso_timestamp": "2025-03-04T09:20:39Z",
+                "summary": "GE4-21454: Update azure-pipelines-deploy.yml",
+                "jira_refs": [
+                    "GE4-21454"
+                ]
+            },
+            {
+                "sha": "7c9a4f64eb34ec37e5d34370f32f142e1adca81d",
+                "iso_timestamp": "2025-03-04T09:16:06Z",
+                "summary": "GE4-21454: Update azure-pipelines.yml",
+                "jira_refs": [
+                    "GE4-21454"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-21454",
+                "title": "Rollout v2 templates to zookeeper-docker",
+                "description": "<p>Initial rollout for v2 templates</p>"
+            }
         ]
-      },
-      {
-        "sha": "2486283691805667a3cd5eaa275a553cea50420a",
-        "iso_timestamp": "2025-03-13T22:18:13Z",
-        "summary": "[+semver: skip][skip ci] Remove deploy pipeline to legacy cluster"
-      }
-    ],
-    "jira_issues": [
-      {
-        "key": "GE4-21816",
-        "title": "Create additional deploy pipeline to new cluster for all relevant e1-dev services",
-        "description": "<p>For all services being part of stack-definition branch develop a new deploy pipeline should be created:</p>\n<ul>\n\t<li>template: \u00a0deploy/service/azure-pipelines-template-k8s.yaml</li>\n\t<li>env:</li>\n</ul>\n"
-      }
-    ]
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.17.0",
-    "iso_timestamp": "2025-03-12T14:50:45Z",
-    "commits": [
-      {
-        "sha": "13a2bcbd5ab44ba4122a984e951cae6eb035a4cb",
-        "iso_timestamp": "2025-03-12T14:31:20Z",
-        "summary": "Merge pull request #74 from Germanedge/feature/GE4-18585",
-        "jira_refs": [
-          "GE4-18585"
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.14.0",
+        "iso_timestamp": "2024-02-21T07:12:00Z",
+        "commits": [
+            {
+                "sha": "1ab20a79b87be62e2a8e5d18545481d57012f918",
+                "iso_timestamp": "2024-02-21T07:11:32Z",
+                "summary": "Merge pull request #68 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-3.0.0"
+            },
+            {
+                "sha": "ace6b91ffa17cfbe32a094d0730deeaa287a21e3",
+                "iso_timestamp": "2024-02-21T01:24:38Z",
+                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.29.0 to 3.0.0"
+            }
+        ],
+        "jira_issues": []
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.13.0",
+        "iso_timestamp": "2024-02-01T14:05:00Z",
+        "commits": [
+            {
+                "sha": "87be4907be72f4f29aac64029f0ec8439b7f9bb8",
+                "iso_timestamp": "2024-02-01T14:03:52Z",
+                "summary": "Merge pull request #67 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-2.29.0"
+            },
+            {
+                "sha": "bf141d7d2ff8fad1239aea0000d10b092256fbb8",
+                "iso_timestamp": "2024-02-01T10:36:00Z",
+                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.26.0 to 2.29.0"
+            }
+        ],
+        "jira_issues": []
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.12.0",
+        "iso_timestamp": "2024-02-01T10:26:00Z",
+        "commits": [
+            {
+                "sha": "82f8d33caab4e6349c33fd89e410dc0293658b61",
+                "iso_timestamp": "2024-02-01T10:22:38Z",
+                "summary": "Merge pull request #66 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-2.26.0"
+            },
+            {
+                "sha": "1e0d8e31c1ec8452465e1db868c861930d334cc7",
+                "iso_timestamp": "2023-10-27T07:08:50Z",
+                "summary": "Update readme with relevant links"
+            },
+            {
+                "sha": "9a492c0c00a123fe8b75f678a41ddbf1532691f0",
+                "iso_timestamp": "2023-10-27T07:06:09Z",
+                "summary": "Update zookeeper from 3.8.2 to 3.8.3"
+            },
+            {
+                "sha": "73a1722e1040e4eda5d0774490e112311c4fca75",
+                "iso_timestamp": "2023-10-13T01:22:26Z",
+                "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.23.0 to 2.26.0"
+            }
+        ],
+        "jira_issues": []
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.11.0",
+        "iso_timestamp": "2023-09-01T09:42:00Z",
+        "commits": [
+            {
+                "sha": "a502b95b1dc6fc789a35f4479a7c2f3d7b481fc1",
+                "iso_timestamp": "2023-09-01T09:40:55Z",
+                "summary": "Merge pull request #62 from Germanedge/feature/7619-update-dockerfile",
+                "jira_refs": [
+                    "GE4-7619"
+                ]
+            },
+            {
+                "sha": "5523a889b82d14588971c28daa9097cb3cdd915d",
+                "iso_timestamp": "2023-08-25T08:39:52Z",
+                "summary": "GE4-7619: add envs for consul metadata",
+                "jira_refs": [
+                    "GE4-7619"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-7619",
+                "title": "Update all 3rd party images to use new generic image and setup correct env",
+                "description": "<p>Please iterate through all 3rd party images from GE:</p>\n<ul>\n\t<li>use new ge-ubuntu-generic image</li>\n\t<li>setup new required envs</li>\n</ul>\n"
+            }
         ]
-      },
-      {
-        "sha": "b0a987df7fbc5d2b950bbea60c9e2065fa41e893",
-        "iso_timestamp": "2025-03-11T15:32:12Z",
-        "summary": "GE4-18585 Add deploy template to new k8s dev cluster",
-        "jira_refs": [
-          "GE4-18585"
+    },
+    {
+        "service": "zookeeper",
+        "version": "4.10.0",
+        "iso_timestamp": "2023-08-07T08:51:00Z",
+        "commits": [
+            {
+                "sha": "bfd66b43aa32a5f94fec672fb9cf4074fec9ebff",
+                "iso_timestamp": "2023-08-07T08:50:18Z",
+                "summary": "Merge pull request #60 from Germanedge/update-zookeeper-to-3.8.2"
+            },
+            {
+                "sha": "2dc4ade7f0d19e53b4fe72a2a8cd18d14717dd09",
+                "iso_timestamp": "2023-08-07T08:45:57Z",
+                "summary": "Update Dockerfile"
+            },
+            {
+                "sha": "e7ab14ae20d7059481c4c7775604174c94154b48",
+                "iso_timestamp": "2023-07-14T12:38:43Z",
+                "summary": "[skip ci][+semver: skip] GE4-7023: Rollout changelog-collector (#59)",
+                "jira_refs": [
+                    "GE4-7023"
+                ]
+            }
+        ],
+        "jira_issues": [
+            {
+                "key": "GE4-7023",
+                "title": "Rollout change log data service to GE builds",
+                "description": "<p>Based on approach at <a href=\"https://jira.germanedge.com/browse/GE4-6821\" title=\"Implement for change log data service (based on prototype)\" class=\"issue-link\" data-issue-key=\"GE4-6821\"><del>GE4-6821</del></a> the feature must be rollout to all relevant GE services (all platform services currently under development/maintenance)</p>\n\n<p>On GE service level:</p>\n<ul>\n\t<li>integrate Jira credentials to the azure pipelines in specific repos</li>\n\t<li>PRs mostly created at <a href=\"https://jira.germanedge.com/browse/GE4-6821\" title=\"Implement for change log data service (based on prototype)\" class=\"issue-link\" data-issue-key=\"GE4-6821\"><del>GE4-6821</del></a> and needs to approved</li>\n</ul>\n\n\n<p>On azure-docker-build-template</p>\n<ul>\n\t<li>integrate latest version of ge-build-agent including the changelog functionality</li>\n\t<li>review the step template for changelog functionality</li>\n</ul>\n\n\n<p>On ge-build-agent</p>\n<ul>\n\t<li>release new version with changelog functionality</li>\n</ul>\n"
+            }
         ]
-      }
-    ],
-    "jira_issues": [
-      {
-        "key": "GE4-18585",
-        "title": "[Platform] e1-dev",
-        "comments": [
-          "<p>Hi , this \"Open\" issue has a U4 Project associated, which got closed in the Unit 4 ERP tool. Please reassign the issue to another project value.  </p>",
-          "<p>1. <b>Onboard DevOps Sapient Engineers \u00a0to the new cluster</b><br/>\n<b>-&gt; Provide Guides in terms of usage of kubectl an awscli</b>\u00a0<br/>\n<b>-&gt; add team members in EntraID Group: AWS Team Product\u00a0 DevOps Dev \u00a0(This needs to be requested)</b></p>\n\n<p>2. <b>Use Velero to migrate the namespace according to the provided guide \u00a0( Team effort/Pair programming with Cloud Team )</b><br/>\n<b><a href=\"https://confluence.germanedge.com/display/Platform/How+to+migrate+Edge.One+Stack+into+new+EKS+Cluster\" class=\"external-link\" target=\"_blank\" rel=\"nofollow noopener\">https://confluence.germanedge.com/display/Platform/How+to+migrate+Edge.One+Stack+into+new+EKS+Cluster</a></b></p>\n\n<p>3. <b>Migrate all related pipelines to the Dev EKS cluster for both namespaces</b></p>",
-          "<p>TODO:</p>\n<ul class=\"alternate\" type=\"square\">\n\t<li>nginx build failing</li>\n\t<li>ag-keycloak pipeline to be done</li>\n\t<li>zookeper pipeline to be done</li>\n\t<li>5 PRs needs to be merged by code owners</li>\n\t<li>deploy pipelines to be created in azure devops</li>\n</ul>\n"
-        ]
-      }
-    ]
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.16.0",
-    "iso_timestamp": "2025-03-05T10:33:00Z",
-    "commits": [
-      {
-        "sha": "0af0e930b9484ed002fb7000258e20521bb4a632",
-        "iso_timestamp": "2025-03-05T10:24:27Z",
-        "summary": "Merge pull request #72 from Germanedge/GE4-21454-rollout-v2-pipeline",
-        "jira_refs": [
-          "GE4-21454"
-        ]
-      },
-      {
-        "sha": "15cfd9c13951c98f88ad6f649421fb18fcc8f79e",
-        "iso_timestamp": "2025-03-04T10:59:38Z",
-        "summary": "Update zookeeper version to 3.8.4"
-      },
-      {
-        "sha": "260ea6dc0ae8d5924d873e0f06575714acc6d84d",
-        "iso_timestamp": "2025-03-04T10:58:46Z",
-        "summary": "Merge branch 'dependabot/docker/edge-one/ge-ubuntu-generic-3.2.0' into GE4-21454-rollout-v2-pipeline",
-        "jira_refs": [
-          "GE4-21454"
-        ]
-      },
-      {
-        "sha": "5c96465718d7597a2191628703cf394fec17bf10",
-        "iso_timestamp": "2025-03-04T09:20:39Z",
-        "summary": "GE4-21454: Update azure-pipelines-deploy.yml",
-        "jira_refs": [
-          "GE4-21454"
-        ]
-      },
-      {
-        "sha": "7c9a4f64eb34ec37e5d34370f32f142e1adca81d",
-        "iso_timestamp": "2025-03-04T09:16:06Z",
-        "summary": "GE4-21454: Update azure-pipelines.yml",
-        "jira_refs": [
-          "GE4-21454"
-        ]
-      }
-    ],
-    "jira_issues": [
-      {
-        "key": "GE4-21454",
-        "title": "Rollout v2 templates to zookeeper-docker",
-        "description": "<p>Initial rollout for v2 templates</p>"
-      }
-    ]
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.14.0",
-    "iso_timestamp": "2024-02-21T07:12:00Z",
-    "commits": [
-      {
-        "sha": "1ab20a79b87be62e2a8e5d18545481d57012f918",
-        "iso_timestamp": "2024-02-21T07:11:32Z",
-        "summary": "Merge pull request #68 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-3.0.0"
-      },
-      {
-        "sha": "ace6b91ffa17cfbe32a094d0730deeaa287a21e3",
-        "iso_timestamp": "2024-02-21T01:24:38Z",
-        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.29.0 to 3.0.0"
-      }
-    ],
-    "jira_issues": []
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.13.0",
-    "iso_timestamp": "2024-02-01T14:05:00Z",
-    "commits": [
-      {
-        "sha": "87be4907be72f4f29aac64029f0ec8439b7f9bb8",
-        "iso_timestamp": "2024-02-01T14:03:52Z",
-        "summary": "Merge pull request #67 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-2.29.0"
-      },
-      {
-        "sha": "bf141d7d2ff8fad1239aea0000d10b092256fbb8",
-        "iso_timestamp": "2024-02-01T10:36:00Z",
-        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.26.0 to 2.29.0"
-      }
-    ],
-    "jira_issues": []
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.12.0",
-    "iso_timestamp": "2024-02-01T10:26:00Z",
-    "commits": [
-      {
-        "sha": "82f8d33caab4e6349c33fd89e410dc0293658b61",
-        "iso_timestamp": "2024-02-01T10:22:38Z",
-        "summary": "Merge pull request #66 from Germanedge/dependabot/docker/edge-one/ge-ubuntu-generic-2.26.0"
-      },
-      {
-        "sha": "1e0d8e31c1ec8452465e1db868c861930d334cc7",
-        "iso_timestamp": "2023-10-27T07:08:50Z",
-        "summary": "Update readme with relevant links"
-      },
-      {
-        "sha": "9a492c0c00a123fe8b75f678a41ddbf1532691f0",
-        "iso_timestamp": "2023-10-27T07:06:09Z",
-        "summary": "Update zookeeper from 3.8.2 to 3.8.3"
-      },
-      {
-        "sha": "73a1722e1040e4eda5d0774490e112311c4fca75",
-        "iso_timestamp": "2023-10-13T01:22:26Z",
-        "summary": "Build(deps): bump edge-one/ge-ubuntu-generic from 2.23.0 to 2.26.0"
-      }
-    ],
-    "jira_issues": []
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.11.0",
-    "iso_timestamp": "2023-09-01T09:42:00Z",
-    "commits": [
-      {
-        "sha": "a502b95b1dc6fc789a35f4479a7c2f3d7b481fc1",
-        "iso_timestamp": "2023-09-01T09:40:55Z",
-        "summary": "Merge pull request #62 from Germanedge/feature/7619-update-dockerfile",
-        "jira_refs": [
-          "GE4-7619"
-        ]
-      },
-      {
-        "sha": "5523a889b82d14588971c28daa9097cb3cdd915d",
-        "iso_timestamp": "2023-08-25T08:39:52Z",
-        "summary": "GE4-7619: add envs for consul metadata",
-        "jira_refs": [
-          "GE4-7619"
-        ]
-      }
-    ],
-    "jira_issues": [
-      {
-        "key": "GE4-7619",
-        "title": "Update all 3rd party images to use new generic image and setup correct env",
-        "description": "<p>Please iterate through all 3rd party images from GE:</p>\n<ul>\n\t<li>use new ge-ubuntu-generic image</li>\n\t<li>setup new required envs</li>\n</ul>\n"
-      }
-    ]
-  },
-  {
-    "service": "zookeeper",
-    "version": "4.10.0",
-    "iso_timestamp": "2023-08-07T08:51:00Z",
-    "commits": [
-      {
-        "sha": "bfd66b43aa32a5f94fec672fb9cf4074fec9ebff",
-        "iso_timestamp": "2023-08-07T08:50:18Z",
-        "summary": "Merge pull request #60 from Germanedge/update-zookeeper-to-3.8.2"
-      },
-      {
-        "sha": "2dc4ade7f0d19e53b4fe72a2a8cd18d14717dd09",
-        "iso_timestamp": "2023-08-07T08:45:57Z",
-        "summary": "Update Dockerfile"
-      },
-      {
-        "sha": "e7ab14ae20d7059481c4c7775604174c94154b48",
-        "iso_timestamp": "2023-07-14T12:38:43Z",
-        "summary": "[skip ci][+semver: skip] GE4-7023: Rollout changelog-collector (#59)",
-        "jira_refs": [
-          "GE4-7023"
-        ]
-      }
-    ],
-    "jira_issues": [
-      {
-        "key": "GE4-7023",
-        "title": "Rollout change log data service to GE builds",
-        "description": "<p>Based on approach at <a href=\"https://jira.germanedge.com/browse/GE4-6821\" title=\"Implement for change log data service (based on prototype)\" class=\"issue-link\" data-issue-key=\"GE4-6821\"><del>GE4-6821</del></a> the feature must be rollout to all relevant GE services (all platform services currently under development/maintenance)</p>\n\n<p>On GE service level:</p>\n<ul>\n\t<li>integrate Jira credentials to the azure pipelines in specific repos</li>\n\t<li>PRs mostly created at <a href=\"https://jira.germanedge.com/browse/GE4-6821\" title=\"Implement for change log data service (based on prototype)\" class=\"issue-link\" data-issue-key=\"GE4-6821\"><del>GE4-6821</del></a> and needs to approved</li>\n</ul>\n\n\n<p>On azure-docker-build-template</p>\n<ul>\n\t<li>integrate latest version of ge-build-agent including the changelog functionality</li>\n\t<li>review the step template for changelog functionality</li>\n</ul>\n\n\n<p>On ge-build-agent</p>\n<ul>\n\t<li>release new version with changelog functionality</li>\n</ul>\n"
-      }
-    ]
-  }
+    }
 ]

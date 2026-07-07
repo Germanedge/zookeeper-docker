@@ -168,5 +168,9 @@
       "name": "germanedge-docker.artifactory.new-solutions.com/edge-one/ge-ubuntu-generic",
       "version": "4.24.0"
     }
-  ]
+  ],
+  "metadata": {
+    "build_source": "zookeeper",
+    "build_source_version": "3.8.6"
+  }
 }

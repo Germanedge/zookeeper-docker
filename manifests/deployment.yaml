@@ -14,6 +14,8 @@ metadata:
     java: "true"
     orchestration: "true"
     ge_base_image: "ge-ubuntu-generic"
+    build_source: "zookeeper"
+    build_source_version: "3.8.6"
 spec:
   selector:
     matchLabels:
@@ -31,6 +33,8 @@ spec:
         java: "true"
         orchestration: "true"
         ge_base_image: "ge-ubuntu-generic"
+        build_source: "zookeeper"
+        build_source_version: "3.8.6"
     spec:
       containers:
       - name: "zookeeper"
