@@ -166,7 +166,7 @@
   "base_images": [
     {
       "name": "germanedge-docker.artifactory.new-solutions.com/edge-one/ge-ubuntu-generic",
-      "version": "4.24.0"
+      "version": "5.6.0"
     }
   ],
   "metadata": {
