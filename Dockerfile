@@ -8,7 +8,6 @@ ENV SERVICENAME=zookeeper
 ENV CONSUL_TAGS='"web","application","prometheus"'
 ENV CONSUL_META_SCRAPE_PATH="\/metrics"
 ENV CONSUL_META_SCRAPE_PORT="7071"
-ENV FILEBEAT_ARGS='--E filebeat.inputs.2.paths=["/opt/zookeeper/logs/*.log"]'
 ENV JAVA_VERSION=17
 ENV JMX_EXPORTER_VERSION=0.18.0
 ENV EXTERNAL_APP_NAME=$SERVICENAME
