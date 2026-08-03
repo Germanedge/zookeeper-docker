@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
       - name: "zookeeper"
-        image: "germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.28.0"
+        image: "germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.29.0"
         command: []
         ports:
         - name: "port-0"
