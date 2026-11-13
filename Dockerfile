@@ -24,7 +24,7 @@ RUN chown edgeone:edgeone /etc/default/cacerts
 RUN chown edgeone:edgeone /etc/ssl/certs/java/cacerts
 
 #Download Zookeeper
-RUN curl https://downloads.apache.org/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/apache-zookeeper-${ZOOKEEPER_VERSION}-bin.tar.gz -o /tmp/zookeeper.tar.gz \
+RUN curl --fail https://archive.apache.org/dist/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/apache-zookeeper-${ZOOKEEPER_VERSION}-bin.tar.gz -o /tmp/zookeeper.tar.gz \
   && tar -xzf /tmp/zookeeper.tar.gz -C /opt \
   && mv /opt/apache-zookeeper-${ZOOKEEPER_VERSION}-bin /opt/zookeeper \
   && rm -rf /tmp/zookeeper.tar.gz
