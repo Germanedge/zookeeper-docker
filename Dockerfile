@@ -36,8 +36,13 @@ ENV JAVA_HOME=/usr/lib/jvm/java-${JAVA_VERSION}-openjdk-amd64
 ENV ZK_HOME=/opt/zookeeper
 RUN sed  -i "s|/tmp/zookeeper|$ZK_HOME/data|g" $ZK_HOME/conf/zoo.cfg; mkdir $ZK_HOME/data
 
-RUN mkdir -p /opt/prometheus/ \
-  && curl https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/${JMX_EXPORTER_VERSION}/jmx_prometheus_javaagent-${JMX_EXPORTER_VERSION}.jar -o /opt/prometheus/jmx-exporter.jar
+RUN --mount=type=secret,id=maven_artifactory_user,required=true \
+    --mount=type=secret,id=maven_artifactory_password,required=true \
+    mkdir -p /opt/prometheus/ \
+  && curl --fail --show-error --silent --location --retry 3 \
+       -u "$(cat /run/secrets/maven_artifactory_user):$(cat /run/secrets/maven_artifactory_password)" \
+       "https://artifactory.new-solutions.com/artifactory/germanedge-maven/io/prometheus/jmx/jmx_prometheus_javaagent/${JMX_EXPORTER_VERSION}/jmx_prometheus_javaagent-${JMX_EXPORTER_VERSION}.jar" \
+       -o /opt/prometheus/jmx-exporter.jar
 
 COPY --chown=edgeone:root prometheus_zk.yml /opt/prometheus/
 
