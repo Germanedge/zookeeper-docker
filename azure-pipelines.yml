@@ -2,6 +2,7 @@ variables:
   - group: Github-credentials
   - group: artifactory-docker
   - group: jira-e1platform
+  - group: artifactory-maven
   - name: imageName
     value: "zookeeper"
 
@@ -29,3 +30,9 @@ extends:
   template: azure-pipelines-docker-template.yml@templates
   parameters:
     templateVersion: 2 
+    extraDockerBuildEnvVars:
+      maven_artifactory_user: $(mavenArtifactoryUser)
+      maven_artifactory_password: $(mavenArtifactoryApiKey)
+    extraDockerArgs: |
+      --secret id=maven_artifactory_user,env=maven_artifactory_user
+      --secret id=maven_artifactory_password,env=maven_artifactory_password
