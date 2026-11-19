@@ -34,6 +34,9 @@
           "node.platform.os == linux"
         ]
       },
+      "annotations": {
+        "prometheus.io/scrape": "true"
+      },
       "containers": [
         {
           "containername": "default",
@@ -42,6 +45,10 @@
             "ports": [
               {
                 "containerPort": 2181
+              },
+              {
+                "containerPort": 7071,
+                "name": "metrics"
               }
             ],
             "volumes": [
@@ -138,6 +145,9 @@
           "node.platform.os == linux"
         ]
       },
+      "annotations": {
+        "prometheus.io/scrape": "true"
+      },
       "containers": [
         {
           "containername": "default",
@@ -146,6 +156,10 @@
             "ports": [
               {
                 "containerPort": 2181
+              },
+              {
+                "containerPort": 7071,
+                "name": "metrics"
               }
             ],
             "volumes": [
