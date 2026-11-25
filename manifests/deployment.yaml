@@ -35,15 +35,20 @@ spec:
         ge_base_image: "ge-ubuntu-generic"
         build_source: "zookeeper"
         build_source_version: "3.8.6"
+      annotations:
+        prometheus.io/scrape: "true"
     spec:
       containers:
       - name: "zookeeper"
-        image: "germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.30.0"
+        image: "germanedge-docker.artifactory.new-solutions.com/edge-one/zookeeper:4.31.0"
         command: []
         ports:
         - name: "port-0"
           protocol: "TCP"
           containerPort: 2181
+        - name: "metrics"
+          protocol: "TCP"
+          containerPort: 7071
         env:
         - name: "EXT_CA_CERT"
           valueFrom:

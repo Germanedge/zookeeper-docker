@@ -1,6 +1,28 @@
 [
   {
     "service": "zookeeper",
+    "version": "4.31.0",
+    "iso_timestamp": "2026-11-25T14:30:00Z",
+    "commits": [
+      {
+        "sha": "a91bbcd2488757b9d5d660141cd3d77bf6f073b0",
+        "iso_timestamp": "2026-11-25T14:24:12Z",
+        "summary": "GE4-67506: Switch metrics discovery from Consul tag to k8s annotations (#148)",
+        "jira_refs": [
+          "GE4-67506"
+        ]
+      }
+    ],
+    "jira_issues": [
+      {
+        "key": "GE4-67506",
+        "title": "Update services configurations to use k8s-native metrics discovery",
+        "description": "<p>Update relevant services' <tt>service.json</tt> configurations to define required annotations and labeled ports.</p>\n\n<p>Example:</p>\n\n<p>\u00a0</p>\n<div class=\"code panel\" style=\"border-width: 1px;\"><div class=\"codeContent panelContent\">\n<pre class=\"code-java\">\r\n<span class=\"code-quote\">\"profiles\"</span>: {\r\n\u00a0 <span class=\"code-quote\">\"production\"</span>: {\r\n\u00a0 \u00a0 <span class=\"code-quote\">\"annotations\"</span>: {\r\n\u00a0 \u00a0 \u00a0 <span class=\"code-quote\">\"prometheus.io/scrape\"</span>: <span class=\"code-quote\">\"<span class=\"code-keyword\">true</span>\"</span>,\r\n\u00a0 \u00a0 \u00a0 <span class=\"code-quote\">\"prometheus.io/path\"</span>: <span class=\"code-quote\">\"/auth/metrics\"</span>\r\n\u00a0 \u00a0 },\r\n\u00a0 \u00a0 <span class=\"code-quote\">\"containers\"</span>: [\r\n\u00a0 \u00a0 \u00a0 { <span class=\"code-quote\">\"configuration\"</span>: { <span class=\"code-quote\">\"ports\"</span>: [{ <span class=\"code-quote\">\"containerPort\"</span>: 9100, <span class=\"code-quote\">\"name\"</span>: <span class=\"code-quote\">\"metrics\"</span> }] } }\r\n\u00a0 \u00a0 ]\r\n\u00a0 }\r\n}\r\n</pre>\n</div></div>\n<p>\u00a0</p>"
+      }
+    ]
+  },
+  {
+    "service": "zookeeper",
     "version": "4.30.0",
     "iso_timestamp": "2026-11-13T08:32:00Z",
     "commits": [
