@@ -5,9 +5,7 @@ ARG zookeper_version=3.8.6
 ENV ZOOKEEPER_VERSION=$zookeper_version
 ENV PORT=2181
 ENV SERVICENAME=zookeeper
-ENV CONSUL_TAGS='"web","application","prometheus"'
-ENV CONSUL_META_SCRAPE_PATH="\/metrics"
-ENV CONSUL_META_SCRAPE_PORT="7071"
+ENV CONSUL_TAGS='"web","application"'
 ENV JAVA_VERSION=17
 ENV JMX_EXPORTER_VERSION=0.18.0
 ENV EXTERNAL_APP_NAME=$SERVICENAME
@@ -47,8 +45,6 @@ RUN --mount=type=secret,id=maven_artifactory_user,required=true \
 COPY --chown=edgeone:root prometheus_zk.yml /opt/prometheus/
 
 ENV SERVER_JVMFLAGS='-javaagent:/opt/prometheus/jmx-exporter.jar=7071:/opt/prometheus/prometheus_zk.yml'
-ENV DISABLE_FILEBEAT=true
-ENV DISABLE_VECTOR=false
 
 # Set default ownership to 1000:1000
 RUN chown -R edgeone:edgeone /opt/zookeeper

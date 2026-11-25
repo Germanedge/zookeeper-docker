@@ -1,6 +1,6 @@
 {
   "name": "zookeeper",
-  "jsonversion": "3",
+  "jsonversion": "4",
   "servicetype": "core",
   "ge_domain": "platform",
   "description": "zookeeper",
@@ -26,141 +26,183 @@
   "version": "4.30.0",
   "profiles": {
     "production": {
-      "configuration": {
-        "ports": [
-          {
-            "containerPort": 2181
-          }
-        ],
-        "volumes": [
-          {
-            "name": "zookeeper_volume",
-            "value": "/opt/zookeeper/data",
-            "size": "4Gi"
-          }
-        ],
-        "environments": [
-          {
-            "name": "EXT_CA_CERT",
-            "type": "secretRef",
-            "secretName": "external-ca-cert-secret",
-            "secretKey": "ext_ca_cert",
-            "optional": true
-          },
-          {
-            "name": "K8S_NAMESPACE",
-            "type": "fieldRef",
-            "fieldPath": "metadata.namespace"
-          }
-        ],
-        "command": [],
-        "depends_on": [
-          "consul"
-        ],
-        "deploy": {
-          "mode": {
-            "value": "replicated"
-          },
-          "replicas": {
-            "value": 1
-          },
-          "resources": {
-            "limits": {
-              "memory": "512M"
+      "labels": [],
+      "tolerations": [],
+      "constraints": [],
+      "placement": {
+        "constraints": [
+          "node.platform.os == linux"
+        ]
+      },
+      "annotations": {
+        "prometheus.io/scrape": "true"
+      },
+      "containers": [
+        {
+          "containername": "default",
+          "imagePullPolicy": "Always",
+          "configuration": {
+            "ports": [
+              {
+                "containerPort": 2181
+              },
+              {
+                "containerPort": 7071,
+                "name": "metrics"
+              }
+            ],
+            "volumes": [
+              {
+                "name": "zookeeper_volume",
+                "value": "/opt/zookeeper/data",
+                "size": "4Gi"
+              }
+            ],
+            "environments": [
+              {
+                "name": "EXT_CA_CERT",
+                "type": "secretRef",
+                "secretName": "external-ca-cert-secret",
+                "secretKey": "ext_ca_cert",
+                "optional": true
+              },
+              {
+                "name": "K8S_NAMESPACE",
+                "type": "fieldRef",
+                "fieldPath": "metadata.namespace"
+              }
+            ],
+            "command": [],
+            "depends_on": [
+              "consul"
+            ],
+            "deploy": {
+              "mode": {
+                "value": "replicated"
+              },
+              "replicas": {
+                "value": 1
+              },
+              "resources": {
+                "limits": {
+                  "memory": "512M"
+                }
+              },
+              "labels": [],
+              "placement": {
+                "constraints": [
+                  "node.platform.os == linux"
+                ]
+              },
+              "restart_policy": {
+                "condition": "on-failure",
+                "delay": "30s"
+              },
+              "livenessProbe": {
+                "httpGet": {
+                  "path": "/metrics",
+                  "port": 7071,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "timeoutSeconds": 5,
+                "failureThreshold": 3
+              },
+              "readinessProbe": {
+                "httpGet": {
+                  "path": "/metrics",
+                  "port": 7071,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 5,
+                "timeoutSeconds": 3,
+                "failureThreshold": 6
+              },
+              "startupProbe": {
+                "httpGet": {
+                  "path": "/metrics",
+                  "port": 7071,
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 5,
+                "timeoutSeconds": 3,
+                "failureThreshold": 36
+              }
             }
           },
-          "labels": [],
-          "placement": {
-            "constraints": [
-              "node.platform.os == linux"
-            ]
-          },
-          "restart_policy": {
-            "condition": "on-failure",
-            "delay": "30s"
-          },
-          "livenessProbe": {
-            "httpGet": {
-              "path": "/metrics",
-              "port": 7071,
-              "scheme": "HTTP"
-            },
-            "periodSeconds": 10,
-            "timeoutSeconds": 5,
-            "failureThreshold": 3
-          },
-          "readinessProbe": {
-            "httpGet": {
-              "path": "/metrics",
-              "port": 7071,
-              "scheme": "HTTP"
-            },
-            "periodSeconds": 5,
-            "timeoutSeconds": 3,
-            "failureThreshold": 6
-          },
-          "startupProbe": {
-            "httpGet": {
-              "path": "/metrics",
-              "port": 7071,
-              "scheme": "HTTP"
-            },
-            "periodSeconds": 5,
-            "timeoutSeconds": 3,
-            "failureThreshold": 36
+          "dependencies": {
+            "consul": ">=1.7.1 <2.0.0"
           }
         }
-      },
-      "dependencies": {
-        "consul": ">=1.7.1 <2.0.0"
-      }
+      ]
     },
     "development": {
-      "configuration": {
-        "ports": [
-          {
-            "containerPort": 2181
-          }
-        ],
-        "volumes": [
-          {
-            "name": "zookeeper_volume",
-            "value": "/opt/zookeeper/data",
-            "size": "4Gi"
-          }
-        ],
-        "environments": [],
-        "command": [],
-        "depends_on": [
-          "consul"
-        ],
-        "deploy": {
-          "mode": {
-            "value": "replicated"
-          },
-          "replicas": {
-            "value": 1
-          },
-          "resources": {
-            "limits": {
-              "memory": "512M"
+      "labels": [],
+      "tolerations": [],
+      "constraints": [],
+      "placement": {
+        "constraints": [
+          "node.platform.os == linux"
+        ]
+      },
+      "annotations": {
+        "prometheus.io/scrape": "true"
+      },
+      "containers": [
+        {
+          "containername": "default",
+          "imagePullPolicy": "Always",
+          "configuration": {
+            "ports": [
+              {
+                "containerPort": 2181
+              },
+              {
+                "containerPort": 7071,
+                "name": "metrics"
+              }
+            ],
+            "volumes": [
+              {
+                "name": "zookeeper_volume",
+                "value": "/opt/zookeeper/data",
+                "size": "4Gi"
+              }
+            ],
+            "environments": [],
+            "command": [],
+            "depends_on": [
+              "consul"
+            ],
+            "deploy": {
+              "mode": {
+                "value": "replicated"
+              },
+              "replicas": {
+                "value": 1
+              },
+              "resources": {
+                "limits": {
+                  "memory": "512M"
+                }
+              },
+              "labels": [],
+              "placement": {
+                "constraints": [
+                  "node.platform.os == linux"
+                ]
+              },
+              "restart_policy": {
+                "condition": "on-failure",
+                "delay": "30s"
+              }
             }
           },
-          "labels": [],
-          "placement": {
-            "constraints": [
-              "node.platform.os == linux"
-            ]
-          },
-          "restart_policy": {
-            "condition": "on-failure",
-            "delay": "30s"
+          "dependencies": {
+            "consul": ">=1.7.1 <2.0.0"
           }
         }
-      },
-      "dependencies": {
-        "consul": ">=1.7.1 <2.0.0"
-      }
+      ]
     }
   },
   "base_images": [
