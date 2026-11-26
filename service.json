@@ -13,10 +13,6 @@
     "java",
     "orchestration"
   ],
-  "author": "Christoph Heuwieser <Christoph.Heuwieser@crossvault.de>",
-  "contributors": [
-    "Niels Oldenburg <niels.oldenburg@germanedge.com>"
-  ],
   "repository": {
     "type": "docker",
     "url": "germanedge-docker.artifactory.new-solutions.com/edge-one/"
