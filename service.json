@@ -125,9 +125,6 @@
                 "failureThreshold": 36
               }
             }
-          },
-          "dependencies": {
-            "consul": ">=1.7.1 <2.0.0"
           }
         }
       ]
@@ -193,9 +190,6 @@
                 "delay": "30s"
               }
             }
-          },
-          "dependencies": {
-            "consul": ">=1.7.1 <2.0.0"
           }
         }
       ]
